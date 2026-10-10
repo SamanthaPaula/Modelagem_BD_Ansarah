@@ -118,7 +118,7 @@ O estoque é controlado por meio dos registros mantidos no ERP e da realização
 **Fluxograma:**
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "14px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 35, "rankSpacing": 30, "htmlLabels": true}}}%%
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Consultar registros de estoque no ERP"] --> B["Realizar inventário físico quando necessário"]
     B --> C["Conferir quantidades físicas e registradas"]
@@ -140,6 +140,7 @@ O cadastro de clientes permite manter informações de identificação e contato
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber dados do cliente"] --> B["Registrar ou atualizar cadastro no sistema"]
     B --> C["Armazenar informações de identificação e contato"]
@@ -148,9 +149,7 @@ flowchart TD
     E --> F["Proteger os dados conforme as regras aplicáveis"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 4 — Registro de vendas no PDV e no site
@@ -160,6 +159,7 @@ As vendas são realizadas por dois canais principais: o Ponto de Venda (PDV), na
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Iniciar operação de venda"] --> B{"Canal de venda"}
     B -- "Loja física" --> C["Registrar venda no PDV"]
@@ -171,9 +171,7 @@ flowchart TD
     G --> H["Consultar dados de vendas e acompanhar resultados"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 5 — Processamento de pedidos online
@@ -183,6 +181,7 @@ Os pedidos realizados pelo site passam por etapas de aprovação do pagamento, s
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Cliente realiza pedido no site"] --> B["Aguardar aprovação do pagamento"]
     B --> C{"Pagamento aprovado?"}
@@ -196,9 +195,7 @@ flowchart TD
     J --> K["Acompanhar entrega ao cliente"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 6 — Controle de preços e promoções
@@ -208,6 +205,7 @@ A empresa trabalha com diferentes condições de preços de acordo com o canal d
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Definir preços conforme canal e tipo de cliente"] --> B["Preparar alteração de preço ou promoção"]
     B --> C["Verificar necessidade de autorização"]
@@ -221,9 +219,6 @@ flowchart TD
     I --> J["Registrar venda com preço e desconto aplicados"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 7 — Trocas, devoluções, cancelamentos e estornos
@@ -233,6 +228,7 @@ As solicitações de troca, devolução ou cancelamento exigem a identificação
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber solicitação do cliente"] --> B{"Tipo de solicitação"}
     B -- "Troca" --> C["Registrar solicitação de troca"]
@@ -249,9 +245,7 @@ flowchart TD
     K --> M["Realizar estorno ou reembolso quando aplicável"]
     M --> L
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 8 — Venda no atacado (condições B2B)
@@ -261,6 +255,7 @@ A empresa atende clientes de diferentes perfis, incluindo operações de varejo 
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber solicitação de compra"] --> B["Identificar tipo de cliente"]
     B --> C{"Tipo de operação"}
@@ -277,9 +272,6 @@ flowchart TD
     K --> L["Registrar itens, quantidades e valores"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 9 — Cadastro de fornecedores e marcas
@@ -289,6 +281,7 @@ O cadastro de fornecedores e marcas permite organizar as informações comerciai
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber informações do fornecedor ou da marca"] --> B["Cadastrar ou atualizar dados do fornecedor no ERP"]
     B --> C["Registrar informações cadastrais e comerciais"]
@@ -297,9 +290,7 @@ flowchart TD
     E --> F["Consultar informações para compras e reposições"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 10 — Pedido de reposição a fornecedores
@@ -309,6 +300,7 @@ A reposição de produtos envolve a identificação das necessidades de compra, 
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Identificar necessidade de reposição"] --> B["Planejar produtos e variações necessários"]
     B --> C["Consultar fornecedor e prazo de entrega"]
@@ -318,9 +310,6 @@ flowchart TD
     F --> G["Aguardar recebimento da mercadoria"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 11 — Recebimento e conferência de mercadoria
@@ -332,6 +321,7 @@ O processo de recebimento começa após a entrega dos produtos pelo fornecedor, 
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber mercadoria do fornecedor"] --> B["Conferir produtos e quantidades"]
     B --> C["Comparar recebimento com pedido e documentos fiscais"]
@@ -345,9 +335,7 @@ flowchart TD
     J --> K["Atualizar registros conforme a resolução"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 12 — Contas a pagar
@@ -359,6 +347,7 @@ O processo de contas a pagar envolve o controle dos compromissos financeiros da 
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Identificar obrigação financeira relacionada à compra"] --> B["Reunir informações do pedido e documentos fiscais"]
     B --> C["Conferir valores e vencimentos"]
@@ -369,9 +358,7 @@ flowchart TD
     G --> H["Atualizar situação do pagamento nos controles financeiros"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 13 — Logística e centro de distribuição
@@ -381,6 +368,7 @@ O estoque destinado ao comércio eletrônico fica junto ao estoque central, no p
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber pedido online aprovado para processamento"] --> B["Encaminhar pedido para separação"]
     B --> C["Localizar produtos no estoque central"]
@@ -393,9 +381,6 @@ flowchart TD
     I --> J["Acompanhar entrega"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 14 — Controle de usuários e permissões de acesso
@@ -405,6 +390,7 @@ Os funcionários acessam o ERP por meio de logins individuais e permissões hier
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Funcionário necessita acessar o ERP"] --> B["Utilizar login individual"]
     B --> C["Sistema verifica as permissões configuradas"]
@@ -413,9 +399,7 @@ flowchart TD
     E --> F["Realizar operações relacionadas à atividade"]
     D -- "Não" --> G["Bloquear acesso à função não autorizada"]
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 ---
@@ -427,6 +411,7 @@ A geração de relatórios permite consultar informações sobre produtos, estoq
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Identificar informação necessária"] --> B["Selecionar relatório ou critérios de consulta"]
     B --> C["Consultar dados disponíveis no ERP"]
@@ -435,9 +420,7 @@ flowchart TD
     E --> F["Utilizar informações para apoiar decisões"]
 
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 ---
@@ -453,6 +436,7 @@ As informações registradas no ERP alimentam relatórios que apoiam o acompanha
 **Fluxograma da integração:**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Cadastro de produtos e variações"] --> B["Controle de estoque"]
     B --> C["Identificação da necessidade de reposição"]
@@ -472,9 +456,7 @@ flowchart TD
     N -.-> I
     N -.-> G
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 **Nota sobre a modelagem:** os fluxogramas representam os processos identificados no levantamento e, quando indicado, propostas preliminares para complementar a documentação. As etapas operacionais que não foram detalhadas na entrevista, especialmente as relacionadas ao recebimento de mercadorias, às divergências e às contas a pagar, devem ser validadas com a empresa antes de serem consideradas uma representação definitiva de seu funcionamento.
