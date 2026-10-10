@@ -106,6 +106,10 @@ flowchart TD
     C --> D["Registrar informações fiscais e comerciais"]
     D --> E["Cadastrar ou associar grades de cores e tamanhos"]
     E --> F["Disponibilizar produto e suas variações no sistema"]
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 2 — Controle de estoque e inventário
@@ -126,6 +130,11 @@ flowchart TD
     G --> H
     H --> I["Identificar produtos sem estoque, com estoque baixo ou baixo giro"]
     I --> J["Avaliar necessidade de reposição ou ação comercial"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 3 — Cadastro de clientes
@@ -141,6 +150,11 @@ flowchart TD
     C --> D["Consultar cadastro quando necessário"]
     D --> E["Utilizar informações nas operações de venda e atendimento"]
     E --> F["Proteger os dados conforme as regras aplicáveis"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 4 — Registro de vendas no PDV e no site
@@ -159,6 +173,11 @@ flowchart TD
     E --> F["Registrar descontos e forma de pagamento"]
     F --> G["Armazenar informações da operação no sistema"]
     G --> H["Consultar dados de vendas e acompanhar resultados"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 5 — Processamento de pedidos online
@@ -179,6 +198,11 @@ flowchart TD
     H --> I["Preparar e despachar pedido"]
     I --> J["Disponibilizar rastreamento"]
     J --> K["Acompanhar entrega ao cliente"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 6 — Controle de preços e promoções
@@ -199,6 +223,11 @@ flowchart TD
     D -- "Não" --> H
     H --> I["Aplicar preço correspondente à operação"]
     I --> J["Registrar venda com preço e desconto aplicados"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 7 — Trocas, devoluções, cancelamentos e estornos
@@ -223,6 +252,10 @@ flowchart TD
     F --> L
     K --> M["Realizar estorno ou reembolso quando aplicável"]
     M --> L
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 8 — Venda no atacado (condições B2B)
@@ -246,6 +279,11 @@ flowchart TD
     I -- "Sim" --> K["Registrar venda no sistema"]
     G -- "Não" --> K
     K --> L["Registrar itens, quantidades e valores"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 9 — Cadastro de fornecedores e marcas
@@ -261,6 +299,11 @@ flowchart TD
     C --> D["Cadastrar ou atualizar dados da marca"]
     D --> E["Associar fornecedor e marca conforme os dados disponíveis"]
     E --> F["Consultar informações para compras e reposições"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 10 — Pedido de reposição a fornecedores
@@ -277,6 +320,11 @@ flowchart TD
     D --> E["Registrar pedido de reposição"]
     E --> F["Acompanhar pedido e previsão de entrega"]
     F --> G["Aguardar recebimento da mercadoria"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 11 — Recebimento e conferência de mercadoria
@@ -299,6 +347,11 @@ flowchart TD
     H --> I["Analisar e tratar divergência"]
     I --> J["Registrar resultado do tratamento"]
     J --> K["Atualizar registros conforme a resolução"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 12 — Contas a pagar
@@ -318,6 +371,11 @@ flowchart TD
     E --> F["Organizar pagamento conforme procedimento interno"]
     F --> G["Realizar pagamento após as autorizações aplicáveis"]
     G --> H["Atualizar situação do pagamento nos controles financeiros"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 13 — Logística e centro de distribuição
@@ -337,6 +395,11 @@ flowchart TD
     G --> H["Despachar mercadoria"]
     H --> I["Disponibilizar rastreamento"]
     I --> J["Acompanhar entrega"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 14 — Controle de usuários e permissões de acesso
@@ -353,6 +416,10 @@ flowchart TD
     D -- "Sim" --> E["Disponibilizar funções permitidas"]
     E --> F["Realizar operações relacionadas à atividade"]
     D -- "Não" --> G["Bloquear acesso à função não autorizada"]
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 ---
@@ -370,6 +437,11 @@ flowchart TD
     C --> D["Gerar relatório"]
     D --> E["Analisar resultados"]
     E --> F["Utilizar informações para apoiar decisões"]
+
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 ---
@@ -403,6 +475,10 @@ flowchart TD
     N -.-> B
     N -.-> I
     N -.-> G
+
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 **Nota sobre a modelagem:** os fluxogramas representam os processos identificados no levantamento e, quando indicado, propostas preliminares para complementar a documentação. As etapas operacionais que não foram detalhadas na entrevista, especialmente as relacionadas ao recebimento de mercadorias, às divergências e às contas a pagar, devem ser validadas com a empresa antes de serem consideradas uma representação definitiva de seu funcionamento.
