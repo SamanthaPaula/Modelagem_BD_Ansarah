@@ -118,6 +118,7 @@ O estoque é controlado por meio dos registros mantidos no ERP e da realização
 **Fluxograma:**
 
 ```mermaid
+%%{init: {"flowchart": {"htmlLabels": true, "nodeSpacing": 45, "rankSpacing": 40}, "theme": "base", "themeVariables": {"background": "#000000", "primaryColor": "#052f52", "primaryTextColor": "#66baff", "primaryBorderColor": "#12466b", "lineColor": "#999999", "fontFamily": "Arial"}}}%%
 flowchart TD
     A["Consultar registros de estoque no ERP"] --> B["Realizar inventário físico quando necessário"]
     B --> C["Conferir quantidades físicas e registradas"]
@@ -130,10 +131,6 @@ flowchart TD
     H --> I["Identificar produtos sem estoque, com estoque baixo ou baixo giro"]
     I --> J["Avaliar necessidade de reposição ou ação comercial"]
 
-
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 3 — Cadastro de clientes
