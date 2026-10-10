@@ -100,7 +100,7 @@ Os produtos são cadastrados manualmente no sistema de gestão empresarial (ERP)
 **Fluxograma:**
 
 ```mermaid
-
+%%{init: {"flowchart": {"htmlLabels": true, "useMaxWidth": false, "nodeSpacing": 35, "rankSpacing": 35}, "theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#052f52", "primaryTextColor": "#66baff", "primaryBorderColor": "#12466b", "lineColor": "#999999", "fontFamily": "Arial", "fontSize": "14px"}}}%%
 flowchart TD
     A["Receber informações do fabricante"] --> B["Conferir dados e características do produto"]
     B --> C["Cadastrar produto manualmente no ERP"]
@@ -118,7 +118,7 @@ O estoque é controlado por meio dos registros mantidos no ERP e da realização
 **Fluxograma:**
 
 ```mermaid
-%%{init: {"flowchart": {"htmlLabels": true, "nodeSpacing": 45, "rankSpacing": 40}, "theme": "base", "themeVariables": {"background": "#000000", "primaryColor": "#052f52", "primaryTextColor": "#66baff", "primaryBorderColor": "#12466b", "lineColor": "#999999", "fontFamily": "Arial"}}}%%
+
 flowchart TD
     A["Consultar registros de estoque no ERP"] --> B["Realizar inventário físico quando necessário"]
     B --> C["Conferir quantidades físicas e registradas"]
