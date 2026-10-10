@@ -63,39 +63,349 @@ Os registros da comunicação com Alessandra (uma das proprietárias da organiza
 
 ## 4. Principais Processos de Negócio
 
-Principais processos mapeados:
- <br>
-•	Cadastro e atualização de produtos;  <br>
-•	Cadastro e controle das variações de produtos por cor e tamanho; <br>
-•	Controle de estoque e inventário;  <br>
-•	Cadastro de clientes;  <br>
-•	Cadastro e relacionamento com fornecedores e marcas; <br>
-•	Registro de vendas no Ponto de Venda (PDV) e no site;  <br>
-•	Controle de preços e promoções;  <br>
-•	Processamento e acompanhamento de pedidos online;  <br>
-•	Trocas, devoluções, cancelamentos e estornos;  <br>
-•	Registro e acompanhamento de pedidos de reposição; <br>
-•	Geração de relatórios; <br> 
-•	Controle de usuários e permissões de acesso. <br>
-<br>
+Os principais processos de negócio da empresa foram organizados em três grupos: Vendas, Compras e Apoio. Esses processos envolvem o cadastro e a comercialização de produtos, o controle de estoque, o relacionamento com fornecedores, o processamento de pedidos e o gerenciamento das informações utilizadas nas operações da empresa.
 
-<h4>DESCRIÇÃO DOS PRINCIPAIS PROCESSOS</h4>
+### 4.1. Lista dos Principais Processos
 
-**Cadastro de produtos:** os produtos são cadastrados manualmente no sistema de gestão empresarial utilizando informações fornecidas pelas fábricas, como código, descrição, referência, coleção, subcoleção, grupo, categoria, tipo, informações fiscais e demais características do produto.
-<br><br>
-**Controle de estoque:** as quantidades dos produtos são registradas e acompanhadas no sistema. A organização utiliza o sistema para verificar disponibilidade, identificar produtos com estoque baixo ou sem estoque e acompanhar produtos com baixo giro.
-<br><br>
-**Cadastro de clientes:** os dados dos clientes são cadastrados no sistema, incluindo informações de identificação e contato. No comércio eletrônico, essas informações devem receber tratamento adequado em relação à privacidade.
-<br><br>
-**Registro de vendas:** as vendas realizadas no Ponto de Venda e no site são registradas no sistema. Cada venda possui informações como data, canal, desconto, forma de pagamento, funcionário responsável e seus respectivos itens.
-<br><br>
-**Processamento de pedidos online:** os pedidos realizados pelo site passam por etapas de aprovação do pagamento, separação, conferência/bipagem, faturamento, envio, rastreamento e entrega. Também podem ocorrer cancelamentos e reembolsos.
-<br><br>
-**Controle de preços:** a organização utiliza diferentes preços conforme o canal de venda e o tipo de cliente. Alterações de preços e descontos dependem de autorização da diretoria.
-<br><br>
-**Trocas e devoluções:** as solicitações são registradas e o produto devolvido passa por conferência antes da conclusão da operação. Quando necessário, é realizado o estorno.
-<br><br>
-**Reposição de produtos:** são registrados pedidos de reposição junto aos fornecedores, contendo os produtos/variações solicitados, suas quantidades, preços e informações relacionadas à entrega.
+**Vendas**
+- Cadastro de clientes;
+- Registro de vendas no Ponto de Venda (PDV) e no site;
+- Processamento de pedidos online;
+- Controle de preços e promoções;
+- Trocas, devoluções, cancelamentos e estornos;
+- Venda no atacado (condições B2B).
+
+**Compras**
+- Cadastro e relacionamento com fornecedores e marcas;
+- Registro e acompanhamento de pedidos de reposição;
+- Recebimento e conferência de mercadorias;
+- Controle de contas a pagar.
+
+**Apoio**
+- Cadastro de produtos e controle de suas variações;
+- Controle de estoque e inventário;
+- Logística e centro de distribuição;
+- Controle de usuários e permissões de acesso.
+
+A geração de relatórios também é utilizada como processo complementar para consulta de informações e apoio à tomada de decisões.
+
+---
+
+### 4.2. Descrição e Fluxogramas dos Principais Processos
+
+#### Processo 1 — Cadastro de produtos e variações
+
+Os produtos são cadastrados manualmente no sistema de gestão empresarial (ERP), utilizando informações fornecidas pelas fábricas. Entre os dados registrados estão código, descrição, referência, coleção, subcoleção, grupo, categoria, tipo, departamento, marca, informações fiscais e demais características do produto. As variações são organizadas por meio de grades de cores e tamanhos, conforme as informações disponibilizadas pelos fabricantes.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber informações do fabricante"] --> B["Conferir dados e características do produto"]
+    B --> C["Cadastrar produto manualmente no ERP"]
+    C --> D["Registrar informações fiscais e comerciais"]
+    D --> E["Cadastrar ou associar grades de cores e tamanhos"]
+    E --> F["Disponibilizar produto e suas variações no sistema"]
+```
+
+#### Processo 2 — Controle de estoque e inventário
+
+O estoque é controlado por meio dos registros mantidos no ERP e da realização de inventários. O sistema auxilia na consulta da disponibilidade dos produtos e na identificação de itens sem estoque, com estoque baixo ou com baixo giro. Essas informações podem apoiar o planejamento de reposições e as decisões comerciais. A frequência dos inventários e as regras para ajuste de divergências devem ser confirmadas com a empresa.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Consultar registros de estoque no ERP"] --> B["Realizar inventário físico quando necessário"]
+    B --> C["Conferir quantidades físicas e registradas"]
+    C --> D{"Existem divergências?"}
+    D -- "Não" --> E["Manter registros conferidos"]
+    D -- "Sim" --> F["Identificar divergências"]
+    F --> G["Analisar e corrigir os registros conforme procedimento autorizado"]
+    E --> H["Consultar relatórios de estoque"]
+    G --> H
+    H --> I["Identificar produtos sem estoque, com estoque baixo ou baixo giro"]
+    I --> J["Avaliar necessidade de reposição ou ação comercial"]
+```
+
+#### Processo 3 — Cadastro de clientes
+
+O cadastro de clientes permite manter informações de identificação e contato utilizadas nas operações comerciais e no atendimento. Os dados são consultados conforme a necessidade das atividades da empresa. No comércio eletrônico, o tratamento dessas informações deve respeitar as regras aplicáveis de privacidade e proteção de dados pessoais, incluindo a Lei Geral de Proteção de Dados Pessoais (LGPD).
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber dados do cliente"] --> B["Registrar ou atualizar cadastro no sistema"]
+    B --> C["Armazenar informações de identificação e contato"]
+    C --> D["Consultar cadastro quando necessário"]
+    D --> E["Utilizar informações nas operações de venda e atendimento"]
+    E --> F["Proteger os dados conforme as regras aplicáveis"]
+```
+
+#### Processo 4 — Registro de vendas no PDV e no site
+
+As vendas são realizadas por dois canais principais: o Ponto de Venda (PDV), nas lojas físicas, e o site, no comércio eletrônico. As informações comerciais registradas incluem os itens vendidos, as quantidades, os valores, os descontos e as formas de pagamento, além dos demais dados associados à operação. O registro dessas informações permite acompanhar as vendas realizadas nos diferentes canais.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Iniciar operação de venda"] --> B{"Canal de venda"}
+    B -- "Loja física" --> C["Registrar venda no PDV"]
+    B -- "Site" --> D["Registrar pedido no comércio eletrônico"]
+    C --> E["Registrar produtos, quantidades e valores"]
+    D --> E
+    E --> F["Registrar descontos e forma de pagamento"]
+    F --> G["Armazenar informações da operação no sistema"]
+    G --> H["Consultar dados de vendas e acompanhar resultados"]
+```
+
+#### Processo 5 — Processamento de pedidos online
+
+Os pedidos realizados pelo site passam por etapas de aprovação do pagamento, separação dos produtos, conferência por bipagem, faturamento, expedição e entrega. O acompanhamento do rastreamento permite consultar o andamento do envio. Também podem ocorrer cancelamentos e solicitações de reembolso, conforme a situação do pedido e os procedimentos aplicáveis.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Cliente realiza pedido no site"] --> B["Aguardar aprovação do pagamento"]
+    B --> C{"Pagamento aprovado?"}
+    C -- "Não" --> D["Tratar pedido conforme o resultado do pagamento"]
+    C -- "Sim" --> E["Encaminhar pedido para separação"]
+    E --> F["Separar produtos"]
+    F --> G["Conferir produtos por bipagem"]
+    G --> H["Realizar faturamento"]
+    H --> I["Preparar e despachar pedido"]
+    I --> J["Disponibilizar rastreamento"]
+    J --> K["Acompanhar entrega ao cliente"]
+```
+
+#### Processo 6 — Controle de preços e promoções
+
+A empresa trabalha com diferentes condições de preços de acordo com o canal de venda e o tipo de cliente. As tabelas de preços são utilizadas para orientar a comercialização dos produtos. Alterações comerciais e descontos adicionais devem respeitar as autorizações estabelecidas pela diretoria. O histórico de preços pode auxiliar no acompanhamento das alterações realizadas.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Definir preços conforme canal e tipo de cliente"] --> B["Preparar alteração de preço ou promoção"]
+    B --> C["Verificar necessidade de autorização"]
+    C --> D{"Exige autorização da diretoria?"}
+    D -- "Sim" --> E["Solicitar autorização"]
+    E --> F{"Alteração autorizada?"}
+    F -- "Não" --> G["Não aplicar a alteração"]
+    F -- "Sim" --> H["Atualizar tabela de preços no sistema"]
+    D -- "Não" --> H
+    H --> I["Aplicar preço correspondente à operação"]
+    I --> J["Registrar venda com preço e desconto aplicados"]
+```
+
+#### Processo 7 — Trocas, devoluções, cancelamentos e estornos
+
+As solicitações de troca, devolução ou cancelamento exigem a identificação da operação e o tratamento correspondente. Nos casos de troca e devolução, o produto recebido deve passar por conferência antes da conclusão do procedimento. Quando aplicável, o processo pode envolver logística reversa, substituição do produto, cancelamento da venda ou solicitação de reembolso e estorno. Os critérios específicos devem seguir as regras adotadas pela empresa.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber solicitação do cliente"] --> B{"Tipo de solicitação"}
+    B -- "Troca" --> C["Registrar solicitação de troca"]
+    C --> D["Organizar retorno do produto"]
+    D --> E["Receber e conferir produto devolvido"]
+    E --> F["Providenciar troca conforme procedimento"]
+    B -- "Devolução" --> G["Registrar solicitação de devolução"]
+    G --> H["Receber e conferir produto quando aplicável"]
+    H --> I["Avaliar reembolso conforme procedimento"]
+    B -- "Cancelamento" --> J["Verificar situação do pedido ou da venda"]
+    J --> K["Tratar cancelamento conforme procedimento"]
+    I --> L["Registrar conclusão da operação"]
+    F --> L
+    K --> M["Realizar estorno ou reembolso quando aplicável"]
+    M --> L
+```
+
+#### Processo 8 — Venda no atacado (condições B2B)
+
+A empresa atende clientes de diferentes perfis, incluindo operações de varejo e atacado. As condições comerciais podem variar de acordo com o tipo de cliente, incluindo preços e descontos aplicáveis. O registro correto dessas condições permite distinguir as operações B2B (empresa para empresa) das operações B2C (empresa para consumidor final). Os valores mínimos de pedido, as quantidades mínimas e as regras específicas de aprovação ainda precisam ser confirmados com a empresa.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber solicitação de compra"] --> B["Identificar tipo de cliente"]
+    B --> C{"Tipo de operação"}
+    C -- "Atacado B2B" --> D["Consultar condições comerciais do atacado"]
+    C -- "Varejo B2C" --> E["Consultar condições comerciais do varejo"]
+    D --> F["Verificar preços e descontos aplicáveis"]
+    E --> F
+    F --> G{"Há desconto adicional sujeito a autorização?"}
+    G -- "Sim" --> H["Solicitar autorização da diretoria"]
+    H --> I{"Autorizado?"}
+    I -- "Não" --> J["Revisar condições comerciais"]
+    I -- "Sim" --> K["Registrar venda no sistema"]
+    G -- "Não" --> K
+    K --> L["Registrar itens, quantidades e valores"]
+```
+
+#### Processo 9 — Cadastro de fornecedores e marcas
+
+O cadastro de fornecedores e marcas permite organizar as informações comerciais utilizadas nas compras e nas reposições de produtos. Os dados cadastrais dos fornecedores podem incluir CNPJ, razão social e nome fantasia. As informações das marcas são mantidas para facilitar a identificação dos produtos e o relacionamento comercial. A associação entre fornecedores e marcas deve refletir os vínculos efetivamente existentes na empresa.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber informações do fornecedor ou da marca"] --> B["Cadastrar ou atualizar dados do fornecedor no ERP"]
+    B --> C["Registrar informações cadastrais e comerciais"]
+    C --> D["Cadastrar ou atualizar dados da marca"]
+    D --> E["Associar fornecedor e marca conforme os dados disponíveis"]
+    E --> F["Consultar informações para compras e reposições"]
+```
+
+#### Processo 10 — Pedido de reposição a fornecedores
+
+A reposição de produtos envolve a identificação das necessidades de compra, a definição dos produtos e das variações desejadas e o contato com os fornecedores. Os pedidos devem conter as informações necessárias para identificar os itens solicitados e acompanhar a entrega. Os fornecedores normalmente informam os prazos previstos para disponibilização das mercadorias, permitindo acompanhar o andamento das compras.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Identificar necessidade de reposição"] --> B["Planejar produtos e variações necessários"]
+    B --> C["Consultar fornecedor e prazo de entrega"]
+    C --> D["Definir itens e quantidades do pedido"]
+    D --> E["Registrar pedido de reposição"]
+    E --> F["Acompanhar pedido e previsão de entrega"]
+    F --> G["Aguardar recebimento da mercadoria"]
+```
+
+#### Processo 11 — Recebimento e conferência de mercadoria
+
+O processo de recebimento começa após a entrega dos produtos pelo fornecedor, conforme o pedido de reposição realizado. A mercadoria deve ser conferida com base nas informações do pedido e nos documentos fiscais, verificando se os produtos, as quantidades e as variações recebidas correspondem ao solicitado. Após a conferência, as informações devem ser registradas no sistema e o estoque atualizado. Caso existam divergências, como quantidades incorretas ou produtos danificados, a ocorrência deve ser identificada para análise e resolução pelo setor responsável.
+
+**Observação:** o fluxo abaixo representa uma proposta de processo. As etapas exatas de conferência, registro e tratamento de divergências precisam ser confirmadas com a empresa.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber mercadoria do fornecedor"] --> B["Conferir produtos e quantidades"]
+    B --> C["Comparar recebimento com pedido e documentos fiscais"]
+    C --> D{"Existem divergências?"}
+    D -- "Não" --> E["Registrar recebimento"]
+    E --> F["Atualizar estoque no ERP"]
+    D -- "Sim" --> G["Identificar e registrar divergência"]
+    G --> H["Encaminhar ocorrência ao setor responsável"]
+    H --> I["Analisar e tratar divergência"]
+    I --> J["Registrar resultado do tratamento"]
+    J --> K["Atualizar registros conforme a resolução"]
+```
+
+#### Processo 12 — Contas a pagar
+
+O processo de contas a pagar envolve o controle dos compromissos financeiros da empresa, incluindo valores devidos aos fornecedores em decorrência das compras realizadas. As informações sobre pedidos, documentos fiscais, valores e vencimentos devem ser utilizadas pelo setor financeiro para acompanhar as obrigações e organizar os pagamentos. Após a realização de um pagamento, sua situação deve ser atualizada nos controles financeiros da empresa.
+
+**Observação:** o fluxo abaixo é uma proposta para documentar o processo de negócio. A entrevista disponível não detalha o sistema utilizado para contas a pagar, as etapas de aprovação ou a forma de baixa dos pagamentos.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Identificar obrigação financeira relacionada à compra"] --> B["Reunir informações do pedido e documentos fiscais"]
+    B --> C["Conferir valores e vencimentos"]
+    C --> D["Registrar obrigação nos controles financeiros"]
+    D --> E["Acompanhar vencimento"]
+    E --> F["Organizar pagamento conforme procedimento interno"]
+    F --> G["Realizar pagamento após as autorizações aplicáveis"]
+    G --> H["Atualizar situação do pagamento nos controles financeiros"]
+```
+
+#### Processo 13 — Logística e centro de distribuição
+
+O estoque destinado ao comércio eletrônico fica junto ao estoque central, no prédio da unidade da 25 de Março. A logística dos pedidos online envolve a localização e separação dos produtos, a conferência por bipagem, o encaminhamento para faturamento e a preparação para expedição. Após o despacho, o rastreamento permite acompanhar o envio até a entrega. Esse processo está relacionado ao processamento de pedidos online e ao controle de estoque.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Receber pedido online aprovado para processamento"] --> B["Encaminhar pedido para separação"]
+    B --> C["Localizar produtos no estoque central"]
+    C --> D["Separar itens solicitados"]
+    D --> E["Conferir produtos por bipagem"]
+    E --> F["Encaminhar pedido para faturamento"]
+    F --> G["Preparar pedido para expedição"]
+    G --> H["Despachar mercadoria"]
+    H --> I["Disponibilizar rastreamento"]
+    I --> J["Acompanhar entrega"]
+```
+
+#### Processo 14 — Controle de usuários e permissões de acesso
+
+Os funcionários acessam o ERP por meio de logins individuais e permissões hierárquicas relacionadas às responsabilidades de cada departamento. Essa organização permite restringir o acesso às funcionalidades de acordo com as atribuições dos usuários. A gestão de acessos contribui para a segurança das informações e para a utilização adequada do sistema.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Funcionário necessita acessar o ERP"] --> B["Utilizar login individual"]
+    B --> C["Sistema verifica as permissões configuradas"]
+    C --> D{"Acesso autorizado?"}
+    D -- "Sim" --> E["Disponibilizar funções permitidas"]
+    E --> F["Realizar operações relacionadas à atividade"]
+    D -- "Não" --> G["Bloquear acesso à função não autorizada"]
+```
+
+---
+
+### 4.3. Processo Complementar — Geração de Relatórios
+
+A geração de relatórios permite consultar informações sobre produtos, estoque, vendas, marcas e períodos. Esses dados auxiliam o acompanhamento das operações e apoiam decisões relacionadas à reposição de mercadorias, ao desempenho comercial e à gestão da empresa. A disponibilidade dos relatórios depende das informações registradas no ERP e das funcionalidades oferecidas pelo sistema.
+
+**Fluxograma:**
+
+```mermaid
+flowchart TD
+    A["Identificar informação necessária"] --> B["Selecionar relatório ou critérios de consulta"]
+    B --> C["Consultar dados disponíveis no ERP"]
+    C --> D["Gerar relatório"]
+    D --> E["Analisar resultados"]
+    E --> F["Utilizar informações para apoiar decisões"]
+```
+
+---
+
+### 4.4. Integração entre os Processos de Negócio
+
+Os processos de negócio estão relacionados e compartilham informações utilizadas em diferentes etapas da operação. O cadastro de produtos e suas variações fornece os dados necessários para as vendas e o controle de estoque. As vendas realizadas no PDV e no site se relacionam à disponibilidade dos produtos, enquanto os pedidos online dependem das atividades de separação, conferência, faturamento e expedição.
+
+O processo de reposição também está relacionado ao estoque, pois a necessidade de compra pode ser identificada a partir das informações de disponibilidade e demanda. Após o recebimento e a conferência das mercadorias, os registros de estoque podem ser atualizados conforme o resultado da operação. As compras, por sua vez, geram compromissos financeiros que podem ser acompanhados pelo processo de contas a pagar.
+
+As informações registradas no ERP alimentam relatórios que apoiam o acompanhamento das atividades. O controle de usuários e permissões atua de forma transversal, restringindo o acesso às funcionalidades conforme as responsabilidades de cada funcionário.
+
+**Fluxograma da integração:**
+
+```mermaid
+flowchart TD
+    A["Cadastro de produtos e variações"] --> B["Controle de estoque"]
+    B --> C["Identificação da necessidade de reposição"]
+    C --> D["Pedido de reposição ao fornecedor"]
+    D --> E["Recebimento e conferência de mercadoria"]
+    E --> F["Atualização do estoque no ERP"]
+    D --> G["Contas a pagar"]
+    F --> H["Disponibilidade para vendas"]
+    A --> H
+    H --> I["Vendas no PDV e no site"]
+    I --> J["Processamento e logística dos pedidos online"]
+    I --> K["Relatórios de vendas"]
+    F --> L["Relatórios de estoque"]
+    J --> M["Acompanhamento da entrega"]
+    N["Usuários e permissões"] -. "Controla o acesso ao ERP" .-> A
+    N -.-> B
+    N -.-> I
+    N -.-> G
+```
+
+**Nota sobre a modelagem:** os fluxogramas representam os processos identificados no levantamento e, quando indicado, propostas preliminares para complementar a documentação. As etapas operacionais que não foram detalhadas na entrevista, especialmente as relacionadas ao recebimento de mercadorias, às divergências e às contas a pagar, devem ser validadas com a empresa antes de serem consideradas uma representação definitiva de seu funcionamento.
 
 <br>
 
