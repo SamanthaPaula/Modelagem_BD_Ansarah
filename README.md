@@ -108,9 +108,7 @@ flowchart TD
     D --> E["Cadastrar ou associar grades de cores e tamanhos"]
     E --> F["Disponibilizar produto e suas variações no sistema"]
 
-    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    class A,B,C,D,E,F azul
-    linkStyle default stroke:#2563EB,stroke-width:2px
+
 ```
 
 #### Processo 2 — Controle de estoque e inventário
