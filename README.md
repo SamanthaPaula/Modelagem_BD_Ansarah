@@ -459,7 +459,6 @@ flowchart TD
 
 ```
 
-**Nota sobre a modelagem:** os fluxogramas representam os processos identificados no levantamento e, quando indicado, propostas preliminares para complementar a documentação. As etapas operacionais que não foram detalhadas na entrevista, especialmente as relacionadas ao recebimento de mercadorias, às divergências e às contas a pagar, devem ser validadas com a empresa antes de serem consideradas uma representação definitiva de seu funcionamento.
 
 <br>
 
