@@ -100,7 +100,7 @@ Os produtos são cadastrados manualmente no sistema de gestão empresarial (ERP)
 **Fluxograma:**
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "14px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 35, "rankSpacing": 30, "htmlLabels": true}}}%%
+%%{init: {"theme": "base", "themeVariables": {"background": "#0d1117", "primaryColor": "#202020", "primaryTextColor": "#eeeeee", "primaryBorderColor": "#777777", "lineColor": "#cccccc", "fontFamily": "Arial", "fontSize": "16px"}, "flowchart": {"useMaxWidth": true, "nodeSpacing": 20, "rankSpacing": 25, "wrappingWidth": 280}}}%%
 flowchart TD
     A["Receber informações do fabricante"] --> B["Conferir dados e características do produto"]
     B --> C["Cadastrar produto manualmente no ERP"]
