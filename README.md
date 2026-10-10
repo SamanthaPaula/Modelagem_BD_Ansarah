@@ -100,7 +100,7 @@ Os produtos são cadastrados manualmente no sistema de gestão empresarial (ERP)
 **Fluxograma:**
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"background": "#000000", "primaryColor": "#052f52", "primaryTextColor": "#66baff", "primaryBorderColor": "#12466b", "lineColor": "#999999", "fontFamily": "Arial"}}}%%
+
 flowchart TD
     A["Receber informações do fabricante"] --> B["Conferir dados e características do produto"]
     B --> C["Cadastrar produto manualmente no ERP"]
@@ -108,7 +108,9 @@ flowchart TD
     D --> E["Cadastrar ou associar grades de cores e tamanhos"]
     E --> F["Disponibilizar produto e suas variações no sistema"]
 
-classDef azul fill:#052f52,stroke:#12466b,color:#66baff,stroke-width:1px class A,B,C,D,E,F azul linkStyle default stroke:#999999,stroke-width:1.2px
+    classDef azul fill:#DCEBFF,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    class A,B,C,D,E,F azul
+    linkStyle default stroke:#2563EB,stroke-width:2px
 ```
 
 #### Processo 2 — Controle de estoque e inventário
