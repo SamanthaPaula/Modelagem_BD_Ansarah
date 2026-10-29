@@ -1,10 +1,13 @@
 # Modelagem de Banco de Dados para Gestão de Informações da Ansarah
 Projeto acadêmico de modelagem de Banco de Dados da empresa ANSARAH - UNICID
 
-## Integrantes
-- **Ana Beatriz Mendes Gonçalves RGM:**
-- **Luiz Gustavo Santos de Oliveira RGM:**
-- **Samantha Paula dos Santos Silva RGM:**
+## Integrantes do Grupo
+
+| Nome completo | RGM | Usuário do GitHub |
+|---|---|---|
+| Ana Beatriz Mendes Gonçalves | A preencher | @usuario |
+| Luiz Gustavo Santos de Oliveira | A preencher | @usuario |
+| Samantha Paula dos Santos Silva | A preencher | @usuario |
 
 ## 1. Introdução
 
