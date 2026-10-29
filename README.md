@@ -9,6 +9,8 @@ Projeto acadêmico de modelagem de Banco de Dados da empresa ANSARAH - UNICID
 | Luiz Gustavo Santos de Oliveira | A preencher | @usuario |
 | Samantha Paula dos Santos Silva | A preencher | @usuario |
 
+---
+
 ## 1. Introdução
 
 Este trabalho apresenta a modelagem conceitual de um sistema de gestão de informações para a Ansarah, organização que atua no comércio de roupas de academia, roupas íntimas e produtos relacionados ao segmento de moda.
