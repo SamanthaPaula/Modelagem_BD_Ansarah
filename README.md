@@ -5,9 +5,9 @@ Projeto acadêmico de modelagem de Banco de Dados da empresa ANSARAH - UNICID
 
 | Nome completo | RGM | Usuário do GitHub |
 |---|---|---|
-| Ana Beatriz Mendes Gonçalves | 47559691 | @usuario |
-| Luiz Gustavo Santos de Oliveira | 47658185 | @usuario |
-| Samantha Paula dos Santos Silva | 47561157 | @usuario |
+| Ana Beatriz Mendes Gonçalves | 47559691 | @anamendesss - [https://github.com/anamendesss] |
+| Luiz Gustavo Santos de Oliveira | 47658185 | @DevLuizOliveira - [https://github.com/DevLuizOliveira]   |
+| Samantha Paula dos Santos Silva | 47561157 | @SamanthaPaula [https://github.com/SamanthaPaula] |
 
 ---
 
