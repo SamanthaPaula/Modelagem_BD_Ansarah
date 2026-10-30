@@ -154,9 +154,51 @@ Os requisitos do sistema foram organizados em *Requisitos Funcionais (RF)* e *Re
 ---
 
 ## 6. Regras de Negócio
+<br><br>
+As regras de negócio foram definidas a partir do levantamento dos processos operacionais, comerciais, financeiros e de segurança da ANSARAH. Elas descrevem os procedimentos identificados durante a coleta de informações e os requisitos considerados para a modelagem do banco de dados. As regras que representam propostas para o modelo acadêmico estão identificadas como tal, diferenciando as práticas relatadas pela empresa das melhorias sugeridas para o sistema.
 
+### 6.1 Regras operacionais
 
-
+| Código | Regra de negócio |
+|---|---|
+| **RN01 — Cadastro de produtos** | O cadastro de produtos no ERP Millennium deve ser realizado pelo setor responsável, com base nas informações disponibilizadas pelas fábricas, garantindo a identificação e a padronização dos produtos cadastrados. |
+| **RN02 — Informações do cadastro** | O cadastro do produto deve contemplar, conforme sua aplicabilidade, código, descrição, referência, coleção, subcoleção, grupo, categoria, tipo, departamento, marca, grades de cores e tamanhos, peso, NCM, classificação fiscal, país de origem, dimensões e informações de preço. |
+| **RN03 — Variações por SKU** | Cada variação comercializável de um produto, correspondente à combinação de características como cor e tamanho, deve possuir identificação própria por SKU, permitindo seu controle individual no sistema. |
+| **RN04 — Registro de vendas** | Todas as vendas realizadas nos pontos de venda físicos (PDV) ou no site devem ser registradas no sistema, contendo as informações gerais da operação e os respectivos itens comercializados. |
+| **RN05 — Identificação do item vendido** | Cada item registrado em uma venda deve identificar o produto ou SKU comercializado, a quantidade vendida e o preço unitário praticado, permitindo o detalhamento dos produtos que compõem a operação. |
+| **RN06 — Etapas do pedido online** | Os pedidos realizados pelo site devem passar pelas etapas aplicáveis de análise e aprovação do pagamento, separação dos produtos, conferência por bipagem, faturamento, despacho, rastreamento e entrega, mantendo o registro de suas respectivas situações. |
+| **RN07 — Conferência de devoluções** | Os produtos devolvidos pelos clientes devem ser recebidos e conferidos pelo setor responsável antes da conclusão da ocorrência de troca ou devolução, verificando as condições da mercadoria. |
+| **RN08 — Cancelamentos e reembolsos** | Os cancelamentos e reembolsos devem permanecer vinculados à venda ou ao pedido original, permitindo identificar a operação de origem, o motivo, a situação e os registros financeiros correspondentes. |
+| **RN09 — Justificativa de operações** | Quando exigida pelo procedimento ou pelo sistema, a justificativa deve ser informada antes da confirmação da operação, como nos casos de cancelamentos sujeitos a essa exigência. |
+| **RN10 — Estoque mínimo** | A grade padrão dos produtos deve ser considerada como referência para o planejamento das quantidades mínimas de estoque, respeitando as características de cada produto e suas respectivas variações. |
+| **RN11 — Reposição de estoque** | A necessidade de reposição de produtos pode ser identificada por meio de alertas do sistema, relatórios de estoque, análise da demanda e verificação das quantidades disponíveis. |
+| **RN12 — Disponibilidade de estoque (proposta para o modelo acadêmico)** | A quantidade disponível para comercialização deve considerar o saldo registrado para cada SKU, descontando as saídas e considerando as entradas de mercadorias. O controle deve permitir identificar divergências entre o estoque registrado e o disponível fisicamente, reduzindo o risco de comercialização de produtos indisponíveis. |
+| **RN13 — Quantidade mínima para atacado** | A quantidade mínima usual informada para pedidos de atacado é de seis peças. Entretanto, o atendimento a essa quantidade, isoladamente, não garante o enquadramento da compra nas condições comerciais de atacado. |
+| **RN14 — Condições comerciais B2B e B2C** | As condições comerciais devem considerar o perfil do cliente e a finalidade da compra, diferenciando as operações de varejo (B2C) e atacado (B2B). Situações excepcionais devem ser encaminhadas à diretoria para avaliação. |
+| **RN15 — Conferência de mercadorias** | Os produtos recebidos dos fornecedores devem ser conferidos por meio de bipagem e comparados com as quantidades e os itens registrados no pedido de reposição, permitindo verificar a correspondência entre o pedido e a entrega. |
+| **RN16 — Entregas parciais** | Quando o fornecedor realizar a entrega de apenas parte dos produtos solicitados, as quantidades recebidas e as quantidades ainda pendentes devem ser registradas separadamente, permitindo acompanhar o saldo restante do pedido. |
+| **RN17 — Divergências no recebimento** | As divergências identificadas durante o recebimento, como diferenças de quantidade, produtos incorretos ou problemas nas condições das mercadorias, devem ser registradas e encaminhadas ao setor responsável para tratativa com o fornecedor. |
+| **RN18 — Devolução ao fornecedor** | As devoluções de mercadorias aos fornecedores devem ser registradas no sistema, identificando os produtos e as respectivas quantidades devolvidas, com emissão de nota fiscal de devolução quando aplicável. |
+| **RN19 — Registro de contas a pagar** | As notas fiscais e as duplicatas ou os boletos recebidos dos fornecedores devem ser registrados no ERP Millennium, permitindo acompanhar os valores e as obrigações financeiras correspondentes. |
+| **RN20 — Parcelas e vencimentos** | As obrigações financeiras parceladas devem possuir registros individuais para cada parcela, contendo valor, data de vencimento e situação do pagamento, permitindo acompanhar os compromissos financeiros. |
+| **RN21 — Baixa financeira** | Após a realização do pagamento, o responsável deve registrar a baixa da obrigação no sistema, informando a data, o valor pago e a identificação do usuário responsável pelo registro. |
+| **RN22 — Relatórios financeiros** | O controle financeiro deve permitir consultar as contas a pagar de acordo com sua situação, possibilitando identificar obrigações pagas, pendentes e vencidas. |
+| **RN23 — Divergências financeiras** | Diferenças identificadas entre o valor da nota fiscal e o pedido de compra devem ser tratadas entre os setores financeiros da ANSARAH e do fornecedor antes da realização do pagamento. A solução pode envolver abatimento em duplicata posterior ou em pedido futuro, conforme o acordo estabelecido. |
+| **RN24 — Categorização de despesas** | As despesas registradas no sistema devem ser classificadas de acordo com sua natureza, permitindo distinguir obrigações relacionadas a fornecedores de outras despesas operacionais e facilitando o controle financeiro. |
+| **RN25 — Múltiplas formas de pagamento** | Quando uma venda utilizar mais de uma forma de pagamento, cada modalidade utilizada e seu respectivo valor devem ser registrados separadamente, mantendo a composição financeira da operação. |
+| **RN26 — Movimentações de estoque** | As entradas, saídas e transferências de estoque devem possuir registros que permitam identificar o SKU movimentado, a quantidade, a data, o tipo de movimentação e o funcionário responsável pela operação. |
+<br><br>
+### 6.2 Regras organizacionais, comerciais e de segurança
+<Br><br>
+| Código | Regra de negócio |
+|---|---|
+| **RN27 — Login individual (proposta para o modelo acadêmico)** | Cada funcionário deve utilizar uma conta de acesso individual ao sistema, permitindo identificar o responsável pelas operações realizadas e evitando o compartilhamento de credenciais. |
+| **RN28 — Permissões por função** | O acesso às funcionalidades e às informações do sistema deve respeitar as permissões associadas ao departamento e à função desempenhada pelo funcionário, limitando o acesso conforme suas responsabilidades. |
+| **RN29 — Auditoria de operações (proposta para o modelo acadêmico)** | O sistema deve manter registros das operações relevantes realizadas pelos usuários, contendo a identificação do responsável, a data e a hora, o tipo de operação e o registro afetado. Entre as operações que podem ser auditadas estão alterações cadastrais, mudanças de preços, vendas, cancelamentos e movimentações de estoque. |
+| **RN30 — Aprovação de preços e descontos** | Alterações nos preços dos produtos e concessões de descontos devem depender de autorização da diretoria, conforme as condições comerciais e os procedimentos estabelecidos pela empresa. |
+| **RN31 — Histórico de preços (proposta para o modelo acadêmico)** | O modelo de dados deve preservar o histórico dos preços praticados, registrando os valores anteriores e atuais, as respectivas datas de vigência e a tabela de preços relacionada, quando aplicável. |
+| **RN32 — Proteção de dados pessoais** | Os dados pessoais dos clientes devem ser acessados e utilizados de acordo com as permissões dos usuários, a finalidade do tratamento e a legislação aplicável, incluindo os princípios e as disposições da Lei Geral de Proteção de Dados Pessoais (LGPD). |
+| **RN33 — Trocas e devoluções** | As operações de troca e devolução devem observar a legislação aplicável, incluindo o Código de Defesa do Consumidor, e os procedimentos comerciais válidos da empresa, mantendo os registros necessários para o acompanhamento de cada ocorrência. |
 
 ---
 
