@@ -137,111 +137,14 @@ Os requisitos do sistema foram organizados em *Requisitos Funcionais (RF)* e *Re
 
 ## 6. Regras de Negócio
 
-As regras de negócio foram definidas a partir das informações obtidas durante o levantamento realizado com a representante da Ansarah.
 
-<h4>Regras operacionais</h4>
-
-| Código | Regra operacional | Descrição |
-|---|---|---|
-| RN01 | Cadastro de produtos | O cadastro de produtos é realizado no sistema de gestão empresarial utilizando informações fornecidas pelas fábricas. |
-| RN02 | Informações dos produtos | Os produtos possuem informações relacionadas a características como referência, coleção, subcoleção, grupo, categoria, tipo, marca, cor e tamanho. |
-| RN03 | Variações de produtos | As variações dos produtos são representadas por meio da entidade PRODUTO_SKU, permitindo relacionar cada produto às respectivas características de cor e tamanho. |
-| RN04 | Registro de vendas | As vendas realizadas pela organização devem ser registradas no sistema e relacionadas aos produtos/variações comercializados. |
-| RN05 | Produtos da venda | Cada PRODUTO_SKU relacionado à venda identifica a variação do produto comercializada. |
-| RN06 | Pedidos online | Os pedidos online devem registrar informações referentes ao pagamento, separação, conferência, faturamento, envio, rastreamento e entrega. |
-| RN07 | Trocas e devoluções | As trocas e devoluções devem passar pelo processo de conferência do produto antes da conclusão da operação. |
-| RN08 | Cancelamentos | O cancelamento de um pedido pode ocorrer antes do envio, seguindo o processo definido pela organização para o estorno do pagamento. |
-| RN09 | Proteção de dados dos clientes | As informações dos clientes utilizadas nas vendas online devem ser protegidas de acordo com as regras de privacidade aplicáveis. |
-| RN10 | Histórico de preços | Os preços aplicados aos produtos devem ser registrados de acordo com as tabelas de preços utilizadas pela organização e seu respectivo período de vigência. |
-
-<br>
-<h4>Regras Organizacionais</h4>
-
-| Código | Regra operacional | Descrição |
-|---|---|---|
-| RN10 | Prazos de troca | Os prazos e condições para trocas devem seguir as disposições aplicáveis do Código de Defesa do Consumidor. |
-| RN11 | Condições B2C e B2B | As condições comerciais para clientes B2C e B2B podem apresentar diferentes prazos de pagamento, descontos e demais condições comerciais. |
-| RN12 | Alteração de preços | A alteração de preços e a concessão de descontos dependem de autorização da diretoria. |
-| RN13 | Permissões de acesso | O acesso às informações do sistema deve respeitar as permissões atribuídas aos funcionários conforme seus departamentos e funções. |
-| RN14 | Proteção dos dados pessoais | As informações pessoais dos clientes devem ser tratadas de acordo com as regras estabelecidas pela LGPD. |
-| RN15 | Reposição de produtos | Os pedidos de reposição devem ser associados a um fornecedor e devem informar as variações dos produtos, quantidades e preços solicitados. |
 
 
 ---
 
 ## 7. Modelo Conceitual (Entidade-Relacionamento-Atributos)
 
-*A partir do levantamento realizado com a organização, foram identificadas as seguintes entidades principais:*
-<br><br>
-•**Cliente:** representa os clientes cadastrados pela organização.
-<br>
-•**Funcionário:**. representa os funcionários envolvidos nos processos da organização.
-<br>
-•	**Departamento:** representa os setores responsáveis pelas atividades da empresa. 
-<br>
-•**Produto:** representa os produtos comercializados pela organização. 
-<br>
-•**Produto_SKU:** representa as variações específicas dos produtos, associadas às características de cor e tamanho.
-<br>
-•	**Marca:** representa as marcas comercializadas pela organização. 
-<br> 
-•**Fornecedor:** representa os fornecedores cadastrados no sistema.
-<br> 
-•	**Cor:** representa as cores utilizadas nas variações dos produtos.
-<br> 
-•	**Tamanho:** representa os tamanhos utilizados nas variações dos produtos. 
-<br> 
-•**Venda:** representa as vendas realizadas pela organização.
-<br> 
-•**Pedido_Online:** representa os pedidos realizados pelo site. 
-<br> 
-•**Tabela_Preco:** representa as diferentes tabelas de preços utilizadas pela organização. 
-<br> 
-•	**Historico_Preco:** registra os preços aplicados às variações dos produtos ao longo do tempo.
-<br> 
-•	**Troca_Devolucao:** representa ocorrências de troca, devolução ou cancelamento relacionadas aos pedidos online. 
-<br> 
-•**Pedido_Reposicao:** representa os pedidos realizados aos fornecedores para reposição de produtos. 
-<br><br>
 
-<h4>Atributos e classificações:</h4>
-
-Os atributos foram definidos a partir das informações obtidas durante a entrevista e representam os dados necessários para caracterizar as entidades e registrar os processos da organização.
-<br>
-A entidade **Produto** concentra as informações gerais de cadastro, como código, descrição, referência, coleção, subcoleção, grupo, categoria, tipo e informações fiscais.
-<br><br>
-A entidade **Produto_SKU** representa uma variação específica do produto, permitindo associar características como cor e tamanho sem repetir os dados gerais do produto.
-<br><br>
-A entidade **Venda** registra as informações gerais das vendas realizadas e mantém o relacionamento direto com os produtos/variações comercializados.
-<br><br>
-A entidade **Pedidos_Online** possuem informações próprias do processo de venda pelo site, como status do pedido, status do pagamento, rastreamento, envio e entrega. A venda correspondente é registrada na entidade Venda, que está relacionada aos SKUs dos produtos comercializados.
-<br><br>
-A entidade **Historico_Preco** armazena o preço aplicado à variação do produto, sua tabela de preço e o período de vigência, permitindo manter o histórico das alterações de preço.
-<br><br>
-A entidade **Pedido_Reposicao** registra as solicitações realizadas aos fornecedores e mantém relacionamento direto com os produtos/variações que precisam ser repostos.
-
-<h4>Relacionamentos pertinentes</h4>
-
-**Os relacionamentos identificados no modelo são:**  
-<br>
-• Departamento possui Funcionários; <br>
-• Marca possui Produtos; <br>
-• Produto possui Produto_SKU; <br>
-• Cor possui Produto_SKU; <br>
-• Tamanho possui Produto_SKU; <br>
-• Cliente está associado às Vendas; <br>
-• Funcionário registra Vendas; <br>
-• Venda possui Produto_SKU; <br>
-• Cliente realiza Pedidos_Online; <br>
-• Pedido_Online gera a Venda correspondente; <br>
-• Tabela_Preco possui registros de Historico_Preco; <br>
-• Produto_SKU possui registros de Historico_Preco; <br>
-• Pedido_Online possui ocorrências de Troca_Devolucao; <br>
-• Fornecedor recebe Pedidos_Reposicao; <br>
-• Pedido_Reposicao possui Produto_SKU; <br>
-
-
-**As cardinalidades são representadas no DER conforme as relações identificadas no levantamento.**
 
 ---
 
