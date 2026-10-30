@@ -69,7 +69,7 @@ https://www.ansarah.com.br/
 
 ### 3.5 Comunicação com a organização
 
-Os registros da comunicação com Alessandra (uma das proprietárias da organização e responsável pelo setor financeiro) incluindo **áudio, prints e questionário**, estão **anexados no repositório**.
+Os registros da comunicação com Alessandra (uma das proprietárias da organização e responsável pelo setor financeiro) estão **anexados no repositório**.
 
 ---
 
