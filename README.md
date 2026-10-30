@@ -74,6 +74,17 @@ Os registros da comunicação com Alessandra (uma das proprietárias da organiza
 ---
 
 ## 4. Principais Processos de Negócio
+Os principais processos de negócio da empresa foram organizados em três grupos: *Vendas, Compras e Apoio*. Esses processos envolvem o cadastro e a comercialização de produtos, o controle de estoque, o relacionamento com fornecedores, o processamento de pedidos e o gerenciamento das informações utilizadas nas operações da empresa.
+
+### 4.1. Lista dos Principais Processos
+
+*Vendas*
+- Cadastro e gerenciamento de clientes;
+- Registro de vendas no Ponto de Venda (PDV) e no site;
+- Processamento de pedidos on-line;
+- Controle de preços, tabelas de preços e promoções;
+- Trocas, devoluções, cancelamentos e reembolsos;
+- Venda no atacado (condições B2B).
 
 
 
