@@ -67,9 +67,21 @@ https://www.ansarah.com.br/
 
 **https://cnpj.biz/61419610000119**
 
-### 3.5 Comunicação com a organização
+### 3.5 Responsável pela organização
 
-Os registros da comunicação com Alessandra (uma das proprietárias da organização e responsável pelo setor financeiro) estão **anexados no repositório**.
+**Nome:** Alessandra Ansarah
+**Cargo/Função:** Proprietária e responsável pela área administrativa/financeira
+**Telefone para contato:** 
+
+> **A fotografia referente ao atendimento realizado pela responsável da organização está disponível no repositório, na pasta `PROVASDAEMPRESA`, junto aos demais registros e documentos utilizados como evidências.**
+
+### 3.6 Levantamento e Relato da Entrevista
+
+O levantamento de requisitos da organização Ansarah foi realizado por meio de um questionário encaminhado à responsável pela empresa, seguido de uma entrevista pelo Google Meet e de contatos posteriores para esclarecimento e complementação das informações.
+
+Durante o levantamento, foram abordados os processos de cadastro de produtos e clientes, controle de estoque, vendas, fornecedores, formação de preços, pedidos on-line, trocas e devoluções, relatórios gerenciais e segurança das informações.
+
+>**O relato detalhado do levantamento, incluindo as etapas realizadas e as principais informações obtidas, está disponível na pasta `levantamento`.**
 
 ---
 
@@ -154,7 +166,7 @@ Os requisitos do sistema foram organizados em *Requisitos Funcionais (RF)* e *Re
 ---
 
 ## 6. Regras de Negócio
-<br><br>
+<br>
 As regras de negócio foram definidas a partir do levantamento dos processos operacionais, comerciais, financeiros e de segurança da ANSARAH. Elas descrevem os procedimentos identificados durante a coleta de informações e os requisitos considerados para a modelagem do banco de dados. As regras que representam propostas para o modelo acadêmico estão identificadas como tal, diferenciando as práticas relatadas pela empresa das melhorias sugeridas para o sistema.
 
 ### 6.1 Regras operacionais
