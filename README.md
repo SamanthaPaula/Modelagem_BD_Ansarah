@@ -42,7 +42,7 @@ O projeto tem como delimitação a modelagem conceitual das informações e dos 
 
 ---
 
-## 3. Evidências da Pesquisa
+## 3. Evidências da Organização
 <br>
 Para comprovar a existência da organização e o acesso do grupo para a realização da pesquisa de campo, foram reunidas informações e registros relacionados à Ansarah.
 
