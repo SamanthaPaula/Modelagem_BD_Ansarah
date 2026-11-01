@@ -70,7 +70,9 @@ https://www.ansarah.com.br/
 ### 3.5 Responsável pela organização
 
 **Nome:** Alessandra Ansarah
+<br>
 **Cargo/Função:** Proprietária e responsável pela área administrativa/financeira
+<br>
 **Telefone para contato:** 
 
 > **A fotografia referente ao atendimento realizado pela responsável da organização está disponível no repositório, na pasta `PROVASDAEMPRESA`, junto aos demais registros e documentos utilizados como evidências.**
