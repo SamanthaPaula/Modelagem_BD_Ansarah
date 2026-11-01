@@ -75,7 +75,7 @@ https://www.ansarah.com.br/
 <br>
 **Telefone para contato:** 
 
-> **A fotografia referente ao atendimento realizado pela responsável da organização está disponível no repositório, na pasta `PROVASDAEMPRESA`, junto aos demais registros e documentos utilizados como evidências.**
+>**A fotografia referente ao contato realizado pela responsável da organização está disponível na pasta [PROVASDAEMPRESA](./PROVASDAEMPRESA/), junto aos demais registros e documentos utilizados como evidências.**
 
 ### 3.6 Levantamento e Relato da Entrevista
 
