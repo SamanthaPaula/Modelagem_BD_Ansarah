@@ -48,8 +48,8 @@ Para comprovar a existência da organização e o acesso do grupo para a realiza
 
 ### 3.1 Fotos das lojas
 
-- **Loja da 25 de Março:** ![Loja na 25 de Março](./PROVASDAEMPRESA/LOJA25DEMARCO.jpeg)
-- **Loja do Brás:** foto anexada no repositório.
+- **Loja da 25 de Março:** [Foto da loja na 25 de Março](./PROVASDAEMPRESA/LOJA25DEMARCO.jpeg)
+- **Loja do Brás:** [Foto da loja do Brás](./PROVASDAEMPRESA/LOJABRÁS.jpeg)
 
 ### 3.2 Localização das lojas
 
