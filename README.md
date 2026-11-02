@@ -158,6 +158,23 @@ O cadastro de fornecedores e marcas reúne informações utilizadas na identific
 
 A necessidade de reposição é identificada a partir das informações de estoque, da demanda e dos níveis mínimos definidos pela empresa. O ERP pode auxiliar nesse acompanhamento por meio de alertas e consultas, enquanto a análise dos relatórios contribui para a decisão de compra. Após a identificação da necessidade, é elaborado o pedido de reposição ao fornecedor, considerando os produtos, as quantidades e as condições comerciais estabelecidas.
 
+#### 4.2.11. Recebimento e Conferência de Mercadorias
+
+No recebimento, as mercadorias são conferidas com base no pedido de compra, utilizando a leitura dos códigos de barras para verificar os itens e as quantidades entregues. Caso existam divergências, avarias ou entregas parciais, a situação é registrada e comunicada ao fornecedor. Dependendo do caso, podem ocorrer entregas complementares, devoluções acompanhadas de nota fiscal ou abatimentos em cobranças futuras. Os registros de estoque são atualizados conforme o resultado da conferência.
+
+#### 4.2.12. Controle de Contas a Pagar
+
+O controle de contas a pagar reúne informações das notas fiscais, dos boletos, das duplicatas, das parcelas e dos vencimentos relacionados às compras. O ERP Millennium permite consultar compromissos pagos, pendentes ou vencidos. Antes do pagamento, eventuais divergências entre os valores da nota fiscal e do pedido de compra podem ser verificadas com o fornecedor. Após a confirmação do pagamento, é realizada a baixa correspondente, registrando informações como data, valor e usuário responsável.
+
+#### 4.2.13. Logística e Centro de Distribuição
+
+A logística envolve a organização e a movimentação das mercadorias entre o recebimento, o armazenamento, a separação e a expedição dos pedidos. No atendimento on-line, os produtos são separados e conferidos antes do faturamento e do envio. As informações de expedição e rastreamento auxiliam no acompanhamento dos pedidos até a entrega ao cliente. Essas atividades dependem dos registros de estoque e das informações dos pedidos para apoiar a organização das operações.
+
+
+
+
+
+
 
 
 
@@ -169,6 +186,7 @@ A necessidade de reposição é identificada a partir das informações de estoq
 
 
 <br>
+
 
 ---
 
