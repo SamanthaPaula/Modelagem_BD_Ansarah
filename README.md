@@ -460,6 +460,8 @@ A conversão do modelo conceitual para o modelo lógico permite organizar os dad
 
 A estrutura resultante também prepara o banco de dados para a implementação no MySQL, a inserção de dados, a execução de consultas e a elaboração de relatórios gerenciais relacionados aos processos de vendas, estoque, preços e reposição.
 
+> **O modelo lógico desenvolvido a partir do modelo conceitual está disponível no repositório do GitHub, junto aos demais arquivos do projeto.**
+
 <BR><BR>
 ---
 
