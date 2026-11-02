@@ -295,10 +295,99 @@ O **Diagrama Entidade-Relacionamento (DER)** está **anexado no repositório**.
 | Redundância da descrição do produto em `ITEM_VENDA`. | Remoção do atributo `nome_item_venda` da tabela `ITEM_VENDA`. | A descrição já está armazenada na tabela `PRODUTO` e pode ser recuperada por meio do relacionamento com `PRODUTO_SKU`, evitando a duplicação de informações. |
 | Redundância da descrição do produto em `ITEM_REPOSICAO`. | Remoção do atributo `nome_item_reposicao` da tabela `ITEM_REPOSICAO`. | A descrição do produto pode ser obtida por meio do SKU relacionado, mantendo as informações centralizadas na tabela `PRODUTO`. |
 
-
 ---
 
-## 9. Dicionário de Dados
+
+### 9 Conversão do Modelo Conceitual para o Modelo Lógico
+
+A conversão do Modelo Entidade-Relacionamento (MER) conceitual da Ansarah para o modelo lógico relacional foi realizada considerando as entidades, os atributos, os relacionamentos e as cardinalidades definidos no DER revisado. O objetivo foi organizar as informações em tabelas relacionadas entre si, estabelecendo chaves primárias e estrangeiras e preparando a estrutura para a implementação no MySQL.
+
+#### 9.1 Entidades convertidas em tabelas
+
+Cada entidade identificada no modelo conceitual foi representada por uma tabela no modelo lógico. Essa conversão permite armazenar os dados de maneira estruturada e relacionar as informações necessárias aos processos da organização.
+
+Entre as principais tabelas do modelo estão:
+
+- **CLIENTE:** armazena os dados cadastrais dos clientes, incluindo sua identificação e seu tipo de relacionamento comercial.
+- **FUNCIONARIO e DEPARTAMENTO:** representam os funcionários e os departamentos aos quais estão associados.
+- **PRODUTO, PRODUTO_SKU, MARCA, COR e TAMANHO:** organizam os dados gerais dos produtos, suas variações, marcas e características de cor e tamanho.
+- **VENDA e ITEM_VENDA:** registram as vendas e detalham os produtos, as quantidades e os preços correspondentes a cada item vendido.
+- **PAGAMENTO:** armazena as informações dos pagamentos relacionados às vendas.
+- **PEDIDO_ONLINE e TROCA_DEVOLUCAO:** representam os pedidos realizados pelo canal on-line e as ocorrências de troca e devolução associadas a eles.
+- **FORNECEDOR e PEDIDO_REPOSICAO:** organizam os dados dos fornecedores e os pedidos de reposição de produtos.
+- **ITEM_REPOSICAO:** detalha os produtos e as quantidades solicitadas e recebidas em cada pedido de reposição.
+- **TABELA_PRECO e ITEM_TABELA_PRECO:** representam as tabelas comerciais e os preços associados aos produtos.
+- **HISTORICO_PRECO:** registra informações sobre as alterações de preços ao longo do tempo.
+- **MOVIMENTACAO_ESTOQUE:** registra as movimentações de estoque e suas informações relacionadas.
+- **CONTA_A_PAGAR e PARCELA_CONTA_PAGAR:** representam as obrigações financeiras e suas respectivas parcelas.
+- **USUARIO_SISTEMA e LOG_AUDITORIA:** representam, no modelo proposto, os usuários do sistema e os registros de operações para fins de rastreabilidade.
+
+As entidades `CONTA_A_PAGAR`, `PARCELA_CONTA_PAGAR`, `USUARIO_SISTEMA` e `LOG_AUDITORIA` correspondem a estruturas propostas para o projeto acadêmico, não a nomes de tabelas internas confirmados do ERP utilizado pela organização.
+
+#### 9.2 Conversão de atributos em colunas
+
+Os atributos definidos para cada entidade foram convertidos em colunas das respectivas tabelas. Para cada coluna, foram definidos tipos de dados compatíveis com a informação armazenada, considerando as necessidades do sistema e as restrições de integridade.
+
+Os identificadores das entidades foram representados por chaves primárias, geralmente utilizando campos numéricos inteiros. Os demais atributos foram definidos conforme sua finalidade, utilizando tipos adequados para textos, datas, valores monetários, quantidades e indicadores de situação.
+
+Por exemplo, a tabela `CLIENTE` contém atributos para identificação e cadastro, enquanto a tabela `ITEM_VENDA` armazena a quantidade comercializada e o preço unitário de cada produto incluído em uma venda.
+
+A definição dos tipos de dados e das restrições específicas de cada coluna está detalhada no modelo lógico e no dicionário de dados.
+
+#### 9.3 Conversão dos relacionamentos em chaves
+
+Os relacionamentos do modelo conceitual foram representados no modelo lógico por meio de chaves estrangeiras (FK), respeitando a estrutura das entidades relacionadas.
+
+Nos relacionamentos em que uma entidade se associa a várias ocorrências de outra entidade, a chave primária da entidade do lado 1 é incluída como chave estrangeira na tabela do lado N.
+
+Por exemplo, cada funcionário está associado a um departamento. Assim, a tabela `FUNCIONARIO` contém uma chave estrangeira que referencia a tabela `DEPARTAMENTO`.
+
+Da mesma forma, cada item de venda referencia a venda à qual pertence e o produto comercializado, por meio das relações com `VENDA` e `PRODUTO_SKU`. A tabela `ITEM_REPOSICAO` também referencia o pedido de reposição correspondente e o SKU solicitado.
+
+As chaves estrangeiras permitem manter a integridade referencial, evitando que os registros relacionados apontem para entidades inexistentes, conforme as restrições definidas no banco de dados.
+
+#### 9.4 Tratamento das cardinalidades
+
+As cardinalidades representadas no DER foram traduzidas para o modelo lógico por meio de chaves estrangeiras e tabelas associativas, conforme o tipo de relacionamento.
+
+**Relacionamentos 1:N — um para muitos**
+
+Nos relacionamentos 1:N, a chave estrangeira é posicionada na tabela correspondente ao lado N. Essa estrutura permite que um registro da entidade do lado 1 esteja relacionado a vários registros da entidade do lado N.
+
+Como exemplo, um departamento pode possuir vários funcionários, enquanto cada funcionário está associado a um departamento. Por isso, a tabela `FUNCIONARIO` referencia `DEPARTAMENTO` por meio de uma chave estrangeira.
+
+**Relacionamentos 1:1 — um para um**
+
+Nos relacionamentos 1:1, a implementação pode utilizar uma chave estrangeira com restrição `UNIQUE`, de forma que cada registro relacionado seja associado a, no máximo, um registro da outra tabela. A obrigatoriedade dessa associação depende das cardinalidades mínimas definidas no modelo conceitual.
+
+**Relacionamentos N:N — muitos para muitos**
+
+Nos relacionamentos N:N, foi utilizada uma tabela associativa para representar a relação entre as duas entidades. Essa estrutura permite que cada registro de uma entidade esteja relacionado a vários registros da outra, sem armazenar múltiplos valores em uma única coluna.
+
+No modelo da Ansarah, destacam-se os seguintes exemplos:
+
+- **VENDA e PRODUTO_SKU:** relacionados por meio de `ITEM_VENDA`, que também armazena a quantidade e o preço unitário de cada item.
+- **PEDIDO_REPOSICAO e PRODUTO_SKU:** relacionados por meio de `ITEM_REPOSICAO`, que registra as quantidades solicitadas e recebidas.
+- **TABELA_PRECO e PRODUTO_SKU:** relacionados por meio de `ITEM_TABELA_PRECO`, que permite registrar os preços aplicáveis aos produtos em cada tabela.
+
+O uso dessas entidades associativas permite detalhar os dados próprios de cada relacionamento e evita a duplicação desnecessária de informações.
+
+#### 9.5 Generalização e especialização
+
+O DER utiliza o atributo `tipo_cliente` para distinguir clientes B2C e B2B. Essa diferenciação foi representada como uma classificação dentro da entidade `CLIENTE`, sem a criação de tabelas especializadas separadas.
+
+Essa escolha permite manter os dados cadastrais comuns em uma única tabela e diferenciar os tipos de clientes por meio do atributo correspondente.
+
+Não foi adotada uma estrutura de generalização ou especialização com entidades e tabelas próprias para cada subtipo, pois o modelo proposto não exige, neste momento, atributos exclusivos suficientes para justificar essa separação. Caso surjam requisitos específicos para cada categoria de cliente, essa decisão poderá ser reavaliada.
+
+#### Considerações finais
+
+A conversão do modelo conceitual para o modelo lógico permite organizar os dados da Ansarah em tabelas relacionadas, com chaves e restrições destinadas a preservar a integridade das informações.
+
+A estrutura resultante também prepara o banco de dados para a implementação no MySQL, a inserção de dados, a execução de consultas e a elaboração de relatórios gerenciais relacionados aos processos de vendas, estoque, preços e reposição.
+---
+
+## 10. Dicionário de Dados
 
 O **Dicionário de Dados** está **anexado no repositório**.
 
@@ -308,7 +397,7 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 
 ---
 
-## 10. Justificativa Técnica do Modelo
+## 11. Justificativa Técnica do Modelo
 
 A modelagem conceitual foi desenvolvida com o objetivo de representar os principais processos identificados no levantamento de informações da Ansarah, contemplando cadastro de produtos, vendas, estoque, preços, pedidos on-line, reposição de mercadorias, pagamentos, controle financeiro e acesso ao sistema.
 
@@ -332,17 +421,17 @@ De modo geral, a estrutura proposta busca organizar as informações de acordo c
 
 ---
 
-## 11. Justificativa das Decisões de Modelagem e das Restrições de Integridade
+## 12. Justificativa das Decisões de Modelagem e das Restrições de Integridade
 
 As decisões técnicas do modelo foram definidas para garantir a identificação dos registros, estabelecer os relacionamentos entre as entidades e reduzir inconsistências no armazenamento das informações.
 
-### 11.1 Chaves primárias
+### 12.1 Chaves primárias
 
 As chaves primárias (PK) foram definidas para identificar exclusivamente os registros de cada tabela. Foram utilizados identificadores próprios, como `id_produto`, `id_cliente`, `id_venda`, `id_sku` e `id_fornecedor`, evitando a dependência de atributos descritivos, como nomes, para identificar os registros.
 
 Nas tabelas que representam itens de processos, como `ITEM_VENDA`, `ITEM_REPOSICAO` e `ITEM_TABELA_PRECO`, os identificadores próprios permitem distinguir cada item individualmente, mesmo quando vários itens pertencem à mesma venda, pedido de reposição ou tabela de preços.
 
-### 11.2 Chaves estrangeiras e relacionamentos
+### 12.2 Chaves estrangeiras e relacionamentos
 
 As chaves estrangeiras (FK) estabelecem referências entre as tabelas e permitem associar os registros correspondentes aos processos representados no modelo.
 
@@ -362,7 +451,7 @@ As chaves estrangeiras (FK) estabelecem referências entre as tabelas e permitem
 
 **Funcionários e auditoria:** `FUNCIONARIO` relaciona-se com `DEPARTAMENTO`; `USUARIO_SISTEMA` relaciona-se com `FUNCIONARIO`; e `LOG_AUDITORIA` relaciona-se com `USUARIO_SISTEMA`. Esses relacionamentos permitem representar a associação entre funcionários, contas de acesso e registros de auditoria.
 
-### 11.3 Restrições de integridade
+### 12.3 Restrições de integridade
 
 As restrições de integridade foram consideradas para controlar os valores armazenados e evitar inconsistências nos registros.
 
@@ -389,7 +478,7 @@ A estrutura de contas a pagar está relacionada às RN19, RN21 e RN22, que abord
 
 A relação entre as entidades e as regras de negócio deve ser interpretada conforme o que está efetivamente representado no DER, no Dicionário de Dados e no script SQL. A existência de uma regra de negócio no levantamento não significa, por si só, que todos os mecanismos necessários para atendê-la já estejam implementados.
 
-### 11.5 Decisões para evitar redundância
+### 12.5 Decisões para evitar redundância
 
 A separação entre `PRODUTO` e `PRODUTO_SKU` evita misturar as informações gerais dos produtos com os dados específicos de suas variações. Assim, o nome e a descrição do produto podem ser consultados por meio do relacionamento com o SKU, sem a necessidade de repetir essas informações em cada variação.
 
@@ -404,13 +493,13 @@ Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para
 
 ---
 
-## 12. Uso de Inteligência Artificial
+## 13. Uso de Inteligência Artificial
 
 
 <br><br>
 ---
 
-## 13. Conclusão
+## 14. Conclusão
 
 <br><br>
 
@@ -418,7 +507,7 @@ Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para
 
 ---
 
-## 14. Referências
+## 15. Referências
 
 - **ANSARAH.** Informações institucionais e comerciais.  
   https://www.ansarah.com.br/
