@@ -475,7 +475,7 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 
 ---
 
-## 11. Justificativa Técnica do Modelo
+## 13. Justificativa Técnica do Modelo
 
 A modelagem conceitual foi desenvolvida com o objetivo de representar os principais processos identificados no levantamento de informações da Ansarah, contemplando cadastro de produtos, vendas, estoque, preços, pedidos on-line, reposição de mercadorias, pagamentos, controle financeiro e acesso ao sistema.
 
@@ -499,17 +499,17 @@ De modo geral, a estrutura proposta busca organizar as informações de acordo c
 
 ---
 
-## 12. Justificativa das Decisões de Modelagem e das Restrições de Integridade
+## 14. Justificativa das Decisões de Modelagem e das Restrições de Integridade
 
 As decisões técnicas do modelo foram definidas para garantir a identificação dos registros, estabelecer os relacionamentos entre as entidades e reduzir inconsistências no armazenamento das informações.
 
-### 12.1 Chaves primárias
+### 14.1 Chaves primárias
 
 As chaves primárias (PK) foram definidas para identificar exclusivamente os registros de cada tabela. Foram utilizados identificadores próprios, como `id_produto`, `id_cliente`, `id_venda`, `id_sku` e `id_fornecedor`, evitando a dependência de atributos descritivos, como nomes, para identificar os registros.
 
 Nas tabelas que representam itens de processos, como `ITEM_VENDA`, `ITEM_REPOSICAO` e `ITEM_TABELA_PRECO`, os identificadores próprios permitem distinguir cada item individualmente, mesmo quando vários itens pertencem à mesma venda, pedido de reposição ou tabela de preços.
 
-### 12.2 Chaves estrangeiras e relacionamentos
+### 14.2 Chaves estrangeiras e relacionamentos
 
 As chaves estrangeiras (FK) estabelecem referências entre as tabelas e permitem associar os registros correspondentes aos processos representados no modelo.
 
@@ -529,7 +529,7 @@ As chaves estrangeiras (FK) estabelecem referências entre as tabelas e permitem
 
 **Funcionários e auditoria:** `FUNCIONARIO` relaciona-se com `DEPARTAMENTO`; `USUARIO_SISTEMA` relaciona-se com `FUNCIONARIO`; e `LOG_AUDITORIA` relaciona-se com `USUARIO_SISTEMA`. Esses relacionamentos permitem representar a associação entre funcionários, contas de acesso e registros de auditoria.
 
-### 12.3 Restrições de integridade
+### 14.3 Restrições de integridade
 
 As restrições de integridade foram consideradas para controlar os valores armazenados e evitar inconsistências nos registros.
 
@@ -542,7 +542,7 @@ As restrições de integridade foram consideradas para controlar os valores arma
 
 A aplicação dessas restrições deve corresponder às definições presentes no script SQL e no Dicionário de Dados, garantindo consistência entre a documentação e a implementação relacional.
 
-### 11.4 Relação com as regras de negócio
+### 14.4 Relação com as regras de negócio
 
 As decisões de modelagem foram relacionadas às regras de negócio levantadas durante o estudo da organização.
 
@@ -556,7 +556,7 @@ A estrutura de contas a pagar está relacionada às RN19, RN21 e RN22, que abord
 
 A relação entre as entidades e as regras de negócio deve ser interpretada conforme o que está efetivamente representado no DER, no Dicionário de Dados e no script SQL. A existência de uma regra de negócio no levantamento não significa, por si só, que todos os mecanismos necessários para atendê-la já estejam implementados.
 
-### 12.5 Decisões para evitar redundância
+### 14.5 Decisões para evitar redundância
 
 A separação entre `PRODUTO` e `PRODUTO_SKU` evita misturar as informações gerais dos produtos com os dados específicos de suas variações. Assim, o nome e a descrição do produto podem ser consultados por meio do relacionamento com o SKU, sem a necessidade de repetir essas informações em cada variação.
 
@@ -571,13 +571,13 @@ Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para
 
 ---
 
-## 13. Uso de Inteligência Artificial
+## 15. Uso de Inteligência Artificial
 
 
 <br><br>
 ---
 
-## 14. Conclusão
+## 16. Conclusão
 
 <br><br>
 
@@ -585,7 +585,7 @@ Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para
 
 ---
 
-## 15. Referências
+## 17. Referências
 
 - **ANSARAH.** Informações institucionais e comerciais.  
   https://www.ansarah.com.br/
