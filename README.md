@@ -123,6 +123,25 @@ A geração de relatórios também é utilizada como atividade complementar para
 
 O cadastro de produtos é realizado no ERP Millennium com base nas informações fornecidas pela fábrica. São registrados dados como nome, código, marca, coleção, subcoleção, grupo, NCM e preços. Os produtos podem possuir variações de cor e tamanho, organizadas conforme as grades utilizadas pela empresa. Quando necessário, as informações cadastrais são atualizadas para manter os dados dos produtos consistentes com as características e condições comerciais vigentes.
 
+#### 4.2.2. Controle de Estoque e Inventário
+
+O controle de estoque permite acompanhar a quantidade de produtos disponíveis na loja física, no site e nas operações relacionadas ao centro de distribuição. As movimentações são registradas no ERP Millennium, e o inventário é utilizado para conferir as quantidades físicas com os dados do sistema. A empresa também utiliza informações de disponibilidade, demanda e estoque mínimo para identificar a necessidade de reposição de mercadorias.
+
+#### 4.2.3. Cadastro e Gerenciamento de Clientes
+
+O cadastro de clientes reúne informações necessárias para identificar e atender consumidores e empresas. Os clientes podem ser classificados conforme o perfil de compra, como B2C, para consumidores finais, e B2B, para empresas e compradores do atacado. Os dados registrados auxiliam na identificação do cliente, no histórico de compras e na aplicação das condições comerciais correspondentes a cada perfil.
+#### 4.2.4. Registro de Vendas na Loja Física e Virtual
+
+As vendas realizadas na loja física são registradas no Ponto de Venda (PDV), enquanto as compras on-line são registradas por meio do site. Os registros reúnem informações dos produtos, quantidades, preços e formas de pagamento. Quando uma venda utiliza mais de uma forma de pagamento, cada modalidade é registrada separadamente. As informações das vendas também auxiliam no acompanhamento do estoque e dos resultados comerciais.
+
+#### 4.2.5. Processamento de Pedidos da Loja Virtual
+
+O processamento de pedidos on-line envolve as etapas de confirmação do pagamento, separação dos produtos, conferência dos itens por código de barras, faturamento e expedição. Após o envio, as informações de rastreamento permitem acompanhar a entrega ao cliente. Quando o pedido é cancelado antes do envio, o cancelamento e o eventual reembolso são relacionados ao pedido original, de acordo com a situação da compra.
+
+
+
+
+
 
 
 
