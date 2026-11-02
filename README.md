@@ -138,6 +138,17 @@ As vendas realizadas na loja física são registradas no Ponto de Venda (PDV), e
 
 O processamento de pedidos on-line envolve as etapas de confirmação do pagamento, separação dos produtos, conferência dos itens por código de barras, faturamento e expedição. Após o envio, as informações de rastreamento permitem acompanhar a entrega ao cliente. Quando o pedido é cancelado antes do envio, o cancelamento e o eventual reembolso são relacionados ao pedido original, de acordo com a situação da compra.
 
+#### 4.2.6. Controle de Preços, Tabelas de Preços e Promoções
+
+A empresa administra os preços de venda conforme os produtos, as tabelas comerciais e as condições aplicáveis a cada modalidade de venda. Alterações de preços e concessões de descontos podem depender da aprovação da diretoria. O histórico de preços permite acompanhar os valores praticados em diferentes períodos, incluindo informações sobre preços de compra e de venda, conforme os registros mantidos pela empresa.
+
+#### 4.2.7. Trocas, Devoluções, Cancelamentos e Reembolsos
+
+As solicitações de troca, devolução e cancelamento são avaliadas conforme o tipo de compra e a situação do pedido. Nos casos de devolução, o produto pode passar por uma conferência para verificar suas condições. Quando aplicável, são registrados o motivo da operação e sua relação com a venda original. Os reembolsos são realizados conforme as condições da compra e os procedimentos aplicáveis, observando os direitos do consumidor.
+
+#### 4.2.8. Venda no Atacado — B2B
+
+As vendas no atacado atendem clientes empresariais e seguem condições comerciais específicas. A empresa considera o perfil do comprador, a finalidade da aquisição e as condições de negociação para definir o atendimento. O pedido mínimo costuma ser de seis peças, mas pode variar conforme o perfil do cliente e as condições autorizadas. Situações excepcionais podem ser encaminhadas à diretoria para avaliação.
 
 
 
