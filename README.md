@@ -269,9 +269,83 @@ As regras de negócio foram definidas a partir do levantamento dos processos ope
 ---
 
 ## 7. Modelo Conceitual (Entidade-Relacionamento-Atributos)
+A partir do levantamento realizado com a organização, foram identificadas entidades para representar os principais dados envolvidos nos processos de cadastro, vendas, controle de estoque, compras, preços, pagamentos, pedidos on-line e controle de acesso. O modelo conceitual foi estruturado para organizar essas informações e representar os relacionamentos entre elas.
 
+### Entidades identificadas
 
+- **Cliente:** representa os clientes cadastrados pela organização, incluindo consumidores finais e clientes empresariais.
+- **Funcionário:** representa os funcionários envolvidos nas atividades da empresa.
+- **Departamento:** representa os setores responsáveis pelas atividades da organização.
+- **Usuário_Sistema:** representa os usuários que acessam o sistema, com informações de login, senha armazenada em formato de hash, perfil e status de acesso.
+- **Log_Auditoria:** registra operações realizadas no sistema, incluindo o tipo de operação, a entidade afetada, o usuário responsável, a data e o horário, além de informações sobre alterações e justificativas.
+- **Produto:** reúne as informações gerais dos produtos comercializados, como código, descrição, referência, coleção, subcoleção, grupo, categoria, tipo e informações fiscais.
+- **Produto_SKU:** representa as variações específicas dos produtos, relacionando características como cor e tamanho e informações de estoque e dimensões.
+- **Marca:** representa as marcas comercializadas pela organização.
+- **Cor:** representa as cores utilizadas na identificação das variações dos produtos.
+- **Tamanho:** representa os tamanhos utilizados nas variações dos produtos.
+- **Venda:** representa as vendas realizadas pela organização.
+- **Item_Venda:** registra os itens que compõem cada venda, incluindo a identificação do item, a quantidade e o preço unitário de venda.
+- **Pagamento:** representa os pagamentos relacionados às vendas, permitindo registrar a forma de pagamento, o valor, o status e as informações da transação.
+- **Pedido_Online:** representa os pedidos realizados pelo site, incluindo informações de status, pagamento, rastreamento, envio e entrega.
+- **Troca_Devolucao:** registra ocorrências de troca, devolução e cancelamento relacionadas aos pedidos on-line.
+- **Movimentacao_Estoque:** registra movimentações de estoque, incluindo tipo, quantidade, data, motivo e documento de referência.
+- **Tabela_Preco:** representa as tabelas de preços utilizadas pela organização, considerando características como canal de venda e tipo de cliente.
+- **Item_Tabela_Preco:** relaciona os produtos ou suas variações às tabelas de preços, registrando o preço unitário de venda e o período de vigência.
+- **Historico_Preco:** registra alterações de preços ao longo do tempo, incluindo preço anterior, preço novo, preço de compra relacionado à reposição e datas de vigência.
+- **Fornecedor:** representa os fornecedores cadastrados no sistema.
+- **Pedido_Reposicao:** representa os pedidos realizados aos fornecedores para reposição de mercadorias.
+- **Item_Reposicao:** registra os produtos ou variações solicitados em cada pedido de reposição, incluindo quantidades solicitadas e recebidas, preço e status do item.
+- **Conta_a_Pagar:** representa os compromissos financeiros relacionados às compras, incluindo documento, valor, vencimento, pagamento e status da conta.
 
+### Atributos e classificações
+
+Os atributos foram definidos para caracterizar as entidades e permitir o registro das informações necessárias aos processos representados no modelo.
+
+A entidade **Produto** concentra os dados gerais de identificação e classificação dos produtos. A entidade **Produto_SKU** representa suas variações específicas, associando características como cor e tamanho. Essa separação evita a repetição das informações gerais do produto para cada variação.
+
+A entidade **Venda** registra as informações gerais de cada venda, enquanto **Item_Venda** identifica os itens comercializados, suas quantidades e seus preços unitários. A entidade **Pagamento** permite registrar os pagamentos associados às vendas, incluindo situações em que são utilizadas diferentes formas de pagamento.
+
+A entidade **Pedido_Online** concentra informações específicas dos pedidos realizados pelo site, como status, confirmação, rastreamento, envio e entrega. O pedido é relacionado à venda correspondente, permitindo associar os dados de atendimento on-line aos registros comerciais.
+
+Para representar o controle de estoque, a entidade **Movimentacao_Estoque** registra as alterações nas quantidades dos produtos, incluindo o tipo de movimentação, a quantidade movimentada, a data, o motivo e o documento de referência.
+
+O controle de preços é representado pelas entidades **Tabela_Preco**, **Item_Tabela_Preco** e **Historico_Preco**. A tabela identifica as condições comerciais, seus itens relacionam os preços aos produtos ou às variações, e o histórico permite acompanhar as alterações de valores ao longo do tempo.
+
+No processo de reposição, a entidade **Pedido_Reposicao** representa a solicitação feita ao fornecedor, enquanto **Item_Reposicao** detalha os produtos solicitados e as respectivas quantidades. A entidade **Conta_a_Pagar** representa os compromissos financeiros relacionados às compras, permitindo acompanhar valores, vencimentos e pagamentos.
+
+Por fim, **Usuario_Sistema** e **Log_Auditoria** representam os controles de acesso e o registro das operações realizadas no sistema. Essas entidades permitem estruturar informações relacionadas à identificação dos usuários e à rastreabilidade das ações registradas.
+
+### Relacionamentos relevantes
+
+Os principais relacionamentos representados no modelo são:
+
+- Departamento possui funcionários.
+- Funcionário pode estar associado a um usuário do sistema.
+- Usuário_Sistema gera registros em Log_Auditoria.
+- Marca possui produtos.
+- Produto possui variações em Produto_SKU.
+- Cor e Tamanho são associados às variações de Produto_SKU.
+- Cliente está associado às vendas.
+- Funcionário registra vendas.
+- Venda possui itens em Item_Venda.
+- Item_Venda identifica os produtos ou as variações comercializadas.
+- Venda possui registros de Pagamento.
+- Cliente realiza pedidos on-line.
+- Pedido_Online gera ou está associado à venda correspondente.
+- Pedido_Online possui ocorrências registradas em Troca_Devolucao.
+- Produto_SKU está relacionado às movimentações registradas em Movimentacao_Estoque.
+- Tabela_Preco possui itens em Item_Tabela_Preco.
+- Item_Tabela_Preco relaciona os preços aos produtos ou às suas variações.
+- Produto_SKU possui registros em Historico_Preco.
+- Tabela_Preco pode estar relacionada aos registros de Historico_Preco.
+- Fornecedor recebe pedidos de reposição.
+- Pedido_Reposicao possui itens em Item_Reposicao.
+- Item_Reposicao identifica os produtos ou as variações solicitadas para reposição.
+- Pedido_Reposicao está relacionado aos compromissos financeiros registrados em Conta_a_Pagar, conforme a operação representada no modelo.
+
+As cardinalidades são representadas no Diagrama Entidade-Relacionamento (DER), de acordo com as relações definidas entre as entidades.
+
+<br><br>
 ---
 
 ### 8. DER Diagrama Entidade-Relacionamento 
