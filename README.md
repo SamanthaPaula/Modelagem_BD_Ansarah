@@ -182,6 +182,9 @@ A geração de relatórios permite consultar informações sobre produtos, estoq
 
 Os processos de negócio estão relacionados e compartilham informações utilizadas em diferentes etapas da operação. O cadastro de produtos e suas variações fornece os dados necessários para as vendas e o controle de estoque. As vendas realizadas no PDV e no site estão relacionadas à disponibilidade dos produtos, enquanto os pedidos on-line dependem das atividades de separação, conferência, faturamento e expedição.
 
+O processo de reposição também está relacionado ao estoque, pois a necessidade de compra pode ser identificada a partir das informações de disponibilidade e demanda. Após o recebimento e a conferência das mercadorias, os registros de estoque são atualizados conforme o resultado da operação. As compras, por sua vez, geram compromissos financeiros acompanhados pelo processo de contas a pagar.
+
+As informações registradas no ERP alimentam relatórios que apoiam o acompanhamento das atividades e a tomada de decisões. O controle de usuários e permissões atua de forma transversal, restringindo o acesso às funcionalidades conforme as responsabilidades de cada funcionário.
 
 
 
