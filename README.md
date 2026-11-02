@@ -170,6 +170,19 @@ O controle de contas a pagar reúne informações das notas fiscais, dos boletos
 
 A logística envolve a organização e a movimentação das mercadorias entre o recebimento, o armazenamento, a separação e a expedição dos pedidos. No atendimento on-line, os produtos são separados e conferidos antes do faturamento e do envio. As informações de expedição e rastreamento auxiliam no acompanhamento dos pedidos até a entrega ao cliente. Essas atividades dependem dos registros de estoque e das informações dos pedidos para apoiar a organização das operações.
 
+#### 4.2.14. Controle de Usuários, Permissões e Registros de Operações
+
+O acesso ao ERP é realizado por usuários individuais, com permissões definidas conforme a função e as responsabilidades de cada funcionário. O sistema mantém registros de operações que permitem identificar o usuário responsável e informações como data e horário. Algumas ações, como cancelamentos, podem exigir justificativa, enquanto alterações de preços e descontos podem depender de autorização da diretoria. Esses controles contribuem para a segurança, a rastreabilidade e a integridade das informações.
+
+### 4.3. Processo Complementar — Geração de Relatórios
+
+A geração de relatórios permite consultar informações sobre produtos, estoque, vendas, marcas e períodos. Esses dados auxiliam no acompanhamento das operações e apoiam decisões relacionadas à reposição de mercadorias, ao desempenho comercial e à gestão da empresa. A disponibilidade e o nível de detalhamento dos relatórios dependem das informações registradas no ERP Millennium e das funcionalidades oferecidas pelo sistema.
+
+### 4.4. Integração entre os Processos de Negócio
+
+Os processos de negócio estão relacionados e compartilham informações utilizadas em diferentes etapas da operação. O cadastro de produtos e suas variações fornece os dados necessários para as vendas e o controle de estoque. As vendas realizadas no PDV e no site estão relacionadas à disponibilidade dos produtos, enquanto os pedidos on-line dependem das atividades de separação, conferência, faturamento e expedição.
+
+
 
 
 
