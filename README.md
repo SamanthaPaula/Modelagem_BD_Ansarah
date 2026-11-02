@@ -119,6 +119,9 @@ A geração de relatórios também é utilizada como atividade complementar para
 
 ### 4.2. Descrição dos Processos de Negócio
 
+#### 4.2.1. Cadastro e Atualização de Produtos
+
+O cadastro de produtos é realizado no ERP Millennium com base nas informações fornecidas pela fábrica. São registrados dados como nome, código, marca, coleção, subcoleção, grupo, NCM e preços. Os produtos podem possuir variações de cor e tamanho, organizadas conforme as grades utilizadas pela empresa. Quando necessário, as informações cadastrais são atualizadas para manter os dados dos produtos consistentes com as características e condições comerciais vigentes.
 
 
 
