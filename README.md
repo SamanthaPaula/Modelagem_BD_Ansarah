@@ -108,6 +108,17 @@ Os principais processos de negócio da empresa foram organizados em três grupos
 - Controle de contas a pagar.
 <br> <br>
 
+*Apoio*
+- Cadastro e atualização de produtos e suas variações;
+- Controle de estoque e inventário;
+- Logística e centro de distribuição;
+- Controle de usuários, permissões e registros de operações.
+
+A geração de relatórios também é utilizada como atividade complementar para consultar informações e apoiar a tomada de decisões.
+
+
+### 4.2. Descrição dos Processos de Negócio
+
 
 
 
