@@ -281,7 +281,7 @@ O **Diagrama Entidade-Relacionamento (DER)** está **anexado no repositório**.
 > **Imagem do DER: anexada no repositório.**
 
 ### 8.1 Apontamento da correção
-<BR>
+<BR><BR>
 | **Apontamento da correção da E1** | **O que mudou no trabalho** | **Por quê** |
 |---|---|---|
 | Relacionamento entre VENDA e PRODUTO sem detalhamento dos itens vendidos. | Foi incluída a entidade associativa ITEM_VENDA, com atributos para identificar cada item, a quantidade vendida e o preço unitário praticado. | Permite registrar individualmente os produtos de cada venda, incluindo suas quantidades e os preços aplicados a cada item. |
