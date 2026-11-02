@@ -298,7 +298,7 @@ O **Diagrama Entidade-Relacionamento (DER)** está **anexado no repositório**.
 ---
 
 
-### 9 Conversão do Modelo Conceitual para o Modelo Lógico
+### 9. Conversão do Modelo Conceitual para o Modelo Lógico
 
 A conversão do Modelo Entidade-Relacionamento (MER) conceitual da Ansarah para o modelo lógico relacional foi realizada considerando as entidades, os atributos, os relacionamentos e as cardinalidades definidos no DER revisado. O objetivo foi organizar as informações em tabelas relacionadas entre si, estabelecendo chaves primárias e estrangeiras e preparando a estrutura para a implementação no MySQL.
 
@@ -385,6 +385,8 @@ Não foi adotada uma estrutura de generalização ou especialização com entida
 A conversão do modelo conceitual para o modelo lógico permite organizar os dados da Ansarah em tabelas relacionadas, com chaves e restrições destinadas a preservar a integridade das informações.
 
 A estrutura resultante também prepara o banco de dados para a implementação no MySQL, a inserção de dados, a execução de consultas e a elaboração de relatórios gerenciais relacionados aos processos de vendas, estoque, preços e reposição.
+
+<BR><BR>
 ---
 
 ## 10. Dicionário de Dados
