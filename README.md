@@ -281,7 +281,7 @@ O **Diagrama Entidade-Relacionamento (DER)** está **anexado no repositório**.
 > **Imagem do DER: anexada no repositório.**
 
 ### 8.1 Apontamento da correção
-<BR><BR>
+<BR>
 | **Apontamento da correção da E1** | **O que mudou no trabalho** | **Por quê** |
 |---|---|---|
 | Relacionamento entre VENDA e PRODUTO sem detalhamento dos itens vendidos. | Foi incluída a entidade associativa ITEM_VENDA, com atributos para identificar cada item, a quantidade vendida e o preço unitário praticado. | Permite registrar individualmente os produtos de cada venda, incluindo suas quantidades e os preços aplicados a cada item. |
@@ -309,20 +309,108 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 ---
 
 ## 10. Justificativa Técnica do Modelo
-<br>
 
-<br><br>
+A modelagem conceitual foi desenvolvida com o objetivo de representar os principais processos identificados no levantamento de informações da Ansarah, contemplando cadastro de produtos, vendas, estoque, preços, pedidos on-line, reposição de mercadorias, pagamentos, controle financeiro e acesso ao sistema.
+
+A entidade **PRODUTO** concentra as informações gerais dos produtos comercializados, enquanto **PRODUTO_SKU** representa suas variações comercializáveis. As entidades **COR** e **TAMANHO** foram separadas para permitir o reaproveitamento dessas informações em diferentes produtos. Essa organização possibilita identificar individualmente as combinações de produto, cor e tamanho, conforme a necessidade de controle das variações e de suas respectivas quantidades em estoque.
+
+As entidades **VENDA** e **ITEM_VENDA** foram separadas para distinguir as informações gerais da operação comercial dos produtos que a compõem. Essa estrutura permite registrar vários itens em uma mesma venda, com suas respectivas quantidades e preços unitários. A entidade **PAGAMENTO** complementa esse processo ao armazenar as informações dos pagamentos associados às vendas, permitindo representar operações realizadas por diferentes formas de pagamento.
+
+A entidade **PEDIDO_ONLINE** representa as informações específicas das compras realizadas pelo site, incluindo status, rastreamento, envio e entrega. Seu relacionamento com **VENDA** permite associar o pedido à operação comercial correspondente. Já **TROCA_DEVOLUCAO** registra as ocorrências relacionadas aos pedidos on-line, incluindo motivo, situação, data e eventual valor de estorno, quando aplicável.
+
+Para representar o controle de estoque, foi incluída a entidade **MOVIMENTACAO_ESTOQUE**, responsável por registrar as alterações nas quantidades dos produtos, incluindo tipo, quantidade, data e informações sobre o responsável pela operação. Essa estrutura permite consultar o histórico de movimentações e apoiar a análise das entradas, saídas e possíveis divergências de estoque.
+
+O controle comercial de preços foi representado pelas entidades **TABELA_PRECO**, **ITEM_TABELA_PRECO** e **HISTORICO_PRECO**. Essa divisão permite organizar as tabelas comerciais, associar preços aos produtos ou às suas variações e preservar os registros das alterações realizadas ao longo do tempo.
+
+As entidades **FORNECEDOR**, **PEDIDO_REPOSICAO** e **ITEM_REPOSICAO** representam o processo de reposição de mercadorias. O pedido identifica a solicitação realizada ao fornecedor, enquanto seus itens detalham os produtos solicitados, as quantidades, os valores e as informações de recebimento. Essa estrutura permite representar pedidos com vários produtos e acompanhar entregas parciais.
+
+A entidade **CONTA_A_PAGAR** representa os compromissos financeiros relacionados às operações de compra, incluindo documentos, valores, vencimentos, situação e informações de pagamento. Sua relação com **PEDIDO_REPOSICAO** permite associar as obrigações financeiras aos pedidos correspondentes, conforme os relacionamentos definidos no modelo.
+
+Para representar a organização interna, a entidade **FUNCIONARIO** foi relacionada à entidade **DEPARTAMENTO**, permitindo identificar o setor ao qual cada funcionário está associado. As entidades **USUARIO_SISTEMA** e **LOG_AUDITORIA** foram propostas para representar o controle de acesso e a rastreabilidade das operações realizadas no sistema, contribuindo para a identificação dos usuários e o registro das ações relevantes.
+
+De modo geral, a estrutura proposta busca organizar as informações de acordo com os processos identificados, reduzir a duplicidade de dados e estabelecer uma base consistente para consultas e análises gerenciais. As entidades e os relacionamentos representam uma proposta acadêmica de modelagem, sujeita à validação e aos ajustes necessários conforme as regras de negócio e os requisitos identificados durante o levantamento.
+
+---
+
+## 11. Justificativa das Decisões de Modelagem e das Restrições de Integridade
+
+As decisões técnicas do modelo foram definidas para garantir a identificação dos registros, estabelecer os relacionamentos entre as entidades e reduzir inconsistências no armazenamento das informações.
+
+### 11.1 Chaves primárias
+
+As chaves primárias (PK) foram definidas para identificar exclusivamente os registros de cada tabela. Foram utilizados identificadores próprios, como `id_produto`, `id_cliente`, `id_venda`, `id_sku` e `id_fornecedor`, evitando a dependência de atributos descritivos, como nomes, para identificar os registros.
+
+Nas tabelas que representam itens de processos, como `ITEM_VENDA`, `ITEM_REPOSICAO` e `ITEM_TABELA_PRECO`, os identificadores próprios permitem distinguir cada item individualmente, mesmo quando vários itens pertencem à mesma venda, pedido de reposição ou tabela de preços.
+
+### 11.2 Chaves estrangeiras e relacionamentos
+
+As chaves estrangeiras (FK) estabelecem referências entre as tabelas e permitem associar os registros correspondentes aos processos representados no modelo.
+
+**Cadastro de produtos:** `PRODUTO` relaciona-se com `MARCA`, enquanto `PRODUTO_SKU` relaciona-se com `PRODUTO`, `COR` e `TAMANHO`. Essa estrutura permite associar cada variação ao produto correspondente e às suas características comerciais.
+
+**Vendas e pagamentos:** `VENDA` relaciona-se com `CLIENTE` e `FUNCIONARIO`, quando essas associações forem aplicáveis. `ITEM_VENDA` relaciona-se com `VENDA` e `PRODUTO_SKU`, permitindo identificar os produtos comercializados, suas quantidades e seus preços unitários. `PAGAMENTO` relaciona-se com `VENDA`, possibilitando registrar separadamente os pagamentos associados a uma mesma operação.
+
+**Pedidos on-line e ocorrências:** `PEDIDO_ONLINE` relaciona-se com `CLIENTE` e `VENDA`. `TROCA_DEVOLUCAO` relaciona-se com `PEDIDO_ONLINE`, permitindo associar cada ocorrência ao pedido correspondente.
+
+**Reposição de mercadorias:** `PEDIDO_REPOSICAO` relaciona-se com `FORNECEDOR`. `ITEM_REPOSICAO` relaciona-se com `PEDIDO_REPOSICAO` e `PRODUTO_SKU`, permitindo detalhar os produtos solicitados e as quantidades recebidas.
+
+**Movimentação de estoque:** `MOVIMENTACAO_ESTOQUE` relaciona-se com `PRODUTO_SKU` e `FUNCIONARIO`. Também pode relacionar-se com `ITEM_REPOSICAO`, quando a movimentação estiver associada ao recebimento de um item de reposição.
+
+**Controle de preços:** `ITEM_TABELA_PRECO` relaciona-se com `TABELA_PRECO` e `PRODUTO_SKU`. `HISTORICO_PRECO` relaciona-se com `PRODUTO_SKU` e `TABELA_PRECO`, permitindo registrar as alterações dos preços associados aos produtos e às respectivas tabelas comerciais.
+
+**Controle financeiro:** `CONTA_A_PAGAR` relaciona-se com `PEDIDO_REPOSICAO` por meio de `id_reposicao`. Dessa forma, as informações do fornecedor podem ser consultadas pelo relacionamento entre `PEDIDO_REPOSICAO` e `FORNECEDOR`, sem a necessidade de duplicar sua identificação em `CONTA_A_PAGAR`.
+
+**Funcionários e auditoria:** `FUNCIONARIO` relaciona-se com `DEPARTAMENTO`; `USUARIO_SISTEMA` relaciona-se com `FUNCIONARIO`; e `LOG_AUDITORIA` relaciona-se com `USUARIO_SISTEMA`. Esses relacionamentos permitem representar a associação entre funcionários, contas de acesso e registros de auditoria.
+
+### 11.3 Restrições de integridade
+
+As restrições de integridade foram consideradas para controlar os valores armazenados e evitar inconsistências nos registros.
+
+- **PRIMARY KEY (PK):** identifica exclusivamente cada registro de uma tabela.
+- **FOREIGN KEY (FK):** estabelece referências entre tabelas e impede que sejam inseridos valores que não correspondam a registros existentes na tabela referenciada, conforme as regras de integridade aplicáveis.
+- **NOT NULL (NN):** impede que atributos definidos como obrigatórios sejam armazenados sem valor.
+- **UNIQUE (UQ):** impede a duplicidade dos valores abrangidos pela restrição, conforme sua definição no banco de dados.
+- **CHECK:** limita os valores permitidos em determinados atributos, como quantidades não negativas, valores financeiros não negativos e classificações restritas a opções previamente definidas.
+- **IDENTITY / AUTO_INCREMENT:** permite gerar identificadores automaticamente nas tabelas em que esse mecanismo foi definido.
+
+A aplicação dessas restrições deve corresponder às definições presentes no script SQL e no Dicionário de Dados, garantindo consistência entre a documentação e a implementação relacional.
+
+### 11.4 Relação com as regras de negócio
+
+As decisões de modelagem foram relacionadas às regras de negócio levantadas durante o estudo da organização.
+
+No cadastro de produtos, a separação entre `PRODUTO` e `PRODUTO_SKU` está relacionada às RN01, RN02 e RN03, que tratam do cadastro e da identificação das variações comercializáveis.
+
+Nos processos de venda e pagamento, a estrutura de `VENDA`, `ITEM_VENDA` e `PAGAMENTO` apoia a representação das operações comerciais e das diferentes formas de pagamento, conforme as RN04, RN05 e RN25.
+
+O controle de pedidos on-line, trocas e devoluções está relacionado às RN06, RN07, RN08 e RN33. Já o controle de estoque e reposição está associado às RN10, RN11, RN12, RN15, RN16, RN17 e RN26, que tratam da disponibilidade dos produtos, das necessidades de reposição, das conferências de recebimento e do registro das movimentações.
+
+A estrutura de contas a pagar está relacionada às RN19, RN21 e RN22, que abordam o registro das obrigações financeiras, a confirmação dos pagamentos e a consulta das contas por situação. As entidades de acesso e auditoria, por sua vez, foram propostas para apoiar as RN27, RN28, RN29 e RN32, relacionadas à individualização dos acessos, às permissões, ao rastreamento das operações e à proteção dos dados.
+
+A relação entre as entidades e as regras de negócio deve ser interpretada conforme o que está efetivamente representado no DER, no Dicionário de Dados e no script SQL. A existência de uma regra de negócio no levantamento não significa, por si só, que todos os mecanismos necessários para atendê-la já estejam implementados.
+
+### 11.5 Decisões para evitar redundância
+
+A separação entre `PRODUTO` e `PRODUTO_SKU` evita misturar as informações gerais dos produtos com os dados específicos de suas variações. Assim, o nome e a descrição do produto podem ser consultados por meio do relacionamento com o SKU, sem a necessidade de repetir essas informações em cada variação.
+
+Pelo mesmo motivo, os atributos `nome_item_venda` e `nome_item_reposicao` não foram mantidos em `ITEM_VENDA` e `ITEM_REPOSICAO`, pois o nome do produto pode ser obtido pelo relacionamento entre essas tabelas, `PRODUTO_SKU` e `PRODUTO`.
+
+O atributo `preco_unitario_venda` foi mantido em `ITEM_VENDA` porque representa o preço efetivamente praticado na operação comercial. Esse valor pode ser diferente do preço atualmente cadastrado e, portanto, precisa ser preservado para manter o histórico financeiro da venda.
+
+A separação entre `VENDA` e `PAGAMENTO` permite representar pagamentos associados a uma mesma venda sem limitar a operação a uma única forma de pagamento. Da mesma maneira, a separação entre `PEDIDO_REPOSICAO` e `ITEM_REPOSICAO` permite registrar individualmente os produtos solicitados e recebidos, incluindo situações de entrega parcial.
+
+Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para representar o controle de acesso e a rastreabilidade das operações no modelo acadêmico. Sua inclusão não significa que essas entidades correspondam à estrutura interna do ERP utilizado pela Ansarah, mas que representam uma proposta de organização dessas informações no banco de dados desenvolvido para o projeto.
 
 
 ---
 
-## 11. Uso de Inteligência Artificial
+## 12. Uso de Inteligência Artificial
 
 
 <br><br>
 ---
 
-## 12. Conclusão
+## 13. Conclusão
 
 <br><br>
 
@@ -330,7 +418,7 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 
 ---
 
-## 13. Referências
+## 14. Referências
 
 - **ANSARAH.** Informações institucionais e comerciais.  
   https://www.ansarah.com.br/
