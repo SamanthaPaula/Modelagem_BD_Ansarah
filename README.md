@@ -150,6 +150,14 @@ As solicitações de troca, devolução e cancelamento são avaliadas conforme o
 
 As vendas no atacado atendem clientes empresariais e seguem condições comerciais específicas. A empresa considera o perfil do comprador, a finalidade da aquisição e as condições de negociação para definir o atendimento. O pedido mínimo costuma ser de seis peças, mas pode variar conforme o perfil do cliente e as condições autorizadas. Situações excepcionais podem ser encaminhadas à diretoria para avaliação.
 
+#### 4.2.9. Cadastro e Relacionamento com Fornecedores e Marcas
+
+O cadastro de fornecedores e marcas reúne informações utilizadas na identificação dos parceiros comerciais e no acompanhamento das compras. Esses registros auxiliam na organização dos pedidos, na conferência das mercadorias recebidas e na comunicação sobre divergências, avarias ou entregas pendentes. Quando necessário, a empresa mantém contato com os fornecedores para tratar de ajustes relacionados às mercadorias e às condições comerciais.
+
+#### 4.2.10. Identificação da Necessidade e Pedido de Reposição de Mercadorias
+
+A necessidade de reposição é identificada a partir das informações de estoque, da demanda e dos níveis mínimos definidos pela empresa. O ERP pode auxiliar nesse acompanhamento por meio de alertas e consultas, enquanto a análise dos relatórios contribui para a decisão de compra. Após a identificação da necessidade, é elaborado o pedido de reposição ao fornecedor, considerando os produtos, as quantidades e as condições comerciais estabelecidas.
+
 
 
 
