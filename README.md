@@ -565,10 +565,11 @@ Dessa forma, a normalização contribui para a integridade dos dados, facilita a
 
 A normalização foi necessária para organizar as informações do banco de dados, evitar a duplicidade de registros e garantir maior consistência durante as operações da empresa.
 
-- *Primeira Forma Normal (1FN):* foi necessária para garantir que cada campo armazenasse uma única informação, facilitando o cadastro, a consulta e a atualização dos dados. No projeto, isso também contribuiu para organizar os produtos e suas variações de cor e tamanho por meio da tabela PRODUTO_SKU.
+- **Primeira Forma Normal (1FN):** foi necessária para garantir que cada campo armazenasse uma única informação, facilitando o cadastro, a consulta e a atualização dos dados. No projeto, isso também contribuiu para organizar os produtos e suas variações de cor e tamanho por meio da tabela PRODUTO_SKU.
 
-- *Segunda Forma Normal (2FN):* foi analisada para verificar se os atributos dependiam integralmente de suas respectivas chaves primárias, evitando informações associadas apenas a parte de uma chave composta. Essa verificação foi importante para avaliar a organização das tabelas e a independência dos dados. No modelo, não foram identificadas dependências parciais em relação às chaves primárias simples utilizadas.
+- **Segunda Forma Normal (2FN):** foi analisada para verificar se os atributos dependiam integralmente de suas respectivas chaves primárias, evitando informações associadas apenas a parte de uma chave composta. Essa verificação foi importante para avaliar a organização das tabelas e a independência dos dados. No modelo, não foram identificadas dependências parciais em relação às chaves primárias simples utilizadas.
 
+**Terceira Forma Normal (3FN):** foi necessária para reduzir a repetição de informações e evitar dependências desnecessárias entre atributos. Como resultado da análise, foram removidos os atributos nome_item_venda e nome_item_reposicao, pois a descrição dos produtos já está armazenada na tabela PRODUTO e pode ser consultada por meio dos relacionamentos com PRODUTO_SKU. Isso evita que a mesma descrição precise ser cadastrada novamente nas operações de venda e reposição.
 
 
 
