@@ -561,6 +561,16 @@ Foram realizadas as seguintes alterações:
 
 Dessa forma, a normalização contribui para a integridade dos dados, facilita a manutenção das informações e reduz a possibilidade de inconsistências no banco de dados.
 
+### Justificativa do processo de normalização
+
+A normalização foi necessária para organizar as informações do banco de dados, evitar a duplicidade de registros e garantir maior consistência durante as operações da empresa.
+
+- *Primeira Forma Normal (1FN):* foi necessária para garantir que cada campo armazenasse uma única informação, facilitando o cadastro, a consulta e a atualização dos dados. No projeto, isso também contribuiu para organizar os produtos e suas variações de cor e tamanho por meio da tabela PRODUTO_SKU.
+
+- *Segunda Forma Normal (2FN):* foi analisada para verificar se os atributos dependiam integralmente de suas respectivas chaves primárias, evitando informações associadas apenas a parte de uma chave composta. Essa verificação foi importante para avaliar a organização das tabelas e a independência dos dados. No modelo, não foram identificadas dependências parciais em relação às chaves primárias simples utilizadas.
+
+
+
 
 
 
