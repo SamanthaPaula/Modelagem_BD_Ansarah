@@ -527,7 +527,13 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 | Historico_preco | id_historico_preco | id_sku → Produto_SKU; id_tabela_preco → Tabela_preco |
 | Cor | id_cor | — |
 | Tamanho | id_tamanho | — |
-| Produto | id_produto | id_marca → Marca |
+| Produto | id_produto | id_marca → Marca | | Marca | id_marca | — |
+| Item_venda | id_item_venda | id_sku → Produto_SKU; id_venda → Venda |
+| Venda | id_venda | id_cliente → Cliente; id_funcionario → Funcionario |
+| Pagamento | id_pagamento | id_venda → Venda |
+| Cliente | id_cliente | — |
+| Pedido_online | id_pedido | id_cliente → Cliente; id_venda → Venda |
+| Troca_devolucao | id_ocorrencia | id_pedido → Pedido_online |
 
 
 
