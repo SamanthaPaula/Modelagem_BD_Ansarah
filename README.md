@@ -557,6 +557,9 @@ Foram realizadas as seguintes alterações:
 - Remoção do atributo nome_item_venda da tabela ITEM_VENDA, pois a descrição do produto pode ser obtida por meio do relacionamento com PRODUTO_SKU e, posteriormente, com PRODUTO.
 - Remoção do atributo nome_item_reposicao da tabela ITEM_REPOSICAO, pelo mesmo motivo: a descrição do produto pode ser consultada por meio do SKU relacionado.
 
+  Com essas alterações, as informações gerais dos produtos permanecem centralizadas na tabela PRODUTO, evitando a repetição de descrições nas tabelas de venda e reposição.
+
+Dessa forma, a normalização contribui para a integridade dos dados, facilita a manutenção das informações e reduz a possibilidade de inconsistências no banco de dados.
 
 
 
