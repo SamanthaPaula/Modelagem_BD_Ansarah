@@ -534,7 +534,8 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 | Cliente | id_cliente | — |
 | Pedido_online | id_pedido | id_cliente → Cliente; id_venda → Venda |
 | Troca_devolucao | id_ocorrencia | id_pedido → Pedido_online |
-
+---
+<br> <br>
 ### 12. Processo de Normalização
 
 O processo de normalização foi realizado com o objetivo de organizar as tabelas do banco de dados, reduzir a redundância de informações e evitar inconsistências durante as operações de cadastro, venda, reposição e controle de estoque.
