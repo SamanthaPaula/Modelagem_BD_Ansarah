@@ -543,6 +543,14 @@ O processo de normalização foi realizado com o objetivo de organizar as tabela
 
 Foi verificado se os atributos das tabelas armazenavam valores atômicos, ou seja, se cada campo representava uma única informação. Também foi analisada a organização dos produtos e suas variações.
 
+A tabela PRODUTO armazena as informações gerais do produto, incluindo seu código e descrição. Já a tabela PRODUTO_SKU identifica cada variação específica, relacionando o produto à sua respectiva cor e tamanho. Dessa forma, cada combinação de produto, cor e tamanho possui um registro próprio.
+
+*Segunda Forma Normal (2FN)*
+
+Foi verificada a existência de dependências parciais nas tabelas do banco de dados. Como as tabelas utilizam chaves primárias simples, formadas por apenas um atributo, não foram identificadas dependências parciais em relação às chaves primárias. Dessa forma, as tabelas atendem ao critério de ausência de dependências parciais da Segunda Forma Normal.
+
+
+
 
 
 
