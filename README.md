@@ -508,6 +508,30 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 > **Arquivo do Dicionário de Dados: anexado no repositório.**
 
 ---
+## 11. Definição de Chaves Primárias e Estrangeiras
+
+| Entidade | Chave Primária (PK) | Chaves Estrangeiras (FK) |
+|---|---|---|
+| Log_auditoria | id_log | id_usuario → Usuario_sistema |
+| Usuario_sistema | id_usuario | id_funcionario → Funcionario |
+| Funcionario | id_funcionario | id_departamento → Departamento |
+| Departamento | id_departamento | — |
+| Movimentacao_estoque | id_movimentacao | id_sku → Produto_SKU; id_item_reposicao → Item_reposicao; id_funcionario → Funcionario |
+| Item_reposicao | id_item_reposicao | id_reposicao → Pedido_reposicao; ´ id_sku → Produto_SKU|
+| Pedido_reposicao | id_reposicao | id_fornecedor → Fornecedor |
+| Fornecedor | id_fornecedor | — |
+| Conta_a_pagar | id_conta_pagar | id_reposicao → Pedido_reposicao |
+| Produto_SKU | id_sku | id_cor → Cor; id_tamanho → Tamanho; id_produto → Produto |
+| Item_tabela_preco | id_item_tabela_preco | id_tabela_preco → Tabela_preco; id_sku → Produto_SKU |
+| Tabela_preco | id_tabela_preco | — |
+| Historico_preco | id_historico_preco | id_sku → Produto_SKU; id_tabela_preco → Tabela_preco |
+| Cor | id_cor | — |
+| Tamanho | id_tamanho | — |
+| Produto | id_produto | id_marca → Marca |
+
+
+
+
 
 ## 13. Justificativa Técnica do Modelo
 
