@@ -539,16 +539,23 @@ Ele apresenta as entidades, atributos, chaves primárias (PK), chaves estrangeir
 
 O processo de normalização foi realizado com o objetivo de organizar as tabelas do banco de dados, reduzir a redundância de informações e evitar inconsistências durante as operações de cadastro, venda, reposição e controle de estoque.
 
-*Primeira Forma Normal (1FN)*
+**Primeira Forma Normal (1FN)**
 
 Foi verificado se os atributos das tabelas armazenavam valores atômicos, ou seja, se cada campo representava uma única informação. Também foi analisada a organização dos produtos e suas variações.
 
 A tabela PRODUTO armazena as informações gerais do produto, incluindo seu código e descrição. Já a tabela PRODUTO_SKU identifica cada variação específica, relacionando o produto à sua respectiva cor e tamanho. Dessa forma, cada combinação de produto, cor e tamanho possui um registro próprio.
 
-*Segunda Forma Normal (2FN)*
+**Segunda Forma Normal (2FN)**
 
 Foi verificada a existência de dependências parciais nas tabelas do banco de dados. Como as tabelas utilizam chaves primárias simples, formadas por apenas um atributo, não foram identificadas dependências parciais em relação às chaves primárias. Dessa forma, as tabelas atendem ao critério de ausência de dependências parciais da Segunda Forma Normal.
+**Terceira Forma Normal (3FN)**
 
+Foi analisada a existência de dependências transitivas e informações redundantes que poderiam ser obtidas por meio dos relacionamentos entre as tabelas.
+
+Foram realizadas as seguintes alterações:
+
+- Remoção do atributo nome_item_venda da tabela ITEM_VENDA, pois a descrição do produto pode ser obtida por meio do relacionamento com PRODUTO_SKU e, posteriormente, com PRODUTO.
+- Remoção do atributo nome_item_reposicao da tabela ITEM_REPOSICAO, pelo mesmo motivo: a descrição do produto pode ser consultada por meio do SKU relacionado.
 
 
 
