@@ -571,7 +571,7 @@ A normalização foi necessária para organizar as informações do banco de dad
 
 **Terceira Forma Normal (3FN):** foi necessária para reduzir a repetição de informações e evitar dependências desnecessárias entre atributos. Como resultado da análise, foram removidos os atributos nome_item_venda e nome_item_reposicao, pois a descrição dos produtos já está armazenada na tabela PRODUTO e pode ser consultada por meio dos relacionamentos com PRODUTO_SKU. Isso evita que a mesma descrição precise ser cadastrada novamente nas operações de venda e reposição.
 
-
+Dessa forma, o processo contribui para manter as informações centralizadas, facilitar sua manutenção e reduzir possíveis inconsistências nos registros do banco de dados.
 
 
 
