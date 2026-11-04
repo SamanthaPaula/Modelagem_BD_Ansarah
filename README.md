@@ -28,12 +28,14 @@ O projeto tem como delimitação a modelagem conceitual das informações e dos 
 </br></br>
 **Contexto e porte:** A Ansarah atua no segmento de moda e vestuário, com vendas no varejo e no atacado para todo o Brasil. Sua operação conta com lojas físicas, loja virtual e centro de logística, além de aproximadamente 9 a 60 funcionários, conforme as informações levantadas pelo grupo. A organização trabalha com diferentes produtos, cores, tamanhos e grades, exigindo o gerenciamento de cadastros, preços, vendas, estoque, fornecedores, pedidos e movimentações financeiras.
 </br></br>
-**Problemas e necessidades identificadas:** 
-- **P1 — Inserção manual de informações:** o cadastro de produtos exige o preenchimento manual de informações no sistema, tornando necessário aprimorar a organização e a atualização dos dados dos produtos.
-- **P2 — Dificuldade na geração de relatórios:** existe dificuldade para elaborar relatórios personalizados, o que evidencia a necessidade de facilitar a consulta e a análise das informações para apoiar a tomada de decisões.
-- **P3 — Recuperação e atualização dos dados após restauração de backup:** quando é necessário recuperar uma versão anterior dos dados, informações registradas posteriormente podem precisar ser inseridas novamente de forma manual, gerando retrabalho e risco de desatualização.
-- **P4 — Controle da disponibilidade de produtos:** foi identificada a necessidade de aprimorar o acompanhamento das quantidades em estoque e da disponibilidade dos produtos para comercialização, visando reduzir a ocorrência de vendas sem estoque disponível.
-  Diante desses problemas, o projeto busca estruturar os dados da organização para melhorar o gerenciamento das informações, facilitar consultas gerenciais, apoiar o acompanhamento do estoque e contribuir para a integridade e a rastreabilidade dos registros.
+**Problemas e necessidades identificadas**
+**P1—** Perda de informações e retrabalho após a restauração de backup: quando é necessário restaurar uma versão anterior do banco de dados, informações registradas posteriormente ao backup podem ser perdidas. Como consequência, funcionários precisam inserir novamente dados que já haviam sido cadastrados, como informações de produtos, gerando retrabalho e risco de inconsistências.
+
+**P2 —** Dificuldade na geração de relatórios: existe dificuldade para elaborar relatórios personalizados, o que evidencia a necessidade de facilitar a consulta e a análise das informações para apoiar a tomada de decisões.
+
+**P3 —** Controle da disponibilidade de produtos: existe a necessidade de aprimorar o acompanhamento das quantidades em estoque e o planejamento das reposições, além de evitar que vendas sejam finalizadas quando a quantidade solicitada for superior à disponibilidade do produto.
+
+Diante desses problemas, o projeto busca estruturar os dados da organização para melhorar o gerenciamento das informações, facilitar consultas gerenciais, apoiar o acompanhamento do estoque e contribuir para a integridade e a rastreabilidade dos registros.
 </br></br>
 **Escopo do sistema:** O banco de dados proposto contempla os principais processos de negócio da organização, incluindo cadastro de clientes, funcionários, usuários e produtos; gerenciamento de vendas e pedidos on-line; pagamentos; controle de preços; estoque e movimentações; fornecedores; reposição e recebimento de mercadorias; contas a pagar; trocas, devoluções e registros de auditoria. Dessa forma, o modelo não se limita a um único setor, mas busca integrar informações relacionadas à operação comercial e administrativa da Ansarah.
 </br></br>
