@@ -29,7 +29,7 @@ O projeto tem como delimitação a modelagem conceitual das informações e dos 
 **Contexto e porte:** A Ansarah atua no segmento de moda e vestuário, com vendas no varejo e no atacado para todo o Brasil. Sua operação conta com lojas físicas, loja virtual e centro de logística, além de aproximadamente 9 a 60 funcionários, conforme as informações levantadas pelo grupo. A organização trabalha com diferentes produtos, cores, tamanhos e grades, exigindo o gerenciamento de cadastros, preços, vendas, estoque, fornecedores, pedidos e movimentações financeiras.
 </br></br>
 ### Problemas e necessidades identificadas
-<BR>
+<BR><BR>
 **P1 — Perda de informações e retrabalho após a restauração de backups:** Durante o levantamento, foi identificada uma dificuldade relacionada à recuperação de informações armazenadas no ERP. Em situações em que é necessário restaurar um backup anterior, dados registrados após a data da cópia de segurança podem não estar presentes na versão recuperada. Com isso, informações mais recentes precisam ser inseridas novamente de forma manual, ocasionando retrabalho, perda de tempo e risco de inconsistências nos registros da empresa.
 
 **P2 — Dificuldade na geração de relatórios personalizados:** Foi identificada uma limitação na elaboração de relatórios no ERP Millennium, principalmente quando a empresa necessita consultar informações específicas que não estão disponíveis nos relatórios padrão do sistema. Essa dificuldade pode tornar a análise dos dados mais demorada, dificultando o acompanhamento de indicadores relacionados às vendas, aos produtos, ao estoque e às demais atividades da organização.
