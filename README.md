@@ -953,23 +953,20 @@ O arquivo contém os comandos de criação do banco de dados e das 25 tabelas, i
 
 > **Arquivo SQl: anexada no repositório.**
 ---
-## 16. Utilização de Inteligência Artificial
+## 17. Utilização de Inteligência Artificial
 
 Durante o desenvolvimento do projeto de banco de dados da ANSARAH, foi utilizada a ferramenta de inteligência artificial *ChatGPT, desenvolvida pela OpenAI*, como apoio às atividades de documentação, modelagem e desenvolvimento dos comandos SQL.
 
 A ferramenta foi utilizada para organizar as perguntas do levantamento, auxiliar na organização das informações obtidas durante a entrevista, revisar e organizar os textos do projeto no README, revisar atributos e entidades representados no DER, auxiliar na criação do dicionário de dados (convenções técnicas, matriz de permissões, LGPD, entre outros), esclarecer conceitos relacionados à modelagem de banco de dados, criar a massa de dados e analisar os comandos SQL.
 As sugestões fornecidas pela inteligência artificial foram analisadas pelos integrantes do grupo, que realizaram as adaptações necessárias de acordo com os requisitos do trabalho, as informações obtidas com a organização, a estrutura desenvolvida para o banco de dados e as orientações dadas pelo professor durante as aulas.
 
-### 16.1 Registro de utilização da ferramenta
+### 17.1 Registro de utilização da ferramenta
 
 | *Ferramenta e etapa* | *Motivação* | *Prompt(s) utilizados* | *Resposta recebida* | *Trechos rejeitados ou corrigidos* | *Justificativa da escolha final* | *Reflexão crítica* |
 |---|---|---|---|---|---|---|
 | *ChatGPT — Organização do levantamento* | Organizar perguntas para obter informações sobre os processos e as necessidades da empresa, principalmente nas áreas de vendas, estoque, compras e controle de produtos. | "Quais perguntas podemos fazer para conhecer os processos de vendas, estoque, compras e controle de produtos da empresa?" | Sugestões de perguntas para o questionário inicial e para aprofundar o levantamento durante a entrevista, abordando cadastro de produtos, movimentações de estoque, vendas, compras e dificuldades operacionais. | Perguntas muito amplas, repetitivas ou que não contribuíam diretamente para conhecer o funcionamento da ANSARAH foram retiradas ou reformuladas. Também foram ajustadas perguntas que pressupunham a existência de procedimentos ainda não confirmados, como determinados controles automáticos de estoque. | Foram priorizadas perguntas que permitissem compreender como a empresa realiza suas atividades, quais informações registra no ERP Millennium e quais dificuldades enfrenta. Essa escolha ajudou a direcionar o levantamento para informações que posteriormente poderiam ser utilizadas na identificação dos processos, requisitos e regras de negócio. | A IA ajudou a ampliar as possibilidades de perguntas, mas não conhecia previamente a rotina da empresa. Por isso, o grupo precisou selecionar questões pertinentes e evitar conduzir a entrevista com base em suposições. |
 
----
 
-
-## 17. Uso de Inteligência Artificial
 
 
 <br><br>
@@ -992,7 +989,7 @@ Por fim, conclui-se que o projeto proporcionou uma experiência prática de aná
 
 ---
 
-## 18. Referências
+## 19. Referências
 
 - **ANSARAH.** Informações institucionais e comerciais.  
   https://www.ansarah.com.br/
