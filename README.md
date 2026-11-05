@@ -413,7 +413,7 @@ As cardinalidades são representadas no Diagrama Entidade-Relacionamento (DER), 
 O **Diagrama Entidade-Relacionamento (DER)** foi elaborado utilizando a ferramenta **brModelo**, com base nas entidades, nos atributos e nos relacionamentos identificados durante o levantamento de requisitos da organização. O diagrama representa graficamente a estrutura conceitual do banco de dados proposto para a ANSARAH.
 
 
-> **Imagem do DER: anexada no [MODELOS](./MODELOS)..**
+> **Imagem do DER: anexada no repositório na pasta [MODELOS](./MODELOS).**
 
 ### 8.1 Apontamento da correção
 <BR><BR>
@@ -535,7 +535,7 @@ Não foi adotada uma estrutura de generalização ou especialização com entida
 
 O modelo lógico do banco de dados da ANSARAH foi desenvolvido utilizando a ferramenta **brModelo** e está anexado a este repositório. Ele apresenta a estrutura das tabelas, seus atributos, chaves primárias e campos destinados aos relacionamentos entre as entidades.
 
-> **O modelo lógico desenvolvido a partir do modelo conceitual está disponível no repositório, junto aos demais arquivos do projeto.**
+> **O modelo lógico desenvolvido a partir do modelo conceitual está disponível no repositório na pasta  [MODELOS](./MODELOS) .**
 
 
 #### Considerações finais
@@ -558,7 +558,7 @@ O **Dicionário de Dados** foi elaborado para documentar a estrutura do banco de
 
 O arquivo do Dicionário de Dados está disponível no repositório do projeto, junto aos demais documentos.
 
-> **Arquivo do Dicionário de Dados: `dicionario.html`.**
+> **Arquivo do Dicionário de Dados está no repositório na pasta [DICIONÁRIO DE DADOS](./DicionarioDados).**
 
 ---
 
