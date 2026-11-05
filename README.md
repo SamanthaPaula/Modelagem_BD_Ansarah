@@ -190,19 +190,6 @@ As informações registradas no ERP alimentam relatórios que apoiam o acompanha
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 
 
@@ -675,14 +662,194 @@ Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para
 
 
 ---
+# 15 Proposta de Arquitetura Analítica para BI e IA — ANSARAH
 
-## 15. Uso de Inteligência Artificial
+## 15.1 Informações estratégicas para a gestão
+
+A estrutura do banco de dados da ANSARAH foi desenvolvida para organizar e relacionar informações de produtos, vendas, clientes, estoque, fornecedores e pedidos de reposição.
+
+A partir dessas informações, é possível utilizar ferramentas de Business Intelligence (BI) para transformar os registros operacionais em relatórios e indicadores que auxiliem a tomada de decisões.
+
+As principais informações estratégicas que podem ser obtidas são:
+
+- **Gestão de produtos:** identificação de cadastros incompletos, quantidade de variações por produto e organização dos SKUs.
+- **Desempenho comercial:** acompanhamento do faturamento mensal, ticket médio e resultados por canal de venda.
+- **Controle de estoque:** identificação de produtos com baixa disponibilidade, acompanhamento das movimentações e necessidades de reposição.
+- **Gestão de fornecedores:** acompanhamento de pedidos de reposição, quantidades solicitadas, recebidas e pendentes.
+- **Auditoria e segurança:** acompanhamento das alterações registradas no sistema por meio da auditoria e, com a inclusão das entidades específicas, consulta ao histórico das operações de backup e restauração.
+
+Essas informações podem apoiar decisões sobre compras, vendas, organização dos cadastros, disponibilidade de mercadorias e segurança dos dados.
+
+## 15.2 Indicadores e métricas gerenciais (KPIs)
+
+Os KPIs propostos foram selecionados considerando os dados disponíveis no modelo relacional da ANSARAH e as necessidades identificadas durante o levantamento da organização.
+
+| KPI | Fórmula de cálculo | Período | Objetivo |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------- | -------------------------- | --------------------------------------------- |
+| K01 — Percentual de cadastros incompletos | (Produtos com campos obrigatórios vazios ÷ total de produtos) × 100 | Mensal, sobre a base atual | Monitorar a qualidade dos cadastros |
+| K02 — Faturamento mensal | Soma dos valores dos itens das vendas concluídas, considerando os descontos aplicáveis | Mensal | Acompanhar o desempenho financeiro das vendas |
+| K03 — Ticket médio | Faturamento das vendas concluídas ÷ quantidade de vendas concluídas | Mensal | Identificar o valor médio por venda |
+| K04 — Faturamento por canal | Soma do faturamento das vendas concluídas de cada canal | Mensal | Comparar os resultados dos canais de venda |
+| K05 — Percentual de SKUs com estoque baixo | (SKUs com estoque de até 15 unidades ÷ total de SKUs) × 100 | Diário | Identificar riscos de indisponibilidade |
+| K06 — Quantidade pendente de reposição | Soma das quantidades solicitadas menos as quantidades recebidas, considerando os pedidos ainda pendentes | Semanal | Acompanhar as necessidades de abastecimento |
+
+O limite de 15 unidades utilizado no indicador K05 é um parâmetro demonstrativo, pois o banco ainda não possui um campo específico para definir o estoque mínimo de cada SKU.
+
+Os indicadores poderão ser calculados por meio de consultas SQL específicas, utilizando os dados armazenados nas tabelas relacionadas. As metas gerenciais deverão ser definidas com base nas necessidades da ANSARAH e em seu histórico de desempenho.
+
+## 15.3 Transformação dos problemas em soluções analíticas
+
+### P1 — Perda de informações e retrabalho após a restauração de backup
+
+**Problema identificado:**
+
+A restauração de uma versão anterior do banco de dados pode ocasionar a perda de informações registradas posteriormente ao backup utilizado. Como consequência, funcionários podem precisar inserir novamente dados que já haviam sido cadastrados, como informações de produtos, gerando retrabalho, aumentando o tempo de recuperação das informações e podendo ocasionar erros ou inconsistências nos registros.
+
+**Solução proposta:**
+
+Adotar uma estratégia de segurança e recuperação de dados, contemplando:
+
+- **Backups automáticos e periódicos:** realização de cópias de segurança em intervalos programados, reduzindo o risco de perda de informações.
+- **Armazenamento adicional:** manutenção de cópias em locais separados do servidor principal, reduzindo o risco de perda simultânea.
+- **Registro das operações:** utilização das entidades `BACKUP_SISTEMA` e `REGISTRO_RESTAURACAO` para armazenar informações sobre as execuções de backup e as operações de restauração.
+- **Recuperação em um ponto específico do tempo:** utilização de backups completos em conjunto com os logs binários do MySQL, quando habilitados e configurados adequadamente, para recuperar alterações realizadas após a última cópia completa.
+- **Testes de restauração:** verificação periódica de que os arquivos de backup podem ser utilizados para recuperar o banco de dados.
+
+A entidade `BACKUP_SISTEMA` permitirá registrar informações como o tipo de backup realizado, as datas de início e término, o local de armazenamento, o tamanho do arquivo e a situação da execução. Quando o backup for iniciado manualmente, também poderá ser identificado o usuário responsável.
+
+A entidade `REGISTRO_RESTAURACAO` permitirá registrar as operações de recuperação, identificando o backup utilizado, as datas da operação, sua situação, o motivo da restauração e o usuário responsável.
+
+A tabela `LOG_AUDITORIA` existente poderá auxiliar na investigação das alterações realizadas no sistema, mas não substitui os registros técnicos de backup e restauração, pois possui a finalidade de registrar operações realizadas sobre os dados.
+
+Embora seja possível executar backups e restaurações sem criar essas entidades, sua inclusão no modelo permite manter um histórico estruturado dessas operações dentro do banco de dados. Sem elas, seria necessário consultar registros externos para identificar quando os backups foram realizados, se ocorreram falhas e qual cópia foi utilizada em uma restauração.
+
+É importante destacar que essas entidades não armazenam o conteúdo dos arquivos de backup nem executam os procedimentos de cópia e recuperação. Elas armazenam os registros e metadados das operações. A execução dos backups e das restaurações depende de ferramentas e rotinas configuradas no ambiente do sistema.
+
+O BI poderá apresentar relatórios sobre a frequência dos backups, suas situações de execução e o histórico das restaurações, utilizando as informações registradas nas novas entidades.
+
+Como aplicação futura, a Inteligência Artificial poderá auxiliar na identificação de padrões de falhas e anomalias nas operações de backup, desde que exista histórico suficiente para análise.
+
+A implementação das cópias automáticas dependerá de configurações adicionais na infraestrutura ou nas ferramentas de administração do banco de dados. A inclusão das entidades no modelo permite registrar e acompanhar essas operações, mas não executa os backups automaticamente.
+
+### P2 — Dificuldade na geração de relatórios
+
+**Problema identificado:**
+
+A elaboração de relatórios personalizados apresenta dificuldades para a visualização consolidada dos resultados comerciais, dificultando o acompanhamento das informações necessárias à gestão.
+
+**Solução proposta:**
+
+Utilizar consultas SQL para relacionar as tabelas de vendas e itens vendidos, calculando o faturamento mensal, o ticket médio e os resultados por canal de venda.
+
+Esses dados poderão alimentar dashboards desenvolvidos no Power BI, apresentando o desempenho da loja por período e apoiando decisões comerciais. Os painéis poderão ser configurados para atualizar suas informações periodicamente, conforme a atualização da fonte de dados.
+
+Além disso, a Inteligência Artificial poderá ser utilizada para gerar relatórios textuais a partir dos dados disponíveis, destacando variações nos resultados, tendências de vendas e pontos que mereçam atenção. Dessa forma, a gestão poderá receber não apenas gráficos e indicadores, mas também explicações sobre os resultados apresentados.
+
+Futuramente, técnicas de IA poderão analisar o histórico de vendas para identificar tendências e estimar a demanda por determinados produtos. A geração automática desses relatórios dependerá da integração dos dados com uma ferramenta ou solução de IA e da configuração das análises que deverão ser realizadas.
+
+### P3 — Controle da disponibilidade de produtos
+
+**Problema identificado:**
+
+A falta de acompanhamento adequado das quantidades disponíveis pode dificultar a reposição e comprometer o atendimento dos pedidos realizados pelos clientes. Quando a quantidade solicitada é superior ao estoque disponível, a finalização da venda pode ocasionar dificuldades para atender ao pedido dentro do prazo esperado.
+
+**Solução proposta:**
+
+Utilizar os dados de estoque por SKU, movimentações e pedidos de reposição para identificar produtos com baixa disponibilidade e quantidades pendentes de recebimento.
+
+Além do acompanhamento do estoque, propõe-se implementar uma regra de validação no processo de finalização das vendas, contemplando as seguintes etapas:
+
+1. O cliente seleciona o produto e informa a quantidade desejada.
+2. O sistema consulta a quantidade disponível em estoque para aquele SKU.
+3. Caso a quantidade solicitada seja superior à disponível, o sistema apresenta um alerta informando a indisponibilidade e orientando o cliente a reduzir a quantidade.
+4. Caso a quantidade solicitada esteja disponível, o cliente poderá prosseguir com a finalização da compra.
+
+Por exemplo, se existem três unidades de determinado SKU em estoque e o cliente tenta comprar cinco, o sistema deverá apresentar uma mensagem informando que há somente três unidades disponíveis. O cliente poderá reduzir a quantidade para três ou menos para continuar a compra. A venda não deverá ser finalizada enquanto a quantidade solicitada for superior à disponível.
+
+A validação também deverá ser realizada no momento da confirmação da compra, considerando operações simultâneas para evitar que diferentes clientes comercializem uma quantidade superior ao estoque disponível.
+
+Além dessa validação, consultas SQL poderão acompanhar os dados de estoque, movimentações e pedidos de reposição, identificando produtos com baixa disponibilidade e quantidades pendentes de recebimento. Dessa forma, a empresa poderá antecipar necessidades de abastecimento e solicitar novas mercadorias aos fornecedores.
+
+O BI poderá apresentar relatórios de produtos com estoque baixo ou zerado, movimentações de estoque e pedidos de reposição em aberto.
+
+Como aplicação futura de IA, modelos preditivos poderão utilizar o histórico de vendas para estimar a procura por produtos e sugerir quantidades de reposição, considerando o estoque disponível e os pedidos pendentes.
+
+A implementação do alerta e do bloqueio de vendas dependerá de alterações nas regras de negócio e no processo de finalização das compras do sistema de vendas, não sendo realizada apenas por consultas SQL.
+
+## 15.4 Potencial do banco de dados para Business Intelligence
+
+A estrutura relacional da ANSARAH permite integrar informações de diferentes áreas da organização por meio de chaves primárias e estrangeiras.
+
+As consultas SQL poderão ser utilizadas como fonte de dados para dashboards desenvolvidos em ferramentas como Power BI.
+
+O painel gerencial poderá apresentar:
+
+- Evolução mensal do faturamento.
+- Ticket médio das vendas concluídas.
+- Comparação do faturamento por canal de venda.
+- Quantidade e percentual de SKUs com estoque baixo.
+- Produtos sem disponibilidade em estoque.
+- Pedidos de reposição pendentes.
+- Qualidade dos cadastros de produtos.
+- Histórico de operações de backup e restauração, após a inclusão e utilização das entidades correspondentes.
+
+Os dados poderão ser extraídos do MySQL, tratados e organizados para apresentação em gráficos, tabelas e indicadores visuais.
+
+Dessa forma, a gestão poderá acompanhar os resultados da organização de maneira centralizada, reduzindo a dependência de relatórios elaborados manualmente e facilitando a identificação de situações que exigem atenção.
+
+## 15.5 Aplicações analíticas e de Inteligência Artificial
+
+A utilização de Inteligência Artificial representa uma possibilidade de evolução da arquitetura analítica da ANSARAH.
+
+As principais aplicações propostas são:
+
+**Previsão de demanda:** analisar o histórico de vendas por SKU para estimar a quantidade de produtos que poderá ser comercializada em períodos futuros.
+
+**Recomendação de reposição:** utilizar previsões de demanda, quantidades disponíveis e pedidos em aberto para sugerir compras e auxiliar no planejamento do estoque.
+
+**Automação de cadastros:** extrair informações de planilhas e documentos de fornecedores, reduzindo a necessidade de digitação manual. Os dados extraídos deverão ser conferidos antes de serem registrados no sistema.
+
+**Análise de tendências comerciais:** identificar padrões de vendas por produto, categoria e canal, apoiando decisões de estoque e estratégias comerciais.
+
+**Identificação de anomalias:** analisar registros de movimentação de estoque, auditoria e operações de backup para sinalizar situações que mereçam verificação.
+
+Essas aplicações são propostas futuras. Sua implementação dependerá da disponibilidade de dados históricos, ferramentas específicas, integração com o banco de dados e validação dos resultados.
+
+## 15.6 Rastreabilidade entre problemas, indicadores e consultas SQL
+
+A rastreabilidade relaciona os problemas identificados durante o levantamento da organização às tabelas do banco de dados, aos indicadores gerenciais e às consultas SQL que poderão apoiar seu acompanhamento.
+
+### Relação entre problemas e tabelas envolvidas
+
+| Problema | Tabelas envolvidas | Finalidade das consultas |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| P1 — Perda de informações e retrabalho após a restauração de backup | BACKUP_SISTEMA, REGISTRO_RESTAURACAO, LOG_AUDITORIA | Consultar o histórico de backups, as restaurações realizadas e as alterações registradas. |
+| P2 — Dificuldade na geração de relatórios | Venda, Item_venda | Calcular faturamento mensal, ticket médio e faturamento por canal. |
+| P3 — Controle da disponibilidade de produtos | Produto_SKU, Movimentacao_estoque, pedido_reposicao, Item_reposicao | Acompanhar a disponibilidade dos produtos, as movimentações e as quantidades pendentes de reposição. |
+
+### Relação entre KPIs e tabelas envolvidas
+
+| KPI | Tabelas envolvidas |
+| ------------------------------------------ | -------------------------------- |
+| K01 — Percentual de cadastros incompletos | Produto |
+| K02 — Faturamento mensal | Venda, Item_venda |
+| K03 — Ticket médio | Venda, Item_venda |
+| K04 — Faturamento por canal | Venda, Item_venda |
+| K05 — Percentual de SKUs com estoque baixo | Produto_SKU |
+| K06 — Quantidade pendente de reposição | pedido_reposicao, Item_reposicao |
+
+As consultas SQL correspondentes deverão ser identificadas no script do projeto conforme sua finalidade e seus códigos de organização. Para o P1, será necessário incluir consultas específicas para acompanhar os backups e as restaurações, pois as consultas de auditoria não substituem esse acompanhamento.
+
+Dessa forma, a rastreabilidade permite relacionar as necessidades identificadas na organização às estruturas de dados e às análises propostas, demonstrando como o banco de dados poderá apoiar o acompanhamento gerencial e a tomada de decisões.
+---
+
+## 16. Uso de Inteligência Artificial
 
 
 <br><br>
 ---
 
-## 16. Conclusão
+## 17. Conclusão
 
 <br><br>
 
@@ -690,7 +857,7 @@ Por fim, `USUARIO_SISTEMA` e `LOG_AUDITORIA` foram propostas como entidades para
 
 ---
 
-## 17. Referências
+## 18. Referências
 
 - **ANSARAH.** Informações institucionais e comerciais.  
   https://www.ansarah.com.br/
