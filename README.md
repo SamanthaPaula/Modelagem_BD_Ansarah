@@ -952,8 +952,16 @@ O arquivo contém os comandos de criação do banco de dados e das 25 tabelas, i
 
 
 > **Arquivo SQl: anexada no repositório.**
+---
+## 16. Utilização de Inteligência Artificial
+
+Durante o desenvolvimento do projeto de banco de dados da ANSARAH, foi utilizada a ferramenta de inteligência artificial *ChatGPT, desenvolvida pela OpenAI*, como apoio às atividades de documentação, modelagem e desenvolvimento dos comandos SQL.
+
+A ferramenta foi utilizada para organizar as perguntas do levantamento, auxiliar na organização das informações obtidas durante a entrevista, revisar e organizar os textos do projeto no README, revisar atributos e entidades representados no DER, auxiliar na criação do dicionário de dados (convenções técnicas, matriz de permissões, LGPD, entre outros), esclarecer conceitos relacionados à modelagem de banco de dados, criar a massa de dados e analisar os comandos SQL.
 
 ---
+
+
 ## 17. Uso de Inteligência Artificial
 
 
