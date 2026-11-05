@@ -988,9 +988,8 @@ A inteligência artificial foi utilizada como ferramenta complementar, não subs
 
 As respostas foram revisadas e adaptadas conforme o contexto da ANSARAH e a estrutura do projeto. Os comandos SQL foram ajustados e testados pelos integrantes, e as decisões de modelagem foram avaliadas considerando os requisitos e as regras de negócio identificados durante o levantamento, além das orientações do professor.
 
-
-
-
+*Ferramenta utilizada:* ChatGPT — OpenAI.
+*Finalidade:* apoio ao levantamento de informações, organização da documentação, revisão da modelagem, elaboração do dicionário de dados, criação de massa de dados e desenvolvimento e análise dos comandos SQL.
 <br><br>
 ---
 
