@@ -585,7 +585,7 @@ As chaves primárias (PK) identificam exclusivamente cada registro das tabelas. 
 | REGISTRO_RESTAURACAO | id_restauracao | id_backup → BACKUP_SISTEMA; id_usuario → Usuario_sistema |
 ---
 <br><br>
-<h5>Observação: Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.</h5>
+<h3>Observação: Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.</h3>
 
 ---
 ### 12. Processo de Normalização
@@ -628,12 +628,12 @@ A normalização foi necessária para organizar as informações do banco de dad
 - **Segunda Forma Normal (2FN):** verifica se os atributos dependem integralmente de suas respectivas chaves primárias, evitando informações associadas apenas a parte de uma chave composta. No modelo, não foram identificadas dependências parciais em relação às chaves primárias simples utilizadas.
 
 - **Terceira Forma Normal (3FN):** contribui para reduzir a repetição de informações e evitar dependências desnecessárias entre atributos. No projeto, isso foi aplicado à remoção dos atributos `nome_item_venda` e `nome_item_reposicao`, pois as descrições dos produtos já estão armazenadas na tabela `PRODUTO` e podem ser consultadas por meio dos relacionamentos com `PRODUTO_SKU`.
+<br><br>
+<h3>Assim, a normalização permite manter as informações mais organizadas, facilita sua manutenção e reduz possíveis inconsistências nos registros do banco de dados.</h3>
 
-<h5>Assim, a normalização permite manter as informações mais organizadas, facilita sua manutenção e reduz possíveis inconsistências nos registros do banco de dados.</h5>
+
 
 --
-
-
 ## 13. Justificativa Técnica do Modelo
 
 A modelagem conceitual foi desenvolvida com o objetivo de representar os principais processos identificados no levantamento de informações da Ansarah, contemplando cadastro de produtos, vendas, estoque, preços, pedidos on-line, reposição de mercadorias, pagamentos, controle financeiro, acesso ao sistema e segurança das informações.
