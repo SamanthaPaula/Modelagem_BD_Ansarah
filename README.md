@@ -964,6 +964,8 @@ As sugestões fornecidas pela inteligência artificial foram analisadas pelos in
 
 | *Ferramenta e etapa* | *Motivação* | *Prompt(s) utilizados* | *Resposta recebida* | *Trechos rejeitados ou corrigidos* | *Justificativa da escolha final* | *Reflexão crítica* |
 |---|---|---|---|---|---|---|
+| *ChatGPT — Organização do levantamento* | Organizar perguntas para obter informações sobre os processos e as necessidades da empresa, principalmente nas áreas de vendas, estoque, compras e controle de produtos. | "Quais perguntas podemos fazer para conhecer os processos de vendas, estoque, compras e controle de produtos da empresa?" | Sugestões de perguntas para o questionário inicial e para aprofundar o levantamento durante a entrevista, abordando cadastro de produtos, movimentações de estoque, vendas, compras e dificuldades operacionais. | Perguntas muito amplas, repetitivas ou que não contribuíam diretamente para conhecer o funcionamento da ANSARAH foram retiradas ou reformuladas. Também foram ajustadas perguntas que pressupunham a existência de procedimentos ainda não confirmados, como determinados controles automáticos de estoque. | Foram priorizadas perguntas que permitissem compreender como a empresa realiza suas atividades, quais informações registra no ERP Millennium e quais dificuldades enfrenta. Essa escolha ajudou a direcionar o levantamento para informações que posteriormente poderiam ser utilizadas na identificação dos processos, requisitos e regras de negócio. | A IA ajudou a ampliar as possibilidades de perguntas, mas não conhecia previamente a rotina da empresa. Por isso, o grupo precisou selecionar questões pertinentes e evitar conduzir a entrevista com base em suposições. |
+
 ---
 
 
