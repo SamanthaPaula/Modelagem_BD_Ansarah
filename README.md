@@ -583,7 +583,8 @@ As chaves primárias (PK) identificam exclusivamente cada registro das tabelas. 
 | LOG_AUDITORIA | id_log | id_usuario → Usuario_sistema |
 | BACKUP_SISTEMA | id_backup | id_usuario → Usuario_sistema |
 | REGISTRO_RESTAURACAO | id_restauracao | id_backup → BACKUP_SISTEMA; id_usuario → Usuario_sistema |
-<BR><BR>
+---
+
 **Observação:** Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.
 <BR><BR>
 ---
