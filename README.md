@@ -596,6 +596,7 @@ As chaves primárias (PK) identificam exclusivamente cada registro das tabelas. 
 <h3>Observação: Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.</h3>
 
 ---
+<br><br>
 ### 12. Processo de Normalização
 
 O processo de normalização foi realizado com o objetivo de organizar as tabelas do banco de dados, reduzir a redundância de informações e evitar inconsistências durante as operações de cadastro, venda, reposição e controle de estoque.
@@ -641,7 +642,9 @@ A normalização foi necessária para organizar as informações do banco de dad
 
 
 
---
+---
+<br><br>
+
 ## 13. Justificativa Técnica do Modelo
 
 A modelagem conceitual foi desenvolvida com o objetivo de representar os principais processos identificados no levantamento de informações da Ansarah, contemplando cadastro de produtos, vendas, estoque, preços, pedidos on-line, reposição de mercadorias, pagamentos, controle financeiro, acesso ao sistema e segurança das informações.
