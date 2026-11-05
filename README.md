@@ -745,7 +745,8 @@ O atributo `preco_unitario_venda` foi mantido em `ITEM_VENDA` porque representa 
 
 A separação entre `VENDA` e `PAGAMENTO` permite representar diferentes registros de pagamento associados a uma mesma venda. Da mesma maneira, a separação entre `PEDIDO_REPOSICAO` e `ITEM_REPOSICAO` permite registrar individualmente os produtos solicitados e recebidos, incluindo situações de entrega parcial.
 
-Por fim, `USUARIO_SISTEMA`, `LOG_AUDITORIA`, `BACKUP_SISTEMA` e `REGISTRO_RESTAURACAO` foram propostas como entidades para representar o controle de acesso, a rastreabilidade das operações e o gerenciamento de cópias de segurança e restaurações no modelo acadêmico. Sua inclusão não significa que essas entidades correspondam à estrutura interna do ERP utilizado pela Ansarah, mas que representam uma proposta de organização dessas informações no banco de dados desenvolvido para o projeto.
+<p>Por fim, `USUARIO_SISTEMA`, `LOG_AUDITORIA`, `BACKUP_SISTEMA` e `REGISTRO_RESTAURACAO` foram propostas como entidades para representar o controle de acesso, a rastreabilidade das operações e o gerenciamento de cópias de segurança e restaurações no modelo acadêmico. Sua inclusão não significa que essas entidades correspondam à estrutura interna do ERP utilizado pela Ansarah, mas que representam uma proposta de organização dessas informações no banco de dados desenvolvido para o projeto.</p>
+
 <BR><BR>
 ---
 # 15. Proposta de Arquitetura Analítica para BI e IA — ANSARAH
@@ -942,7 +943,7 @@ As consultas G01, G13 e G14 permitem calcular diretamente os indicadores K02, K0
 
 Para o P1, as consultas G11 e G12 permitem acompanhar as execuções de backup e as operações de recuperação. As consultas de auditoria A17 a A20 complementam esse acompanhamento, pois verificam situações específicas relacionadas à consistência dos registros, às permissões e à periodicidade dos backups.
 
-Dessa forma, a rastreabilidade permite relacionar as necessidades identificadas na organização às estruturas de dados, aos indicadores e às consultas desenvolvidas, demonstrando como o banco de dados poderá apoiar o acompanhamento gerencial e a tomada de decisões.
+<p>Dessa forma, a rastreabilidade permite relacionar as necessidades identificadas na organização às estruturas de dados, aos indicadores e às consultas desenvolvidas, demonstrando como o banco de dados poderá apoiar o acompanhamento gerencial e a tomada de decisões.</p>
 ---
 ## 16. Script SQL do Banco de Dados
 
@@ -987,9 +988,9 @@ As sugestões fornecidas pela inteligência artificial foram analisadas pelos in
 A inteligência artificial foi utilizada como ferramenta complementar, não substituindo o levantamento de informações com a organização, a participação dos integrantes ou a tomada de decisões do grupo.
 
 As respostas foram revisadas e adaptadas conforme o contexto da ANSARAH e a estrutura do projeto. Os comandos SQL foram ajustados e testados pelos integrantes, e as decisões de modelagem foram avaliadas considerando os requisitos e as regras de negócio identificados durante o levantamento, além das orientações do professor.
-
-*Ferramenta utilizada:* ChatGPT — OpenAI.
-*Finalidade:* apoio ao levantamento de informações, organização da documentação, revisão da modelagem, elaboração do dicionário de dados, criação de massa de dados e desenvolvimento e análise dos comandos SQL.
+<br><br>
+<P>*Ferramenta utilizada:* ChatGPT — OpenAI.
+*Finalidade:* apoio ao levantamento de informações, organização da documentação, revisão da modelagem, elaboração do dicionário de dados, criação de massa de dados e desenvolvimento e análise dos comandos SQL.</P>
 <br><br>
 ---
 
