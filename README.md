@@ -208,7 +208,7 @@ A segurança das informações também está relacionada aos demais processos, p
 
 ### 4.5 Fluxogramas dos processos de negócio
 
->**Os fluxogramas elaborados para representar visualmente as etapas dos processos de negócio identificados durante o levantamento estão disponíveis na pasta [FLUXOGRAMAS](./FLUXOGRMAS/), anexada ao repositório do projeto. Os diagramas apresentam a sequência das atividades e facilitam a compreensão do funcionamento dos processos da ANSARAH.**
+>**Os fluxogramas elaborados para representar visualmente as etapas dos processos de negócio identificados durante o levantamento estão disponíveis na pasta [FLUXOGRAMAS](./FLUXOGRAMAS/), anexada ao repositório do projeto. Os diagramas apresentam a sequência das atividades e facilitam a compreensão do funcionamento dos processos da ANSARAH.**
 
 <br>
 
