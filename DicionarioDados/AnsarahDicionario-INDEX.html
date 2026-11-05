@@ -1,0 +1,5142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Ansarah | Documentação do Banco de Dados
+  </title>
+  <style>
+   :root{--navy:#2a3b63;--blue:#3156a6;--cyan:#e9f4ff;--ink:#263247;--muted:#071932;--line:#dbe3ef;--bg:#f4f7fb;--white:#fff;--gold:-#7ea7f29e;--green:#e8f7ef;--shadow:0 8px 26px rgba(27,45,80,.07)}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,Segoe UI,Arial,sans-serif}.hero{background:linear-gradient(135deg,#17243d,#294d91);color:#fff;padding:54px 22px 42px}.hero-inner,.layout{max-width:1180px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:800;color:#c8d8ff}.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.08;margin:12px 0}.hero p{max-width:780px;color:#e0e9ff;font-size:1.08rem}.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.pill{border:1px solid #ffffff50;border-radius:999px;padding:6px 12px;font-size:.83rem}.layout{display:grid;grid-template-columns:255px minmax(0,1fr);gap:24px;padding:28px 18px 60px}.sidebar{align-self:start;position:sticky;top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.sidebar h2{font-size:.95rem;margin:0 0 10px;color:var(--navy)}.sidebar a{display:block;padding:8px 10px;color:#40516f;text-decoration:none;border-radius:8px;font-size:.9rem}.sidebar a:hover{background:var(--cyan);color:var(--blue)}main{min-width:0}.intro,.section{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,30px);margin-bottom:20px;box-shadow:var(--shadow)}.section h2{font-size:1.55rem;color:var(--navy);margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid #e7edf7}.section h3{font-size:1.08rem;color:var(--blue);margin:24px 0 8px}.section h3:first-of-type{margin-top:12px}.lead{font-size:1.03rem;color:#42516a}.note{padding:14px 16px;border-left:4px solid var(--blue);background:var(--cyan);border-radius:8px;margin:16px 0}.warning{padding:14px 16px;border-left:4px solid #2a00e3;background:var(--gold);border-radius:8px;margin:16px 0}.success{padding:14px 16px;border-left:4px solid #249461;background:var(--green);border-radius:8px;margin:16px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}.mini{padding:15px;border:1px solid var(--line);border-radius:12px;background:#fbfcff}.mini strong{display:block;color:var(--navy);margin-bottom:5px}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:12px 0 22px}table{border-collapse:collapse;width:100%;min-width:620px;font-size:.91rem}th{background:#edf2fa;color:#203252;text-align:left;font-weight:750}td,th{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fbfcfe}code{font-family:Consolas,monospace;background:#f0f3f8;border-radius:4px;padding:2px 5px;font-size:.9em}.tag{display:inline-block;font-size:.75rem;font-weight:800;color:#234a93;background:#e8efff;border-radius:5px;padding:2px 7px}.small{font-size:.88rem;color:var(--muted)}.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:15px 0}.step{background:#f2f6ff;border:1px solid #7a9ad8;border-radius:9px;padding:10px 12px;font-size:.9rem;font-weight:650}.arrow{color:var(--blue);font-weight:900}.footer{text-align:center;color:var(--muted);padding:10px 18px 35px;font-size:.85rem}.subnav{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.subnav a{background:#f0f4fb;border:1px solid var(--line);border-radius:8px;padding:7px 10px;color:var(--blue);text-decoration:none;font-size:.88rem}.subnav a:hover{background:var(--cyan)}ul,ol{padding-left:22px}li{margin:5px 0}.entity{margin-top:18px}.entity h3{margin-bottom:6px}.entity p{margin-top:0}.perm{font-size:.82rem} @media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{position:static}.sidebar nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2px}.hero{padding-top:38px}}@media print{body{background:#fff}.hero{background:#fff;color:#111;padding:20px 0}.hero p,.eyebrow{color:#333}.layout{display:block;padding:0}.sidebar{display:none}.intro,.section{box-shadow:none;break-inside:avoid}.section{border:0;padding:12px 0}.table-wrap{overflow:visible}table{min-width:0;font-size:9pt}.hero h1{font-size:28pt}}
+  
+/* Padronização tipográfica: uma única família de fonte em todo o documento. */
+html, body, body *, body *::before, body *::after {
+    font-family: "Segoe UI", Arial, sans-serif !important;
+}
+</style>
+ </head>
+ <body>
+  <header class="hero">
+   <div class="hero-inner">
+    <div class="eyebrow">
+     Projeto acadêmico · Modelagem de Banco de Dados
+    </div>
+    <h1>
+     ANSARAH
+    </h1>
+    <p>
+     dicionário, modelo conceitual, cardinalidades, fluxo de dados, convenções técnicas, glossário, integridade, auditoria e proteção de dados.
+    </p>
+    <div class="pills">
+    </div>
+   </div>
+  </header>
+  <div class="layout">
+   <aside class="sidebar">
+    <h2>
+     Navegação da documentação
+    </h2>
+    <nav>
+     <a href="#dicionario">
+      1. Dicionário de dados
+     </a>
+     <a href="#modelo">
+      2. Modelo conceitual e cardinalidades
+     </a>
+     <a href="#fluxo">
+      3. Fluxo de dados
+     </a>
+     <a href="#convencoes">
+      4. Convenções técnicas
+     </a>
+     <a href="#glossario">
+      5. Glossário
+     </a>
+     <a href="#integridade">
+      6. Índices e integridade
+     </a>
+     <a href="#auditoria">
+      7. Logs e auditoria
+     </a>
+     <a href="#lgpd">
+      8. Papéis, permissões e LGPD
+     </a>
+     <a href="#matriz">
+      9. Matriz de permissões
+     </a>
+     <a href="#protecao">
+      10. Proteção de dados e LGPD
+     </a>
+    </nav>
+   </aside>
+   <main>
+
+    <section class="section" id="dicionario">
+     <h2>
+      1. Dicionário de dados
+     </h2>
+     <p>
+      O dicionário explica os campos do modelo.
+      <span class="tag">
+       PK
+      </span>
+      significa chave primária;
+      <span class="tag">
+       FK
+      </span>
+      , chave estrangeira;
+      <span class="tag">
+       UQ
+      </span>
+      , valor único;
+      <span class="tag">
+       NN
+      </span>
+       Os tipos abaixo são sugestões para SQL Server; ajustar conforme o script final e os atributos existentes no DER.
+     </p>
+     <div class="entity">
+      <h3>
+       FORNECEDOR
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_fornecedor
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do fornecedor.
+          </td>
+          <td>
+           PK, IDENTITY, NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_fornecedor
+          </td>
+          <td>
+           VARCHAR(150)
+          </td>
+          <td>
+           Nome fantasia ou nome de uso.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           razao_social_fornecedor
+          </td>
+          <td>
+           VARCHAR(180)
+          </td>
+          <td>
+           Razão social registrada.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           cnpj_fornecedor
+          </td>
+          <td>
+           CHAR(14)
+          </td>
+          <td>
+           CNPJ sem pontuação.
+          </td>
+          <td>
+           NN; UQ 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           inscricao_estadual_fornecedor
+          </td>
+          <td>
+           VARCHAR(20)
+          </td>
+          <td>
+           Inscrição estadual, quando aplicável.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           telefone_fornecedor
+          </td>
+          <td>
+           VARCHAR(20)
+          </td>
+          <td>
+           Contato telefônico.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           email_fornecedor
+          </td>
+          <td>
+           VARCHAR(150)
+          </td>
+          <td>
+           E-mail de contato.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           endereco_fornecedor
+          </td>
+          <td>
+           VARCHAR(255)
+          </td>
+          <td>
+           Endereço cadastral.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_fornecedor
+          </td>
+          <td>
+           VARCHAR(20)
+          </td>
+          <td>
+           Situação cadastral.
+          </td>
+          <td>
+           CHECK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_cadastro_fornecedor
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data de cadastro.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       DEPARTAMENTO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_departamento
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do setor.
+          </td>
+          <td>
+           PK, IDENTITY, NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_departamento
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Nome do departamento.
+          </td>
+          <td>
+           NN; UQ
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       FUNCIONARIO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_funcionario
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do funcionário.
+          </td>
+          <td>
+           PK, IDENTITY, NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_funcionario
+          </td>
+          <td>
+           VARCHAR(150)
+          </td>
+          <td>
+           Nome completo.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           cargo_funcionario
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Cargo ou função exercida.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_departamento
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Departamento de lotação
+          </td>
+          <td>
+           FK → DEPARTAMENTO
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       CLIENTE
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_cliente
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do cliente.
+          </td>
+          <td>
+           PK, IDENTITY, NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_completo
+          </td>
+          <td>
+           VARCHAR(160)
+          </td>
+          <td>
+           Nome do cliente.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           tipo_cliente
+          </td>
+          <td>
+           VARCHAR(3)
+          </td>
+          <td>
+          Classificação do cliente conforme o modelo de relação comercial, B2C ou B2B.
+          </td>
+          <td>
+           NOT NULL, CHECK (tipo_cliente IN ('B2C', 'B2B')) 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           cpf_cliente
+          </td>
+          <td>
+           CHAR(11)
+          </td>
+          <td>
+           CPF de pessoa física, quando aplicável.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           cnpj_cliente
+          </td>
+          <td>
+           CHAR(14)
+          </td>
+          <td>
+           CNPJ de cliente empresarial.
+          </td>
+          <td>
+           Opcional 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           email_cliente
+          </td>
+          <td>
+           VARCHAR(150)
+          </td>
+          <td>
+           E-mail de contato.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           telefone_cliente
+          </td>
+          <td>
+           VARCHAR(20)
+          </td>
+          <td>
+           Telefone de contato.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           endereco_cliente
+          </td>
+          <td>
+           VARCHAR(255)
+          </td>
+          <td>
+           Endereço para cadastro/entrega, conforme finalidade.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       MARCA
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_marca
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da marca.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_marca
+          </td>
+          <td>
+           VARCHAR(120)
+          </td>
+          <td>
+           Nome comercial da marca.
+          </td>
+          <td>
+           NN  
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       COR
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_cor
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da cor.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_cor
+          </td>
+          <td>
+           VARCHAR(60)
+          </td>
+          <td>
+           Nome da cor.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           hexadecimal
+          </td>
+          <td>
+           CHAR(7)
+          </td>
+          <td>
+           Código hexadecimal visual, se utilizado.
+          </td>
+          <td>
+           CHECK
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       TAMANHO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_tamanho
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do tamanho.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           sigla_tamanho
+          </td>
+          <td>
+           VARCHAR(20)
+          </td>
+          <td>
+           Sigla ou identificação do tamanho.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       PRODUTO_SKU
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_sku
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da variação comercializável.
+          </td>
+          <td>
+           PK, IDENTITY, NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+          codigo_sku
+          </td>
+          <td>
+           VARCHAR(50)
+          </td>
+          <td>
+          Código comercial utilizado para identificar unicamente cada variação de produto, considerando suas características, como cor e tamanho.
+          </td>
+          <td>
+           UNIQUE, NOT NULL
+          </td>
+         </tr>
+         <tr>
+          <td>
+           altura
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Altura cadastrada, conforme unidade definida.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           peso
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Peso da variação.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           comprimento
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Comprimento da variação.
+          </td>
+          <td>
+           CHECK ≥ 0 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           quantidade_estoque
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Saldo de estoque registrado.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_cor
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Cor da variação, se representada no DER.
+          </td>
+          <td>
+           FK → COR
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_tamanho
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Tamanho da variação, se representado no DER.
+          </td>
+          <td>
+           FK → TAMANHO
+          </td>
+         </tr> 
+         <tr>
+          <td>
+           id_produto
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Codigo de identificação do produto
+          </td>
+          <td>
+           FK → PRODUTO
+          </td>
+         </tr>
+         
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity"><h3>PRODUTO</h3> 
+      <div class="table-wrap">
+        <table><thead><tr><th>Campo</th><th>Tipo sugerido</th>
+<th>Descrição</th>
+<th>Restrição / chave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_produto</td>
+<td>INT</td>
+<td>Identificador interno do produto-base.</td>
+<td>PK, IDENTITY(1,1), NOT NULL</td>
+</tr>
+<tr>
+<td>nome_produto</td>
+<td>VARCHAR(150)</td>
+<td>Nome comercial do produto.</td>
+<td>
+  NOT NULL</td>
+</tr>
+<tr>
+<td>codigo_produto</td>
+<td>VARCHAR(50)</td>
+<td>Código interno/comercial do produto.</td>
+<td>NOT NULL; UNIQUE se confirmado que é globalmente exclusivo.</td>
+</tr>
+<tr>
+<td>descricao_produto</td>
+<td>VARCHAR(255)</td>
+<td>Descrição do produto.</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>referencia_produto</td>
+<td>VARCHAR(80)</td>
+<td>Referência utilizada pela empresa ou fabricante.</td>
+<td>NULL permitido; índice recomendado para busca.</td>
+</tr>
+<tr>
+<td>codigo_fiscal_produto</td>
+<td>VARCHAR(50)</td>
+<td>Código fiscal cadastrado para o produto.</td>
+<td>NULL permitido.</td>
+</tr>
+<tr>
+<td>codigo_ncm</td>
+<td>CHAR(8)</td>
+<td>Código NCM do produto, sem pontuação.</td>
+<td>NULL permitido; CHECK de 8 dígitos quando preenchido.</td>
+</tr>
+<tr>
+<td>classificacao_produto</td>
+<td>VARCHAR(100)</td>
+<td>Classificação comercial ou fiscal utilizada pela empresa.</td>
+<td>NULL permitido.</td>
+</tr>
+<tr>
+<td>colecao_produto</td>
+<td>VARCHAR(100)</td>
+<td>Coleção à qual o produto pertence.</td>
+<td>NULL permitido.</td>
+</tr>
+<tr>
+<td>subcolecao_produto</td>
+<td>VARCHAR(100)</td>
+<td>Subcoleção do produto.</td>
+<td>NULL permitido.</td>
+</tr>
+<tr>
+<td>grupo_produto</td>
+<td>VARCHAR(100)</td>
+<td>Grupo comercial do produto.</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>categoria_produto</td>
+<td>VARCHAR(100)</td>
+<td>Categoria à qual o produto pertence.</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>tipo_produto</td>
+<td>VARCHAR(100)</td>
+<td>Tipo de produto cadastrado.</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>pais_origem_produto</td>
+<td>VARCHAR(80)</td>
+<td>País de origem do produto.</td>
+<td>NULL permitido; obrigatório quando exigido fiscalmente.</td>
+</tr>
+<tr>
+<td>unidade_tributacao_produto</td>
+<td>VARCHAR(20)</td>
+<td>Unidade utilizada para tributação ou comercialização fiscal.</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>id_marca</td>
+<td>INT</td>
+<td>Identificador da marca associada ao produto.</td>
+<td>FK → MARCA.id_marca, NOT NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+     <div class="entity">
+      <h3>
+       VENDA
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_venda
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da venda.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_venda
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data e hora da venda.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           canal_venda
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Canal onde a venda ocorreu.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           desconto_venda
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Desconto aplicado à venda.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_venda
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação da venda.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_cliente
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Cliente associado, quando houver.
+          </td>
+          <td>
+           FK → CLIENTE
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_funcionario
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Funcionário responsável, se aplicável.
+          </td>
+          <td>
+           FK → FUNCIONARIO
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       ITEM_VENDA
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_item_venda
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do item de venda.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           quantidade_item_venda
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Quantidade do SKU na venda.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           preco_unitario_venda
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Preço unitário aplicado no momento da venda.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_venda
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Venda à qual o item pertence.
+          </td>
+          <td>
+           FK → VENDA
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_sku
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Variação vendida.
+          </td>
+          <td>
+           FK → PRODUTO_SKU
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       PAGAMENTO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_pagamento
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do pagamento.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           forma_pagamento
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Modalidade usada no pagamento.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           valor_pagamento
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Valor liquidado ou registrado.
+          </td>
+          <td>
+           NN          
+        </td>
+         </tr>
+         <tr>
+          <td>
+           status_pagamento
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação do pagamento.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_pagamento
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data/hora do pagamento, quando realizado.
+          </td>
+          <td>
+            NULL até a liquidação
+          </td>
+         </tr>
+         <tr>
+          <td>
+           codigo_transacao
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Identificador de transação do meio de pagamento.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+           <tr>
+          <td>
+           data_confirmação
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data de confirmação do pagamento
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_venda
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Venda relacionada.
+          </td>
+          <td>
+           FK → VENDA
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       PEDIDO_ONLINE
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_pedido
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do pedido online.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_pedido
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data e hora do pedido.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_pedido
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação do pedido no processo de atendimento.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_pagamento_pedido
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação do pagamento do pedido.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           codigo_rastreamento_pedido
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Código de rastreamento da entrega.
+          </td>
+          <td>
+           Opcional até despacho
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_envio_pedido
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data de envio ao transporte.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_entrega_pedido
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data da entrega.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_confirmacao
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data de confirmação do pedido, conforme DER.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_cliente
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Cliente responsável pelo pedido.
+          </td>
+          <td>
+           FK → CLIENTE
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_venda
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Venda associada ao pedido online.
+          </td>
+          <td>
+           FK → VENDA; cardinalidade definida no DER
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       TROCA_DEVOLUCAO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_ocorrencia
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da ocorrência de troca/devolução.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           tipo_ocorrencia
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Tipo de ocorrência registrada.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           motivo_ocorrencia
+          </td>
+          <td>
+           VARCHAR(500)
+          </td>
+          <td>
+           Motivo informado para a ocorrência.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_ocorrencia
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação da ocorrência.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_solicitacao_ocorrencia
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data da solicitação.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           valor_estorno_ocorrencia
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Valor de estorno, quando aplicável.
+          </td>
+          <td>
+          opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_pedido
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do pedido de reposição.
+          </td>
+          <td>
+           FK → PEDIDO_ONLINE
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       PEDIDO_REPOSICAO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_reposicao
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do pedido de reposição.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_reposicao
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data de criação do pedido.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_prevista_entrega
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Previsão de entrega.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_entrega_real
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data real de entrega ou conclusão.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_reposicao
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação do pedido de reposição.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           observacao_reposicao
+          </td>
+          <td>
+           VARCHAR(500)
+          </td>
+          <td>
+           Observações sobre a reposição.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           valor_total_reposicao
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Valor total estimado/registrado.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_fornecedor
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Fornecedor do pedido.
+          </td>
+          <td>
+           FK → FORNECEDOR
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       ITEM_REPOSICAO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_item_reposicao
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do item de reposição.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           quantidade_solicitada
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Quantidade pedida ao fornecedor.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           quantidade_recebida
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Quantidade recebida até o momento.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           preco_item_reposicao
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Preço unitário negociado na reposição.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_item_reposicao
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação do item de reposição.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+          desconto_item
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+          	Valor monetário do desconto aplicado individualmente ao item da venda.
+          </td>
+          <td>
+          NOT NULL, DEFAULT 0, CHECK (desconto_item_venda >= 0)
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_reposicao
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Pedido de reposição ao qual pertence.
+          </td>
+          <td>
+           FK → PEDIDO_REPOSICAO
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_sku
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           SKU solicitado.
+          </td>
+          <td>
+           FK → PRODUTO_SKU
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       MOVIMENTACAO_ESTOQUE
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_movimentacao
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da movimentação.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           tipo_movimentacao
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Entrada, saída, ajuste ou transferência conforme regras.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           quantidade_movimentada
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Quantidade movimentada.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_movimentacao
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data e hora da movimentação.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           motivo_movimentacao
+          </td>
+          <td>
+           VARCHAR(250)
+          </td>
+          <td>
+           Motivo da movimentação.
+          </td>
+          <td>
+           NN conforme tipo
+          </td>
+         </tr>
+         <tr>
+          <td>
+           documento_referencia
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Referência textual ao documento/processo de origem.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           observacao_movimentacao
+          </td>
+          <td>
+           VARCHAR(500)
+          </td>
+          <td>
+           Observações sobre a movimentação.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_atualizacao_estoque
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Momento da atualização do saldo.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_sku
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           SKU afetado.
+          </td>
+          <td>
+           FK → PRODUTO_SKU
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_funcionario
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Funcionário responsável, se presente no DER.
+          </td>
+          <td>
+           FK → FUNCIONARIO
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_item_reposicao
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Item de reposição que originou a entrada, quando aplicável.
+          </td>
+          <td>
+           FK; ITEM_REPOSICAO
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       TABELA_PRECO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_tabela_preco
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da tabela de preços.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           nome_tabela_preco
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Nome identificador da tabela.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           tipo_cliente_tabela_preco
+          </td>
+          <td>
+           VARCHAR(10)
+          </td>
+          <td>
+           Tipo de cliente contemplado.
+          </td>
+          <td>
+           CHECK 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           canal_venda_tabela_preco
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Canal de venda associado.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_inicio_tabela_preco
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Início da vigência.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_fim_tabela_preco
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Fim da vigência.
+          </td>
+          <td>
+           NULL
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       ITEM_TABELA_PRECO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_item_tabela_preco
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do item da tabela.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           preco_unitario_venda
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Preço do SKU dentro da tabela.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_inicio_vigencia
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Início da vigência daquele preço.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_fim_vigencia
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Fim da vigência daquele preço.
+          </td>
+          <td>
+           NULL
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_tabela_preco
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Tabela à qual o item pertence.
+          </td>
+          <td>
+           FK → TABELA_PRECO
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_sku
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           SKU precificado.
+          </td>
+          <td>
+           FK → PRODUTO_SKU
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       HISTORICO_PRECO
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_historico_preco
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do registro histórico.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           preco_compra_reposicao
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Preço de compra registrado para a reposição.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           preco_anterior
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Preço vigente antes da alteração.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           preco_novo
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Novo preço registrado.
+          </td>
+          <td>
+           CHECK ≥ 0
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_alteracao_preco
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data/hora da alteração.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_inicio_preco
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Início da validade do preço.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_fim_preco
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Fim da validade, se encerrada.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_sku
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           SKU cujo preço foi alterado.
+          </td>
+          <td>
+           FK → PRODUTO_SKU
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_tabela_preco
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Tabela relacionada
+          </td>
+          <td>
+           FK → TABELA_PRECO
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       CONTA_A_PAGAR
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_conta_pagar
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador da conta.
+          </td>
+          <td>
+           PK
+          </td>
+         </tr>
+         <tr>
+          <td>
+           numero_documento
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Número da nota, duplicata ou documento de cobrança referenciado.
+          </td>
+          <td>
+           NN 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_emissao
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data de emissão.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_vencimento
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data de vencimento.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_pagamento
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data da quitação.
+          </td>
+          <td>
+           NULL 
+          </td>
+         </tr>
+         <tr>
+          <td>
+           valor_total
+          </td>
+          <td>
+           FLOAT
+          </td>
+          <td>
+           Valor total da obrigação.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_conta
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Situação financeira da conta.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_cadastro
+          </td>
+          <td>
+           DATE
+          </td>
+          <td>
+           Data de cadastro da obrigação.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_reposicao
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do pedido de reposição.
+          </td>
+          <td>
+           FK → PEDIDO_REPOSICAO
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     <div class="entity">
+      <h3>
+       USUARIO_SISTEMA
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_usuario
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Identificador do usuário.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           login_usuario
+          </td>
+          <td>
+           VARCHAR(80)
+          </td>
+          <td>
+           Login individual.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           senha_hash
+          </td>
+          <td>
+           VARCHAR(255)
+          </td>
+          <td>
+           Hash criptográfico da senha, nunca a senha original.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           perfil_acesso
+          </td>
+          <td>
+           VARCHAR(50)
+          </td>
+          <td>
+           Perfil de autorização.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           status_usuario
+          </td>
+          <td>
+           VARCHAR(20)
+          </td>
+          <td>
+           Situação da conta de acesso.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_criacao
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Criação do usuário.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           ultimo_acesso
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Último acesso registrado.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_funcionario
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Funcionário associado ao usuário.
+          </td>
+          <td>
+           FK → FUNCIONARIO; UQ se 1:1
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="entity">
+      <h3>
+       LOG_AUDITORIA
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <thead>
+         <tr>
+          <th>
+           Campo
+          </th>
+          <th>
+           Tipo sugerido
+          </th>
+          <th>
+           Descrição
+          </th>
+          <th>
+           Restrição / chave
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           id_log
+          </td>
+          <td>
+           BIGINT
+          </td>
+          <td>
+           Identificador do registro de auditoria.
+          </td>
+          <td>
+           PK, IDENTITY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           data_hora_log
+          </td>
+          <td>
+           DATETIME2
+          </td>
+          <td>
+           Data/hora da ação.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           tipo_operacao
+          </td>
+          <td>
+           VARCHAR(30)
+          </td>
+          <td>
+           Tipo de operação realizada.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           entidade_afetada
+          </td>
+          <td>
+           VARCHAR(60)
+          </td>
+          <td>
+           Nome lógico da entidade afetada.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_registro_afetado
+          </td>
+          <td>
+           VARCHAR(100)
+          </td>
+          <td>
+           Identificador do registro alterado.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           descricao_operacao
+          </td>
+          <td>
+           VARCHAR(MAX)
+          </td>
+          <td>
+           Descrição resumida da ação.
+          </td>
+          <td>
+           NN
+          </td>
+         </tr>
+         <tr>
+          <td>
+           justificativa_operacao
+          </td>
+          <td>
+           VARCHAR(MAX)
+          </td>
+          <td>
+           Justificativa, quando exigida.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           valor_anterior
+          </td>
+          <td>
+           VARCHAR(MAX)
+          </td>
+          <td>
+           Valor anterior, quando necessário e permitido.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           valor_novo
+          </td>
+          <td>
+           VARCHAR(MAX)
+          </td>
+          <td>
+           Valor novo, quando necessário e permitido.
+          </td>
+          <td>
+           Opcional
+          </td>
+         </tr>
+         <tr>
+          <td>
+           id_usuario
+          </td>
+          <td>
+           INT
+          </td>
+          <td>
+           Usuário que executou a operação.
+          </td>
+          <td>
+           FK → USUARIO_SISTEMA
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+    <div class="entity">
+     <h3>BACKUP_SISTEMA</h3>
+     <div class="table-wrap">
+      <table>
+       <thead><tr><th>Campo</th><th>Tipo sugerido</th><th>Descrição</th><th>Restrição / chave</th></tr></thead>
+       <tbody>
+        <tr><td>id_backup</td><td>INT</td><td>Identificador único do backup realizado.</td><td>PK, IDENTITY</td></tr>
+        <tr><td>tipo_backup</td><td>VARCHAR(30)</td><td>Classificação do backup realizado, como completo, incremental ou diferencial.</td><td>NN</td></tr>
+        <tr><td>data_inicio_backup</td><td>DATETIME2</td><td>Data e horário em que o processo de backup foi iniciado.</td><td>NN</td></tr>
+        <tr><td>data_fim_backup</td><td>DATETIME2</td><td>Data e horário em que o processo de backup foi finalizado.</td><td>Opcional</td></tr>
+        <tr><td>local_armazenamento</td><td>VARCHAR(255)</td><td>Caminho ou endereço do local onde o arquivo de backup foi armazenado.</td><td>NN</td></tr>
+        <tr><td>status_backup</td><td>VARCHAR(30)</td><td>Situação do processo de backup, como concluído ou com falha.</td><td>NN</td></tr>
+        <tr><td>tamanho_backup_bytes</td><td>BIGINT</td><td>Tamanho do arquivo de backup, registrado em bytes.</td><td>Opcional</td></tr>
+        <tr><td>id_usuario</td><td>INT</td><td>Identificador do usuário que iniciou o backup, quando realizado manualmente.</td><td>FK → USUARIO_SISTEMA; NULL permitido</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="entity">
+     <h3>REGISTRO_RESTAURACAO</h3>
+     <div class="table-wrap">
+      <table>
+       <thead><tr><th>Campo</th><th>Tipo sugerido</th><th>Descrição</th><th>Restrição / chave</th></tr></thead>
+       <tbody>
+        <tr><td>id_restauracao</td><td>INT</td><td>Identificador único da operação de restauração.</td><td>PK, IDENTITY</td></tr>
+        <tr><td>data_inicio_restauracao</td><td>DATETIME2</td><td>Data e horário em que o processo de restauração foi iniciado.</td><td>NN</td></tr>
+        <tr><td>data_fim_restauracao</td><td>DATETIME2</td><td>Data e horário em que o processo de restauração foi finalizado.</td><td>Opcional</td></tr>
+        <tr><td>status_restauracao</td><td>VARCHAR(30)</td><td>Situação do processo de restauração, como concluído ou com falha.</td><td>NN</td></tr>
+        <tr><td>motivo_restauracao</td><td>VARCHAR(255)</td><td>Motivo pelo qual foi necessária a restauração do backup.</td><td>NN</td></tr>
+        <tr><td>observacao_restauracao</td><td>VARCHAR(MAX)</td><td>Informações complementares sobre a operação de restauração.</td><td>Opcional</td></tr>
+        <tr><td>id_backup</td><td>INT</td><td>Identificador do backup utilizado na operação de restauração.</td><td>FK → BACKUP_SISTEMA, NN</td></tr>
+        <tr><td>id_usuario</td><td>INT</td><td>Identificador do usuário que iniciou a restauração, quando aplicável.</td><td>FK → USUARIO_SISTEMA; NULL permitido</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    </section>
+    <section class="section" id="modelo">
+     <h2>
+      2. Modelo conceitual e cardinalidades
+     </h2>
+     <p>
+      As cardinalidades descrevem quantas ocorrências de uma entidade podem estar relacionadas às ocorrências de outra. Os pares abaixo são uma proposta de leitura do modelo e devem ser comparados com os símbolos e mínimos/máximos do DER final.
+     </p>
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Entidade A
+         </th>
+         <th>
+          Relacionamento
+         </th>
+         <th>
+          Entidade B
+         </th>
+         <th>
+          Cardinalidade sugerida
+         </th>
+         <th>
+          Interpretação
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          DEPARTAMENTO
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          FUNCIONARIO
+         </td>
+         <td>
+          Departamento (0,N) — Funcionário (1,1)
+         </td>
+         <td>
+          Um departamento pode ter vários funcionários; cada funcionário pertence a um departamento.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FUNCIONARIO
+         </td>
+         <td>
+          registra
+         </td>
+         <td>
+          VENDA
+         </td>
+         <td>
+          Funcionário (0,N) — Venda (0,1)
+         </td>
+         <td>
+          Um funcionário registra várias vendas; vendas online podem não ter registro manual de funcionário.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          CLIENTE
+         </td>
+         <td>
+          realiza/está associado a
+         </td>
+         <td>
+          VENDA
+         </td>
+         <td>
+          Cliente (0,N) — Venda (0,1)
+         </td>
+         <td>
+          Um cliente pode ter várias vendas; venda de balcão pode permitir cliente não identificado.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          VENDA
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          ITEM_VENDA
+         </td>
+         <td>
+          Venda (1,N) — Item (1,1)
+         </td>
+         <td>
+          Uma venda concluída contém um ou mais itens; cada item pertence a uma venda.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          aparece em
+         </td>
+         <td>
+          ITEM_VENDA
+         </td>
+         <td>
+          SKU (0,N) — Item (1,1)
+         </td>
+         <td>
+          Um SKU pode aparecer em muitos itens de venda; cada item referencia um SKU.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          VENDA
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          PAGAMENTO
+         </td>
+         <td>
+          Venda (0,N) — Pagamento (1,1)
+         </td>
+         <td>
+          Permite pagamentos divididos ou pagamento registrado após a criação da venda.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          VENDA
+         </td>
+         <td>
+          gera/está associada a
+         </td>
+         <td>
+          PEDIDO_ONLINE
+         </td>
+         <td>
+          Venda (0,1) — Pedido online (1,1)
+         </td>
+         <td>
+          Uma venda pode não ser online; cada pedido online referencia uma venda, conforme o DER.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          CLIENTE
+         </td>
+         <td>
+          realiza
+         </td>
+         <td>
+          PEDIDO_ONLINE
+         </td>
+         <td>
+          Cliente (0,N) — Pedido online (1,1)
+         </td>
+         <td>
+          Um cliente pode realizar vários pedidos; cada pedido está associado a um cliente.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PEDIDO_ONLINE
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          TROCA_DEVOLUCAO
+         </td>
+         <td>
+          Pedido (0,N) — Ocorrência (1,1)
+         </td>
+         <td>
+          Um pedido pode ter ocorrências de troca/devolução; cada ocorrência mantém o vínculo com o pedido.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FORNECEDOR
+         </td>
+         <td>
+          recebe/fornece para
+         </td>
+         <td>
+          PEDIDO_REPOSICAO
+         </td>
+         <td>
+          Fornecedor (0,N) — Reposição (1,1)
+         </td>
+         <td>
+          Um fornecedor pode atender vários pedidos; cada reposição é destinada a um fornecedor.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PEDIDO_REPOSICAO
+         </td>
+         <td>
+          contém
+         </td>
+         <td>
+          ITEM_REPOSICAO
+         </td>
+         <td>
+          Pedido (1,N) — Item (1,1)
+         </td>
+         <td>
+          Um pedido contém itens; cada item pertence a um pedido.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          aparece em
+         </td>
+         <td>
+          ITEM_REPOSICAO
+         </td>
+         <td>
+          SKU (0,N) — Item (1,1)
+         </td>
+         <td>
+          Um SKU pode ser solicitado em reposições diferentes.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          COR
+         </td>
+         <td>
+          caracteriza
+         </td>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          Cor (0,N) — SKU (1,1)
+         </td>
+         <td>
+          Uma cor pode estar em muitos SKUs; cada SKU tem a cor definida no modelo.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          TAMANHO
+         </td>
+         <td>
+          caracteriza
+         </td>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          Tamanho (0,N) — SKU (1,1)
+         </td>
+         <td>
+          Um tamanho pode ser usado por vários SKUs.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          MARCA
+         </td>
+         <td>
+          identifica
+         </td>
+         <td>
+          PRODUTO
+         </td>
+         <td>
+          Marca (0,N) — PRODUTO (1,1), 
+         </td>
+         <td>
+          Uma marca pode identificar nenhum ou vários produtos, enquanto cada produto está associado a uma única marca.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          TABELA_PRECO
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          ITEM_TABELA_PRECO
+         </td>
+         <td>
+          Tabela (0,N) — Item (1,1)
+         </td>
+         <td>
+          Uma tabela de preço contém diversos itens; cada item pertence a uma tabela.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          é precificado em
+         </td>
+         <td>
+          ITEM_TABELA_PRECO
+         </td>
+         <td>
+          SKU (0,N) — Item (1,1)
+         </td>
+         <td>
+          Um SKU pode ter preços em tabelas ou canais diferentes.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          HISTORICO_PRECO
+         </td>
+         <td>
+          SKU (0,N) — Histórico (1,1)
+         </td>
+         <td>
+          O histórico guarda alterações de preço ao longo do tempo.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          TABELA_PRECO
+         </td>
+         <td>
+          contextualiza
+         </td>
+         <td>
+          HISTORICO_PRECO
+         </td>
+         <td>
+          Somente se o vínculo existir no DER
+         </td>
+         <td>
+          Se não houver ligação desenhada, não implementar FK por suposição.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          MOVIMENTACAO_ESTOQUE
+         </td>
+         <td>
+          SKU (0,N) — Movimentação (1,1)
+         </td>
+         <td>
+          Um SKU pode ter várias entradas, saídas e ajustes.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FUNCIONARIO
+         </td>
+         <td>
+          registra
+         </td>
+         <td>
+          MOVIMENTACAO_ESTOQUE
+         </td>
+         <td>
+          Funcionário (0,N) — Movimentação (1,1), se ligado no DER
+         </td>
+         <td>
+          Permite rastrear o responsável pela movimentação.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          ITEM_REPOSICAO
+         </td>
+         <td>
+          origina
+         </td>
+         <td>
+          MOVIMENTACAO_ESTOQUE
+         </td>
+         <td>
+          Item (0,N) — Movimentação (0,1)
+         </td>
+         <td>
+          Uma entrega parcial pode gerar mais de uma movimentação; ajustes podem ter outra origem.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FORNECEDOR
+         </td>
+         <td>
+          possui
+         </td>
+         <td>
+          CONTA_A_PAGAR
+         </td>
+         <td>
+          Fornecedor (0,N) — Conta (1,1)
+         </td>
+         <td>
+          Um fornecedor pode ter várias obrigações financeiras.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FUNCIONARIO
+         </td>
+         <td>
+          possui conta de acesso
+         </td>
+         <td>
+          USUARIO_SISTEMA
+         </td>
+         <td>
+          Funcionário (0,1) — Usuário (1,1)
+         </td>
+         <td>
+          Um funcionário pode não ter usuário ou ter um; cada usuário pertence a um funcionário.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          USUARIO_SISTEMA
+         </td>
+         <td>
+          gera
+         </td>
+         <td>
+          LOG_AUDITORIA
+         </td>
+         <td>
+          Usuário (0,N) — Log (1,1)
+         </td>
+         <td>
+          Um usuário pode gerar vários registros de auditoria.
+         </td>
+        </tr>
+        <tr><td>USUARIO_SISTEMA</td><td>realiza</td><td>BACKUP_SISTEMA</td><td>Usuário (0,N) — Backup (0,1)</td><td>Um usuário pode iniciar vários backups; cada backup pode estar associado a nenhum usuário, quando automático, ou a um usuário.</td></tr>
+        <tr><td>BACKUP_SISTEMA</td><td>é utilizado em</td><td>REGISTRO_RESTAURACAO</td><td>Backup (0,N) — Restauração (1,1)</td><td>Um backup pode ser utilizado em várias restaurações ou em nenhuma; cada restauração utiliza obrigatoriamente um backup.</td></tr>
+        <tr><td>USUARIO_SISTEMA</td><td>inicia</td><td>REGISTRO_RESTAURACAO</td><td>Usuário (0,N) — Restauração (0,1)</td><td>Um usuário pode iniciar várias restaurações; cada registro pode estar associado a nenhum usuário, quando automatizado, ou a um usuário.</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+    <section class="section" id="fluxo">
+     <h2>
+      3. Fluxo de dados
+     </h2>
+     <p>
+      Fluxo resumido dos principais processos sem introduzir novas entidades.
+     </p>
+     <h3>
+      3.1 Cadastro e variações
+     </h3>
+     <div class="flow">
+      <span class="step">
+       Informações de cadastro
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       MARCA / COR / TAMANHO
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       PRODUTO_SKU
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Estoque e preços
+      </span>
+     </div>
+     <h3>
+      3.2 Venda e pagamento
+     </h3>
+     <div class="flow">
+      <span class="step">
+       CLIENTE (quando identificado)
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       VENDA
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       ITEM_VENDA + PRODUTO_SKU
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       PAGAMENTO
+      </span>
+     </div>
+     <h3>
+      3.3 Pedido online e pós-venda
+     </h3>
+     <div class="flow">
+      <span class="step">
+       PEDIDO_ONLINE
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Separação e despacho
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Entrega
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       TROCA_DEVOLUCAO, se necessário
+      </span>
+     </div>
+     <h3>
+      3.4 Reposição e estoque
+     </h3>
+     <div class="flow">
+      <span class="step">
+       FORNECEDOR
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       PEDIDO_REPOSICAO
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       ITEM_REPOSICAO
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       MOVIMENTACAO_ESTOQUE
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Saldo atualizado
+      </span>
+     </div>
+     
+     <h3>
+      3.5 Preços
+     </h3>
+     <div class="flow">
+      <span class="step">
+       TABELA_PRECO
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       ITEM_TABELA_PRECO
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Preço aplicado
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       HISTORICO_PRECO
+      </span>
+     </div>
+     <h3>
+      3.6 Contas e auditoria
+     </h3>
+     <div class="flow">
+      <span class="step">
+       FORNECEDOR / CONTA_A_PAGAR
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Conferência e pagamento
+      </span>
+      <span class="arrow">
+       →
+      </span>
+      <span class="step">
+       Baixa e consulta
+      </span>
+     </div>
+     <h3>3.7 Backup e restauração</h3>
+     <div class="flow">
+      <span class="step">Banco de dados</span><span class="arrow">→</span>
+      <span class="step">Execução automática ou manual do backup</span><span class="arrow">→</span>
+      <span class="step">BACKUP_SISTEMA</span><span class="arrow">→</span>
+      <span class="step">Armazenamento seguro do arquivo</span>
+     </div>
+     <div class="flow">
+      <span class="step">BACKUP_SISTEMA</span><span class="arrow">→</span>
+      <span class="step">Seleção do backup necessário</span><span class="arrow">→</span>
+      <span class="step">REGISTRO_RESTAURACAO</span><span class="arrow">→</span>
+      <span class="step">Execução e registro da restauração</span>
+     </div>
+    
+    </section>
+    <section class="section" id="convencoes">
+     <h2>
+      4. Convenções técnicas
+     </h2>
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Item
+         </th>
+         <th>
+          Convenção proposta
+         </th>
+         <th>
+          Exemplo / observação
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          Idioma
+         </td>
+         <td>
+          Português do Brasil.
+         </td>
+         <td>
+          Documentação em pt-BR.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Entidades/tabelas
+         </td>
+         <td>
+          Nomes sem acento, sem espaço e consistentes.
+         </td>
+         <td>
+          <code>
+           PRODUTO_SKU
+          </code>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Atributos
+         </td>
+         <td>
+          <code>
+           snake_case
+          </code>
+          .
+         </td>
+         <td>
+          <code>
+           data_venda
+          </code>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Chave primária
+         </td>
+         <td>
+          Prefixo
+          <code>
+           id_
+          </code>
+          e unicidade.
+         </td>
+         <td>
+          <code>
+           id_cliente
+          </code>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Chave estrangeira
+         </td>
+         <td>
+          Usar o mesmo nome lógico da chave referenciada.
+         </td>
+         <td>
+          <code>
+           id_sku
+          </code>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Identificador no SQL Server
+         </td>
+         <td>
+          <code>
+           INT IDENTITY(1,1)
+          </code>
+          quando geração automática for desejada.
+         </td>
+         <td>
+          Não usar
+          <code>
+           AUTO_INCREMENT
+          </code>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Texto
+         </td>
+         <td>
+          <code>
+           VARCHAR(n)
+          </code>
+          ou
+          <code>
+           NVARCHAR(n)
+          </code>
+          quando Unicode for necessário.
+         </td>
+         <td>
+          Definir limites coerentes.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Dinheiro
+         </td>
+         <td>
+          <code>
+           DECIMAL(12,2)
+          </code>
+          ou precisão adequada.
+         </td>
+         <td>
+          Evitar
+          <code>
+           FLOAT
+          </code>
+          para valores monetários.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Data e hora
+         </td>
+         <td>
+          <code>
+           DATE
+          </code>
+          para data;
+          <code>
+           DATETIME2
+          </code>
+          para data/hora.
+         </td>
+         <td>
+          Literais ISO, como
+          <code>
+           '2026-10-23T14:30:00'
+          </code>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Obrigatoriedade
+         </td>
+         <td>
+          <code>
+           NOT NULL
+          </code>
+          somente para dados realmente obrigatórios.
+         </td>
+         <td>
+          Campos condicionais podem aceitar NULL.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Domínios
+         </td>
+         <td>
+          <code>
+           CHECK
+          </code>
+          ou tabela de referência apenas se já prevista no DER.
+         </td>
+         <td>
+          Status e tipos limitados.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Integridade referencial
+         </td>
+         <td>
+          FK para relações existentes no DER.
+         </td>
+         <td>
+          Não inventar vínculos ou tabelas.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Senha
+         </td>
+         <td>
+          Armazenar hash seguro com algoritmo adequado.
+         </td>
+         <td>
+          Nunca armazenar senha em texto puro.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Versão
+         </td>
+         <td>
+          Registrar versão e data do documento.
+         </td>
+         <td>
+          Revisar após mudança no DER.
+         </td>
+        </tr>
+        <tr><td>Campos monetários</td><td>Preferir DECIMAL para valores financeiros.</td><td>Evitar FLOAT para valores monetários.</td></tr>
+        <tr><td>Arquivos de backup</td><td>Armazenar os arquivos em local separado do banco de produção.</td><td>Na tabela, guardar apenas localização e metadados do arquivo.</td></tr>
+        <tr><td>Campos opcionais</td><td>Permitir NULL quando a informação não for aplicável a todas as operações.</td><td>id_usuario em BACKUP_SISTEMA e REGISTRO_RESTAURACAO.</td></tr>
+        <tr>
+         <td>
+          Collation
+         </td>
+         <td>
+          Documentar a configuração usada na instância.
+         </td>
+         <td>
+          Evitar presumir configuração local.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+    <section class="section" id="glossario">
+     <h2>
+      5. Glossário
+     </h2>
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Termo
+         </th>
+         <th>
+          Definição
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          Banco de dados
+         </td>
+         <td>
+          Conjunto organizado de dados relacionados.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          SGBD
+         </td>
+         <td>
+          Sistema Gerenciador de Banco de Dados, responsável por armazenar e consultar dados.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          DER
+         </td>
+         <td>
+          Diagrama Entidade-Relacionamento que representa entidades, atributos e relações.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Entidade
+         </td>
+         <td>
+          Objeto ou conceito sobre o qual o sistema mantém informações.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Atributo
+         </td>
+         <td>
+          Característica ou dado de uma entidade.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PK
+         </td>
+         <td>
+          Chave primária: identifica unicamente cada registro.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FK
+         </td>
+         <td>
+          Chave estrangeira: estabelece referência a outra tabela.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Cardinalidade
+         </td>
+         <td>
+          Quantidade mínima e máxima de ocorrências que podem participar de um relacionamento.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          SKU
+         </td>
+         <td>
+          Identificador de uma variação comercializável, como combinação de cor e tamanho.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          ERP
+         </td>
+         <td>
+          Sistema integrado de gestão empresarial.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Millennium
+         </td>
+         <td>
+          ERP citado no levantamento como utilizado nos processos da empresa.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PDV
+         </td>
+         <td>
+          Ponto de Venda utilizado nas operações da loja física.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          B2C
+         </td>
+         <td>
+          Relação comercial de empresa com consumidor final.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          B2B
+         </td>
+         <td>
+          Relação comercial entre empresas.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          NCM
+         </td>
+         <td>
+          Nomenclatura Comum do Mercosul, utilizada na classificação fiscal de mercadorias.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Reposição
+         </td>
+         <td>
+          Pedido de produtos para recompor o estoque.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Bipagem
+         </td>
+         <td>
+          Leitura do código do produto para conferência ou movimentação.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Baixa financeira
+         </td>
+         <td>
+          Registro de que uma obrigação foi paga ou liquidada.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Conciliação
+         </td>
+         <td>
+          Conferência entre os valores registrados e os efetivamente recebidos ou pagos.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Log de auditoria
+         </td>
+         <td>
+          Registro de ações relevantes com usuário, data/hora e descrição da operação.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          LGPD
+         </td>
+         <td>
+          Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018).
+         </td>
+        </tr>
+        <tr>
+         <td>
+          IDENTITY
+         </td>
+         <td>
+          Recurso do SQL Server para gerar identificadores numéricos automaticamente.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          DECIMAL
+         </td>
+         <td>
+          Tipo numérico de precisão fixa, adequado para valores monetários.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          NOT NULL
+         </td>
+         <td>
+          Restrição que impede ausência de valor no campo.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          UNIQUE
+         </td>
+         <td>
+          Restrição que impede valores duplicados no campo ou conjunto de campos.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          CHECK
+         </td>
+         <td>
+          Restrição que valida uma condição para os dados inseridos.
+         </td>
+        </tr>
+        <tr><td>Backup</td><td>Cópia de segurança dos dados do banco, utilizada para recuperação em caso de perda ou corrupção das informações.</td></tr>
+        <tr><td>Restauração</td><td>Processo de recuperação dos dados utilizando um backup anteriormente realizado.</td></tr>
+        <tr><td>Log de auditoria</td><td>Registro das operações relevantes realizadas no sistema, permitindo identificar alterações e seus responsáveis.</td></tr>
+        <tr><td>Integridade referencial</td><td>Regra que garante a consistência dos relacionamentos entre tabelas por meio das chaves estrangeiras.</td></tr>
+        <tr><td>Hash de senha</td><td>Resultado de um processo criptográfico utilizado para armazenar senhas sem manter seu conteúdo original.</td></tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+    <section class="section" id="integridade">
+     <h2>
+      6. Índices e integridade dos dados
+     </h2>
+     <h3>
+      6.1 Índices sugeridos
+     </h3>
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Tabela
+         </th>
+         <th>
+          Campo(s)
+         </th>
+         <th>
+          Finalidade
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          CLIENTE
+         </td>
+         <td>
+          <code>
+           cpf_cliente
+          </code>
+          ,
+          <code>
+           cnpj_cliente
+          </code>
+         </td>
+         <td>
+          Localização do cadastro; unicidade apenas conforme regra e tipo de cliente.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          FORNECEDOR
+         </td>
+         <td>
+          <code>
+           cnpj_fornecedor
+          </code>
+         </td>
+         <td>
+          Busca rápida e prevenção de duplicidade, quando aplicável.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PRODUTO_SKU
+         </td>
+         <td>
+          <code>
+           id_cor
+          </code>
+          ,
+          <code>
+           id_tamanho
+          </code>
+         </td>
+         <td>
+          Pesquisa e filtragem por variações.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          VENDA
+         </td>
+         <td>
+          <code>
+           data_venda
+          </code>
+         </td>
+         <td>
+          Consultas por período.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          ITEM_VENDA
+         </td>
+         <td>
+          <code>
+           id_venda
+          </code>
+          ,
+          <code>
+           id_sku
+          </code>
+         </td>
+         <td>
+          Localizar itens por venda e analisar saídas por SKU.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PAGAMENTO
+         </td>
+         <td>
+          <code>
+           id_venda
+          </code>
+          ,
+          <code>
+           status_pagamento
+          </code>
+         </td>
+         <td>
+          Consulta de pagamentos por venda e situação.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PEDIDO_ONLINE
+         </td>
+         <td>
+          <code>
+           status_pedido
+          </code>
+          ,
+          <code>
+           data_pedido
+          </code>
+         </td>
+         <td>
+          Fila operacional e pesquisa por período.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          PEDIDO_REPOSICAO
+         </td>
+         <td>
+          <code>
+           status_reposicao
+          </code>
+          ,
+          <code>
+           data_reposicao
+          </code>
+         </td>
+         <td>
+          Acompanhamento de pedidos pendentes.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          ITEM_REPOSICAO
+         </td>
+         <td>
+          <code>
+           id_reposicao
+          </code>
+          ,
+          <code>
+           id_sku
+          </code>
+         </td>
+         <td>
+          Consulta dos itens e quantidades solicitadas/recebidas.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          MOVIMENTACAO_ESTOQUE
+         </td>
+         <td>
+          <code>
+           id_sku
+          </code>
+          ,
+          <code>
+           data_movimentacao
+          </code>
+         </td>
+         <td>
+          Histórico de movimentações por SKU e período.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          ITEM_TABELA_PRECO
+         </td>
+         <td>
+          <code>
+           id_tabela_preco
+          </code>
+          ,
+          <code>
+           id_sku
+          </code>
+         </td>
+         <td>
+          Pesquisa do preço por tabela e SKU.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          HISTORICO_PRECO
+         </td>
+         <td>
+          <code>
+           id_sku
+          </code>
+          ,
+          <code>
+           data_alteracao_preco
+          </code>
+         </td>
+         <td>
+          Consulta de alterações de preço.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          CONTA_A_PAGAR
+         </td>
+         <td>
+          <code>
+           data_vencimento
+          </code>
+          ,
+          <code>
+           status_conta
+          </code>
+         </td>
+         <td>
+          Identificar contas vencidas e pendentes.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          LOG_AUDITORIA
+         </td>
+         <td>
+          <code>
+           id_usuario
+          </code>
+          ,
+          <code>
+           data_hora_log
+          </code>
+         </td>
+         <td>
+          Consulta de ações por usuário e período.
+         </td>
+        </tr>
+        <tr><td>BACKUP_SISTEMA</td><td><code>data_inicio_backup</code></td><td>Facilitar a consulta do histórico de backups por período.</td></tr>
+        <tr><td>BACKUP_SISTEMA</td><td><code>status_backup</code></td><td>Facilitar a localização de backups concluídos ou com falha.</td></tr>
+        <tr><td>REGISTRO_RESTAURACAO</td><td><code>data_inicio_restauracao</code></td><td>Facilitar a consulta das operações de restauração por período.</td></tr>
+        <tr><td>REGISTRO_RESTAURACAO</td><td><code>id_backup</code></td><td>Facilitar a localização das restaurações relacionadas a determinado backup; considerar que a FK já pode possuir índice.</td></tr>
+       </tbody>
+      </table>
+     </div>
+     <p class="small">
+      Índices devem ser criados após avaliar as consultas reais. Chaves primárias e restrições UNIQUE normalmente já criam índices próprios no SQL Server.
+     </p>
+     <h3>
+      6.2 Regras de integridade
+     </h3>
+     <ul>
+      <li>
+       <strong>
+        Integridade de entidade:
+       </strong>
+       toda tabela deve possuir PK e os identificadores não podem se repetir.
+      </li>
+      <li>
+       <strong>
+        Integridade referencial:
+       </strong>
+       uma FK deve apontar para registro existente; não criar FK para entidade que não consta no DER.
+      </li>
+      <li>
+       <strong>
+        Domínio:
+       </strong>
+       quantidades não negativas, preço monetário não negativo e status limitados a valores definidos.
+      </li>
+      <li>
+       <strong>
+        Obrigatoriedade:
+       </strong>
+       utilizar
+       <code>
+        NOT NULL
+       </code>
+       apenas quando o dado for indispensável ao processo.
+      </li>
+      <li>
+       <strong>
+        Integridade temporal:
+       </strong>
+       data final não deve ser anterior à data inicial para vigências e períodos.
+      </li>
+      <li>
+       <strong>
+        Estoque:
+       </strong>
+       impedir saldo negativo se essa for a regra aprovada; registrar ajustes com justificativa.
+      </li>
+      <li>
+       <strong>
+        Preços:
+       </strong>
+       manter preço aplicado no item da venda e histórico de alterações para preservar o valor praticado.
+      </li>
+      <li>
+       <strong>
+        Transações:
+       </strong>
+       venda, itens, pagamentos e atualização de estoque devem ser tratados de forma consistente para evitar registros parciais.
+      </li>
+      <li>
+       <strong>
+        Exclusão:
+       </strong>
+       preferir bloqueio de exclusão de registros referenciados; usar cancelamento/inativação quando for necessário preservar histórico.
+      </li>
+      <li>
+       <strong>
+        Backups:
+       </strong>
+       manter cópias de segurança e testar periodicamente a restauração.
+      </li>
+      <li><strong>Restaurações:</strong> cada registro de restauração deve referenciar um backup existente.</li>
+      <li><strong>Histórico:</strong> evitar excluir registros de backup e restauração necessários à rastreabilidade.</li>
+     </ul>
+    </section>
+    <section class="section" id="auditoria">
+     <h2>
+      7. Logs e auditoria
+     </h2>
+  
+     <h3>
+      7.1 Operações recomendadas para auditoria
+     </h3>
+     <ul>
+      <li>
+       Alteração de preços e vigências.
+      </li>
+      <li>
+       Cancelamento de venda, pedido, troca ou devolução.
+      </li>
+      <li>
+       Ajustes manuais de estoque e correções de inventário.
+      </li>
+      <li>
+       Alterações em cadastro de clientes e fornecedores.
+      </li>
+      <li>
+       Alteração de permissões e bloqueio/desbloqueio de usuários.
+      </li>
+      <li>
+       Operações financeiras relevantes e correções de status.
+      </li>
+      <li>Execução manual de backups.</li>
+      <li>Solicitação e execução de restaurações.</li>
+     </ul>
+     <h3>
+      7.2 Conteúdo mínimo do registro
+     </h3>
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Informação
+         </th>
+         <th>
+          Motivo
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          Usuário autenticado
+         </td>
+         <td>
+          Atribuir responsabilidade individual.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Data e hora
+         </td>
+         <td>
+          Ordenar eventos e apoiar investigação.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Tipo de operação
+         </td>
+         <td>
+          Distinguir criação, alteração, exclusão lógica, cancelamento e consulta sensível, conforme política.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Entidade e identificador afetados
+         </td>
+         <td>
+          Localizar o registro relacionado sem criar nova entidade de negócio.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Descrição e justificativa
+         </td>
+         <td>
+          Explicar a ação e o motivo quando necessário.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Valores anterior/novo
+         </td>
+         <td>
+          Úteis para mudanças relevantes, evitando cópia excessiva de dados pessoais.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <h3>
+      7.3 Controles
+     </h3>
+     <ul>
+      <li>
+       Não permitir que usuários comuns alterem ou apaguem os próprios logs.
+      </li>
+      <li>
+       Restringir consulta de logs a responsáveis autorizados.
+      </li>
+      <li>
+       Evitar registrar senhas, tokens, dados completos de cartão ou dados pessoais desnecessários.
+      </li>
+      <li>
+       Definir prazo de retenção e descarte conforme necessidade e obrigações legais.
+      </li>
+      <li>
+       Sincronizar relógios e manter cópias de segurança protegidas.
+      </li>
+      <li>
+       Investigar ações atípicas e preservar evidências relevantes.
+      </li>
+     </ul>
+    
+    </section>
+    <section class="section" id="lgpd">
+     <h2>
+      8. Papéis, permissões por operação e LGPD
+     </h2>
+    
+     <div class="subnav">
+      <a href="#matriz">
+       Ir para matriz de permissões
+      </a>
+      <a href="#protecao">
+       Ir para proteção de dados
+      </a>
+     </div>
+     <h3>
+      Papéis propostos
+     </h3>
+     <div class="cards">
+      <div class="mini">
+       <strong>
+        Administrador técnico
+       </strong>
+       Gerencia configuração, contas e permissões; não deve consultar dados pessoais sem necessidade operacional. Também configura e acompanha as rotinas de backup e executa restaurações quando autorizado.
+      </div>
+      <div class="mini">
+       <strong>
+        Diretoria / gestor autorizado
+       </strong>
+       Aprova exceções comerciais, descontos e alterações sensíveis.
+      </div>
+      <div class="mini">
+       <strong>
+        Vendas / PDV
+       </strong>
+       Registra vendas, itens e pagamentos, com acesso restrito aos dados necessários.
+      </div>
+      <div class="mini">
+       <strong>
+        Estoque / logística
+       </strong>
+       Consulta SKUs, movimentações, reposição, separação e entrega.
+      </div>
+      <div class="mini">
+       <strong>
+        Compras
+       </strong>
+       Consulta fornecedores e registra pedidos de reposição.
+      </div>
+      <div class="mini">
+       <strong>
+        Financeiro
+       </strong>
+       Consulta contas a pagar e pagamentos, com acesso financeiro específico.
+      </div>
+      <div class="mini">
+       <strong>
+        Auditoria autorizada
+       </strong>
+       Consulta registros de auditoria sem alterá-los.
+      </div>
+     </div>
+    </section>
+    <section class="section" id="matriz">
+     <h2>
+      Matriz de permissões proposta
+     </h2>
+     <p class="small">
+      Legenda:
+      <strong>
+       C
+      </strong>
+      = consultar;
+      <strong>
+       I
+      </strong>
+      = inserir;
+      <strong>
+       A
+      </strong>
+      = alterar;
+      <strong>
+       X
+      </strong>
+      = excluir/cancelar, somente quando autorizado;
+      <strong>
+       —
+      </strong>
+      = sem acesso padrão. Ajustar aos cargos reais e às regras aprovadas.
+     </p>
+     <div class="table-wrap">
+      <table class="perm">
+       <thead>
+        <tr>
+         <th>
+          Operação / área
+         </th>
+         <th>
+          Vendas / PDV
+         </th>
+         <th>
+          Estoque / logística
+         </th>
+         <th>
+          Compras
+         </th>
+         <th>
+          Financeiro
+         </th>
+         <th>
+          Gestor / diretoria
+         </th>
+         <th>
+          Auditoria
+         </th>
+         <th>
+          Admin técnico
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          Consultar cadastro de cliente
+         </td>
+         <td>
+          C limitado
+         </td>
+         <td>
+          — / mínimo necessário
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          C conforme finalidade
+         </td>
+         <td>
+          C autorizado
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          — por padrão
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Alterar cadastro de cliente
+         </td>
+         <td>
+          I/A limitado
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          A excepcional
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          — por padrão
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Registrar venda e itens
+         </td>
+         <td>
+          C/I/A durante operação
+         </td>
+         <td>
+          C para separação, se necessário
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          C para conciliação
+         </td>
+         <td>
+          C / A excepcional
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          —
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Cancelar venda / estornar
+         </td>
+         <td>
+          Solicitar ou executar conforme limite
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          I/A na etapa financeira
+         </td>
+         <td>
+          A/X autorizado
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          —
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Consultar / movimentar estoque
+         </td>
+         <td>
+          C disponível
+         </td>
+         <td>
+          C/I/A
+         </td>
+         <td>
+          C
+         </td>
+         <td>
+          C agregado, se necessário
+         </td>
+         <td>
+          C/A excepcional
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          —
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Criar pedido de reposição
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          Solicitar/C
+         </td>
+         <td>
+          I/A
+         </td>
+         <td>
+          C conforme custo
+         </td>
+         <td>
+          Aprovar
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          —
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Alterar preço / tabela
+         </td>
+         <td>
+          C
+         </td>
+         <td>
+          C
+         </td>
+         <td>
+          Propor/A limitado
+         </td>
+         <td>
+          C conforme finalidade
+         </td>
+         <td>
+          A/I autorizado
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          —
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Registrar pagamento / conta
+         </td>
+         <td>
+          Registrar recebimento permitido
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          C pedido relacionado
+         </td>
+         <td>
+          C/I/A
+         </td>
+         <td>
+          Aprovar exceção
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          —
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Gerenciar usuários e perfis
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          Autorizar
+         </td>
+         <td>
+          C restrito
+         </td>
+         <td>
+          I/A técnico autorizado
+         </td>
+        </tr>
+        <tr><td>Executar backup manual</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Autorizar exceção</td><td>C restrito</td><td>I/A autorizado</td></tr>
+        <tr><td>Consultar histórico de backups</td><td>—</td><td>—</td><td>—</td><td>—</td><td>C autorizado</td><td>C restrito</td><td>C</td></tr>
+        <tr><td>Solicitar restauração</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Aprovar</td><td>C restrito</td><td>C</td></tr>
+        <tr><td>Executar restauração</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Autorizar</td><td>C restrito</td><td>I/A autorizado</td></tr>
+        <tr><td>Consultar histórico de restaurações</td><td>—</td><td>—</td><td>—</td><td>—</td><td>C autorizado</td><td>C</td><td>C</td></tr>
+        <tr>
+         <td>
+          Consultar LOG_AUDITORIA
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          C conforme função
+         </td>
+         <td>
+          C
+         </td>
+         <td>
+          C técnico restrito
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Excluir registros históricos
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          Excepcional e documentado
+         </td>
+         <td>
+          —
+         </td>
+         <td>
+          Bloqueado por padrão
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="warning">
+      <strong>
+       Segregação de funções:
+      </strong>
+      quando possível, a mesma pessoa não deve solicitar, aprovar e concluir uma operação financeira sensível sozinha. Exceções devem ter justificativa e registro.
+     </div>
+    </section>
+    <section class="section" id="protecao">
+     <h2>
+      Proteção de dados pessoais e LGPD
+     </h2>
+     <p>
+      A Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018) estabelece regras para tratamento de dados pessoais. As medidas a seguir são propostas para o projeto acadêmico e não representam certificação ou auditoria da empresa.
+     </p>
+     <h3>
+      Princípios e medidas propostas
+     </h3>
+     <ol>
+      <li>
+       <strong>
+        Finalidade:
+       </strong>
+       usar os dados de clientes e funcionários para objetivos definidos, legítimos e informados.
+      </li>
+      <li>
+       <strong>
+        Necessidade:
+       </strong>
+       coletar somente os dados adequados ao cadastro, venda, entrega, atendimento e obrigações legais.
+      </li>
+      <li>
+       <strong>
+        Qualidade:
+       </strong>
+       permitir correção de dados incorretos por pessoas autorizadas.
+      </li>
+      <li>
+       <strong>
+        Transparência:
+       </strong>
+       informar de forma clara como os dados são utilizados, conforme a operação.
+      </li>
+      <li>
+       <strong>
+        Controle de acesso:
+       </strong>
+       limitar CPF, CNPJ, endereço, telefone e e-mail aos perfis que precisem dessas informações.
+      </li>
+      <li>
+       <strong>
+        Autenticação:
+       </strong>
+       usar contas individuais, senhas fortes e hash seguro; habilitar autenticação multifator quando disponível.
+      </li>
+      <li>
+       <strong>
+        Mascaramento:
+       </strong>
+       ocultar parte do CPF e de outros identificadores em relatórios que não exijam o valor completo.
+      </li>
+      <li>
+       <strong>
+        Logs:
+       </strong>
+       registrar operações relevantes sem armazenar senhas, tokens ou dados pessoais excessivos.
+      </li>
+      <li>
+       <strong>
+        Retenção:
+       </strong>
+       definir prazos de guarda e descarte considerando obrigações legais, fiscais e necessidades legítimas.
+      </li>
+      <li>
+       <strong>
+        Direitos dos titulares:
+       </strong>
+       definir canal e processo para receber e encaminhar solicitações de acesso, correção e demais direitos aplicáveis.
+      </li>
+      <li>
+       <strong>
+        Incidentes:
+       </strong>
+       manter procedimento para identificar, avaliar, conter e encaminhar incidentes de segurança.
+      </li>
+      <li>
+       <strong>
+        Backups:
+       </strong>
+       proteger cópias de segurança com controle de acesso e testar a restauração.
+      </li>
+      <li>
+       <strong>
+        Compartilhamento:
+       </strong>
+       compartilhar dados com transportadoras, prestadores e outros destinatários somente quando necessário e autorizado.
+      </li>
+      <li>
+       <strong>
+        Treinamento:
+       </strong>
+       orientar funcionários sobre confidencialidade, phishing, uso de credenciais e tratamento seguro de informações.
+      </li>
+     </ol>
+     <h3>
+      Dados pessoais tratados no modelo
+     </h3>
+     <div class="table-wrap">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Dados
+         </th>
+         <th>
+          Finalidade possível
+         </th>
+         <th>
+          Cuidado recomendado
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          Nome e contato
+         </td>
+         <td>
+          Cadastro, comunicação, atendimento e entrega.
+         </td>
+         <td>
+          Acesso por necessidade e atualização controlada.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          CPF / CNPJ
+         </td>
+         <td>
+          Identificação e obrigações comerciais/fiscais quando necessárias.
+         </td>
+         <td>
+          Mascaramento em relatórios e acesso restrito.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Endereço
+         </td>
+         <td>
+          Entrega e cadastro comercial.
+         </td>
+         <td>
+          Não exibir para perfis sem finalidade operacional.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Dados de funcionário / usuário
+         </td>
+         <td>
+          Autenticação e responsabilização por ações.
+         </td>
+         <td>
+          Não compartilhar contas; limitar consulta de logs.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Dados de transação
+         </td>
+         <td>
+          Registro e conciliação da venda.
+         </td>
+         <td>
+          Não armazenar dados completos de cartão ou credenciais de pagamento desnecessárias.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    
+    </section>
+   </main>
+  </div>
+  <footer class="footer">
+   ANSARAH · Documentação acadêmica do modelo de dados.
+  </footer>
+ </body>
+</html>
