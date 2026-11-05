@@ -413,7 +413,7 @@ As cardinalidades são representadas no Diagrama Entidade-Relacionamento (DER), 
 O **Diagrama Entidade-Relacionamento (DER)** foi elaborado utilizando a ferramenta **brModelo**, com base nas entidades, nos atributos e nos relacionamentos identificados durante o levantamento de requisitos da organização. O diagrama representa graficamente a estrutura conceitual do banco de dados proposto para a ANSARAH.
 
 
-> **Imagem do DER: anexada no repositório.**
+> **Imagem do DER: anexada no [MODELOS](./MODELOS)..**
 
 ### 8.1 Apontamento da correção
 <BR><BR>
