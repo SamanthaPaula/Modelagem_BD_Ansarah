@@ -962,7 +962,6 @@ As sugestões fornecidas pela inteligência artificial foram analisadas pelos in
 
 ### 17.1 Registro de utilização da ferramenta
 
-### 16.1 Registro de utilização da ferramenta
 
 | **Ferramenta e etapa** | **Motivação** | **Prompt(s) utilizados** | **Resposta recebida** | **Trechos rejeitados ou corrigidos** | **Justificativa da escolha final** | **Reflexão crítica** |
 |---|---|---|---|---|---|---|
