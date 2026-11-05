@@ -583,7 +583,7 @@ As chaves primárias (PK) identificam exclusivamente cada registro das tabelas. 
 | LOG_AUDITORIA | id_log | id_usuario → Usuario_sistema |
 | BACKUP_SISTEMA | id_backup | id_usuario → Usuario_sistema |
 | REGISTRO_RESTAURACAO | id_restauracao | id_backup → BACKUP_SISTEMA; id_usuario → Usuario_sistema |
-
+<BR><BR>
 **Observação:** Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.
 <BR><BR>
 ---
@@ -732,7 +732,7 @@ O atributo `preco_unitario_venda` foi mantido em `ITEM_VENDA` porque representa 
 A separação entre `VENDA` e `PAGAMENTO` permite representar diferentes registros de pagamento associados a uma mesma venda. Da mesma maneira, a separação entre `PEDIDO_REPOSICAO` e `ITEM_REPOSICAO` permite registrar individualmente os produtos solicitados e recebidos, incluindo situações de entrega parcial.
 
 Por fim, `USUARIO_SISTEMA`, `LOG_AUDITORIA`, `BACKUP_SISTEMA` e `REGISTRO_RESTAURACAO` foram propostas como entidades para representar o controle de acesso, a rastreabilidade das operações e o gerenciamento de cópias de segurança e restaurações no modelo acadêmico. Sua inclusão não significa que essas entidades correspondam à estrutura interna do ERP utilizado pela Ansarah, mas que representam uma proposta de organização dessas informações no banco de dados desenvolvido para o projeto.
-
+<BR><BR>
 ---
 # 15. Proposta de Arquitetura Analítica para BI e IA — ANSARAH
 
