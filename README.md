@@ -87,7 +87,7 @@ O levantamento de requisitos da organização Ansarah foi realizado por meio de 
 
 Durante o levantamento, foram abordados os processos de cadastro de produtos e clientes, controle de estoque, vendas, fornecedores, formação de preços, pedidos on-line, trocas e devoluções, relatórios gerenciais e segurança das informações.
 
->**O relato detalhado do levantamento, incluindo as etapas realizadas e as principais informações obtidas, está disponível na pasta `levantamento`.**
+>**O relato detalhado do levantamento, incluindo as etapas realizadas e as principais informações obtidas, está disponível na pasta [LEVANTAMENTO](./LEVANTAMENTO).**
 
 ---
 
@@ -595,7 +595,7 @@ As chaves primárias (PK) identificam exclusivamente cada registro das tabelas. 
 | REGISTRO_RESTAURACAO | id_restauracao | id_backup → BACKUP_SISTEMA; id_usuario → Usuario_sistema |
 ---
 <br><br>
-<h3>Observação: Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.</h3>
+<P>Observação: Os campos apresentados como FK representam as referências definidas na estrutura lógica do banco. Para que sejam efetivamente aplicados como restrições de integridade referencial no MySQL, devem ser declarados por meio de `FOREIGN KEY` no script SQL. O campo `id_usuario` de `BACKUP_SISTEMA` permite valor nulo, pois a execução de backups pode ocorrer automaticamente, sem a atuação direta de um usuário.</P>
 
 ---
 <br><br>
@@ -640,7 +640,7 @@ A normalização foi necessária para organizar as informações do banco de dad
 
 - **Terceira Forma Normal (3FN):** contribui para reduzir a repetição de informações e evitar dependências desnecessárias entre atributos. No projeto, isso foi aplicado à remoção dos atributos `nome_item_venda` e `nome_item_reposicao`, pois as descrições dos produtos já estão armazenadas na tabela `PRODUTO` e podem ser consultadas por meio dos relacionamentos com `PRODUTO_SKU`.
 <br><br>
-<h3>Assim, a normalização permite manter as informações mais organizadas, facilita sua manutenção e reduz possíveis inconsistências nos registros do banco de dados.</h3>
+<p>Assim, a normalização permite manter as informações mais organizadas, facilita sua manutenção e reduz possíveis inconsistências nos registros do banco de dados.</p>
 
 
 
