@@ -529,6 +529,13 @@ Essa escolha permite manter os dados cadastrais comuns em uma única tabela e id
 
 Não foi adotada uma estrutura de generalização ou especialização com entidades e tabelas próprias para cada subtipo, pois o modelo proposto não exige, neste momento, atributos exclusivos suficientes para justificar essa separação.
 
+### 9.6 Arquivo do Modelo Lógico
+
+O modelo lógico do banco de dados da ANSARAH foi desenvolvido utilizando a ferramenta **brModelo** e está anexado a este repositório. Ele apresenta a estrutura das tabelas, seus atributos, chaves primárias e campos destinados aos relacionamentos entre as entidades.
+
+> **O modelo lógico desenvolvido a partir do modelo conceitual está disponível no repositório, junto aos demais arquivos do projeto.**
+
+
 #### Considerações finais
 
 A conversão do modelo conceitual para o modelo lógico permitiu organizar os dados da Ansarah em 25 tabelas, com identificadores e campos de relacionamento destinados a representar as associações entre as entidades.
@@ -538,7 +545,7 @@ A estrutura resultante prepara o banco de dados para a implementação no MySQL,
 As restrições de integridade referencial, incluindo as chaves estrangeiras, devem ser definidas na implementação SQL para garantir que os relacionamentos sejam efetivamente validados pelo banco de dados.
 
 
-> **O modelo lógico desenvolvido a partir do modelo conceitual está disponível no repositório do GitHub, junto aos demais arquivos do projeto.**
+
 
 <BR><BR>
 ---
@@ -932,14 +939,23 @@ Para o P1, as consultas G11 e G12 permitem acompanhar as execuções de backup e
 
 Dessa forma, a rastreabilidade permite relacionar as necessidades identificadas na organização às estruturas de dados, aos indicadores e às consultas desenvolvidas, demonstrando como o banco de dados poderá apoiar o acompanhamento gerencial e a tomada de decisões.
 ---
+## 16. Script SQL do Banco de Dados
 
-## 16. Uso de Inteligência Artificial
+O script SQL do banco de dados da ANSARAH está **anexado a este repositório**, permitindo visualizar e executar os comandos utilizados na criação e estruturação do banco de dados.
+
+O arquivo contém os comandos de criação do banco de dados e das 25 tabelas, incluindo suas respectivas chaves primárias, atributos e restrições, além de comandos de inserção, atualização, exclusão e consultas para análise das informações e auditoria.
+
+
+> **Arquivo SQl: anexada no repositório.**
+
+---
+## 17. Uso de Inteligência Artificial
 
 
 <br><br>
 ---
 
-## 17. Conclusão
+## 18. Conclusão
 
 O desenvolvimento deste projeto permitiu aplicar os conhecimentos adquiridos na disciplina de Modelagem de Banco de Dados, desde o levantamento de requisitos até a construção da estrutura lógica e a elaboração dos comandos SQL. A partir das informações obtidas junto à ANSARAH, foi possível compreender parte dos processos envolvidos na gestão de produtos, vendas, clientes, fornecedores, estoque, pagamentos e reposições.
 
