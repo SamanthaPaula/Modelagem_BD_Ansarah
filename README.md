@@ -77,7 +77,7 @@ https://www.ansarah.com.br/
 <br>
 **Cargo/Função:** Proprietária e responsável pela área administrativa/financeira
 <br>
-**Telefone para contato:** 
+**Telefone para contato: 11 99451-6226 ** 
 
 >**A fotografia referente ao contato realizado pela responsável da organização está disponível na pasta [PROVASDAEMPRESA](./PROVASDAEMPRESA/), junto aos demais registros e documentos utilizados como evidências.**
 
@@ -120,7 +120,7 @@ Os principais processos de negócio da empresa foram organizados em três grupos
 
 A geração de relatórios também é utilizada como atividade complementar para consultar informações e apoiar a tomada de decisões.
 
-
+<BR><BR>
 ### 4.2. Processos de Negócio
 
 | Código | Requisito |
