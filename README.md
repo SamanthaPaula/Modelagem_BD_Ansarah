@@ -121,72 +121,27 @@ Os principais processos de negócio da empresa foram organizados em três grupos
 A geração de relatórios também é utilizada como atividade complementar para consultar informações e apoiar a tomada de decisões.
 
 
-### 4.2. Descrição dos Processos de Negócio
+### 4.2. Processos de Negócio
 
-#### 4.2.1. Cadastro e Atualização de Produtos
+| Código | Requisito |
+|---|---|
+| **P1 – Cadastro e Atualização de Produtos** | O cadastro de produtos é realizado no ERP Millennium com base nas informações fornecidas pela fábrica. São registrados dados como nome, código, marca, coleção, subcoleção, grupo, NCM e preços. Os produtos podem possuir variações de cor e tamanho, organizadas conforme as grades utilizadas pela empresa. Quando necessário, as informações cadastrais são atualizadas para manter os dados dos produtos consistentes com as características e condições comerciais vigentes. |
+| **P2 – Controle de Estoque e Inventário** | O controle de estoque permite acompanhar a quantidade de produtos disponíveis na loja física, no site e nas operações relacionadas ao centro de distribuição. As movimentações são registradas no ERP Millennium, e o inventário é utilizado para conferir as quantidades físicas com os dados do sistema. A empresa também utiliza informações de disponibilidade, demanda e estoque mínimo para identificar a necessidade de reposição de mercadorias.<br><br>Como melhoria proposta, o sistema de vendas poderá consultar a quantidade disponível de cada SKU durante a finalização da compra. Caso a quantidade solicitada seja superior ao estoque disponível, será apresentado um alerta ao cliente, solicitando a redução da quantidade ou a escolha de outra variação do produto, impedindo a conclusão da compra enquanto não houver disponibilidade suficiente. |
+| **P3 – Cadastro e Gerenciamento de Clientes** | O cadastro de clientes reúne informações necessárias para identificar e atender consumidores e empresas. Os clientes podem ser classificados conforme o perfil de compra, como B2C, para consumidores finais, e B2B, para empresas e compradores do atacado. Os dados registrados auxiliam na identificação do cliente, no histórico de compras e na aplicação das condições comerciais correspondentes a cada perfil. |
+| **P4 – Registro de Vendas na Loja Física e Virtual** | As vendas realizadas na loja física são registradas no Ponto de Venda (PDV), enquanto as compras on-line são registradas por meio do site. Os registros reúnem informações dos produtos, quantidades, preços e formas de pagamento. Quando uma venda utiliza mais de uma forma de pagamento, cada modalidade é registrada separadamente. As informações das vendas também auxiliam no acompanhamento do estoque e dos resultados comerciais. |
+| **P5 – Processamento de Pedidos da Loja Virtual** | O processamento de pedidos on-line envolve as etapas de confirmação do pagamento, separação dos produtos, conferência dos itens por código de barras, faturamento e expedição. Após o envio, as informações de rastreamento permitem acompanhar a entrega ao cliente. Quando o pedido é cancelado antes do envio, o cancelamento e o eventual reembolso são relacionados ao pedido original, de acordo com a situação da compra. |
+| **P6 – Controle de Preços, Tabelas de Preços e Promoções** | A empresa administra os preços de venda conforme os produtos, as tabelas comerciais e as condições aplicáveis a cada modalidade de venda. Alterações de preços e concessões de descontos podem depender da aprovação da diretoria. O histórico de preços permite acompanhar os valores praticados em diferentes períodos, incluindo informações sobre preços de compra e de venda, conforme os registros mantidos pela empresa. |
+| **P7 – Trocas, Devoluções, Cancelamentos e Reembolsos** | As solicitações de troca, devolução e cancelamento são avaliadas conforme o tipo de compra e a situação do pedido. Nos casos de devolução, o produto pode passar por uma conferência para verificar suas condições. Quando aplicável, são registrados o motivo da operação e sua relação com a venda original. Os reembolsos são realizados conforme as condições da compra e os procedimentos aplicáveis, observando os direitos do consumidor. |
+| **P8 – Venda no Atacado — B2B** | As vendas no atacado atendem clientes empresariais e seguem condições comerciais específicas. A empresa considera o perfil do comprador, a finalidade da aquisição e as condições de negociação para definir o atendimento. O pedido mínimo costuma ser de seis peças, mas pode variar conforme o perfil do cliente e as condições autorizadas. Situações excepcionais podem ser encaminhadas à diretoria para avaliação. |
+| **P9 – Cadastro e Relacionamento com Fornecedores e Marcas** | O cadastro de fornecedores e marcas reúne informações utilizadas na identificação dos parceiros comerciais e no acompanhamento das compras. Esses registros auxiliam na organização dos pedidos, na conferência das mercadorias recebidas e na comunicação sobre divergências, avarias ou entregas pendentes. Quando necessário, a empresa mantém contato com os fornecedores para tratar de ajustes relacionados às mercadorias e às condições comerciais. |
+| **P10 – Identificação da Necessidade e Pedido de Reposição de Mercadorias** | A necessidade de reposição é identificada a partir das informações de estoque, da demanda e dos níveis mínimos definidos pela empresa. As consultas e os relatórios do ERP auxiliam nesse acompanhamento, enquanto a análise das informações contribui para a decisão de compra. Como melhoria proposta, indicadores de estoque baixo poderão facilitar a identificação de produtos que necessitam de reposição. Após a identificação da necessidade, é elaborado o pedido de reposição ao fornecedor, considerando os produtos, as quantidades e as condições comerciais estabelecidas. |
+| **P11 – Recebimento e Conferência de Mercadorias** | No recebimento, as mercadorias são conferidas com base no pedido de compra, utilizando a leitura dos códigos de barras para verificar os itens e as quantidades entregues. Caso existam divergências, avarias ou entregas parciais, a situação é registrada e comunicada ao fornecedor. Dependendo do caso, podem ocorrer entregas complementares, devoluções acompanhadas de nota fiscal ou abatimentos em cobranças futuras. Os registros de estoque são atualizados conforme o resultado da conferência. |
+| **P12 – Controle de Contas a Pagar** | O controle de contas a pagar reúne informações das notas fiscais, dos boletos, das duplicatas, das parcelas e dos vencimentos relacionados às compras. O ERP Millennium permite consultar compromissos pagos, pendentes ou vencidos. Antes do pagamento, eventuais divergências entre os valores da nota fiscal e do pedido de compra podem ser verificadas com o fornecedor. Após a confirmação do pagamento, é realizada a baixa correspondente, registrando informações como data, valor e usuário responsável. |
+| **P13 – Logística e Centro de Distribuição** | A logística envolve a organização e a movimentação das mercadorias entre o recebimento, o armazenamento, a separação e a expedição dos pedidos. No atendimento on-line, os produtos são separados e conferidos antes do faturamento e do envio. As informações de expedição e rastreamento auxiliam no acompanhamento dos pedidos até a entrega ao cliente. Essas atividades dependem dos registros de estoque e das informações dos pedidos para apoiar a organização das operações. |
+| **P14 – Controle de Usuários, Permissões e Registros de Operações** | O acesso ao ERP é realizado por usuários individuais, com permissões definidas conforme a função e as responsabilidades de cada funcionário. O sistema mantém registros de operações que permitem identificar o usuário responsável e informações como data e horário. Algumas ações, como cancelamentos, podem exigir justificativa, enquanto alterações de preços e descontos podem depender de autorização da diretoria. Esses controles contribuem para a segurança, a rastreabilidade e a integridade das informações. |
+| **P15 – Controle de Backup e Restauração** | O processo de backup e restauração tem como objetivo contribuir para a segurança e a recuperação das informações armazenadas no banco de dados. Como proposta, os backups poderão ser executados automaticamente em períodos programados, mantendo registros sobre o tipo de cópia realizada, as datas de execução, o local de armazenamento e a situação da operação.<br><br>Quando ocorrer uma falha ou perda de informações, um usuário com perfil autorizado poderá realizar a restauração utilizando uma cópia de segurança adequada. A operação deverá ser registrada, identificando o backup utilizado, o responsável, as datas e o resultado da recuperação.<br><br>No modelo de dados, a entidade BACKUP_SISTEMA registra as execuções das cópias de segurança, enquanto REGISTRO_RESTAURACAO armazena o histórico das operações de recuperação. Esses registros permitem acompanhar as operações e identificar possíveis falhas, contribuindo para a rastreabilidade e a organização das informações. |
 
-O cadastro de produtos é realizado no ERP Millennium com base nas informações fornecidas pela fábrica. São registrados dados como nome, código, marca, coleção, subcoleção, grupo, NCM e preços. Os produtos podem possuir variações de cor e tamanho, organizadas conforme as grades utilizadas pela empresa. Quando necessário, as informações cadastrais são atualizadas para manter os dados dos produtos consistentes com as características e condições comerciais vigentes.
 
-#### 4.2.2. Controle de Estoque e Inventário
-
-O controle de estoque permite acompanhar a quantidade de produtos disponíveis na loja física, no site e nas operações relacionadas ao centro de distribuição. As movimentações são registradas no ERP Millennium, e o inventário é utilizado para conferir as quantidades físicas com os dados do sistema. A empresa também utiliza informações de disponibilidade, demanda e estoque mínimo para identificar a necessidade de reposição de mercadorias.
-
-Como melhoria proposta, o sistema de vendas poderá consultar a quantidade disponível de cada SKU durante a finalização da compra. Caso a quantidade solicitada seja superior ao estoque disponível, será apresentado um alerta ao cliente, solicitando a redução da quantidade ou a escolha de outra variação do produto, impedindo a conclusão da compra enquanto não houver disponibilidade suficiente.
-
-#### 4.2.3. Cadastro e Gerenciamento de Clientes
-
-O cadastro de clientes reúne informações necessárias para identificar e atender consumidores e empresas. Os clientes podem ser classificados conforme o perfil de compra, como B2C, para consumidores finais, e B2B, para empresas e compradores do atacado. Os dados registrados auxiliam na identificação do cliente, no histórico de compras e na aplicação das condições comerciais correspondentes a cada perfil.
-#### 4.2.4. Registro de Vendas na Loja Física e Virtual
-
-As vendas realizadas na loja física são registradas no Ponto de Venda (PDV), enquanto as compras on-line são registradas por meio do site. Os registros reúnem informações dos produtos, quantidades, preços e formas de pagamento. Quando uma venda utiliza mais de uma forma de pagamento, cada modalidade é registrada separadamente. As informações das vendas também auxiliam no acompanhamento do estoque e dos resultados comerciais.
-
-#### 4.2.5. Processamento de Pedidos da Loja Virtual
-
-O processamento de pedidos on-line envolve as etapas de confirmação do pagamento, separação dos produtos, conferência dos itens por código de barras, faturamento e expedição. Após o envio, as informações de rastreamento permitem acompanhar a entrega ao cliente. Quando o pedido é cancelado antes do envio, o cancelamento e o eventual reembolso são relacionados ao pedido original, de acordo com a situação da compra.
-
-#### 4.2.6. Controle de Preços, Tabelas de Preços e Promoções
-
-A empresa administra os preços de venda conforme os produtos, as tabelas comerciais e as condições aplicáveis a cada modalidade de venda. Alterações de preços e concessões de descontos podem depender da aprovação da diretoria. O histórico de preços permite acompanhar os valores praticados em diferentes períodos, incluindo informações sobre preços de compra e de venda, conforme os registros mantidos pela empresa.
-
-#### 4.2.7. Trocas, Devoluções, Cancelamentos e Reembolsos
-
-As solicitações de troca, devolução e cancelamento são avaliadas conforme o tipo de compra e a situação do pedido. Nos casos de devolução, o produto pode passar por uma conferência para verificar suas condições. Quando aplicável, são registrados o motivo da operação e sua relação com a venda original. Os reembolsos são realizados conforme as condições da compra e os procedimentos aplicáveis, observando os direitos do consumidor.
-
-#### 4.2.8. Venda no Atacado — B2B
-
-As vendas no atacado atendem clientes empresariais e seguem condições comerciais específicas. A empresa considera o perfil do comprador, a finalidade da aquisição e as condições de negociação para definir o atendimento. O pedido mínimo costuma ser de seis peças, mas pode variar conforme o perfil do cliente e as condições autorizadas. Situações excepcionais podem ser encaminhadas à diretoria para avaliação.
-
-#### 4.2.9. Cadastro e Relacionamento com Fornecedores e Marcas
-
-O cadastro de fornecedores e marcas reúne informações utilizadas na identificação dos parceiros comerciais e no acompanhamento das compras. Esses registros auxiliam na organização dos pedidos, na conferência das mercadorias recebidas e na comunicação sobre divergências, avarias ou entregas pendentes. Quando necessário, a empresa mantém contato com os fornecedores para tratar de ajustes relacionados às mercadorias e às condições comerciais.
-
-### 4.2.10. Identificação da Necessidade e Pedido de Reposição de Mercadorias
-
-A necessidade de reposição é identificada a partir das informações de estoque, da demanda e dos níveis mínimos definidos pela empresa. As consultas e os relatórios do ERP auxiliam nesse acompanhamento, enquanto a análise das informações contribui para a decisão de compra. Como melhoria proposta, indicadores de estoque baixo poderão facilitar a identificação de produtos que necessitam de reposição. Após a identificação da necessidade, é elaborado o pedido de reposição ao fornecedor, considerando os produtos, as quantidades e as condições comerciais estabelecidas.
-
-#### 4.2.11. Recebimento e Conferência de Mercadorias
-
-No recebimento, as mercadorias são conferidas com base no pedido de compra, utilizando a leitura dos códigos de barras para verificar os itens e as quantidades entregues. Caso existam divergências, avarias ou entregas parciais, a situação é registrada e comunicada ao fornecedor. Dependendo do caso, podem ocorrer entregas complementares, devoluções acompanhadas de nota fiscal ou abatimentos em cobranças futuras. Os registros de estoque são atualizados conforme o resultado da conferência.
-
-#### 4.2.12. Controle de Contas a Pagar
-
-O controle de contas a pagar reúne informações das notas fiscais, dos boletos, das duplicatas, das parcelas e dos vencimentos relacionados às compras. O ERP Millennium permite consultar compromissos pagos, pendentes ou vencidos. Antes do pagamento, eventuais divergências entre os valores da nota fiscal e do pedido de compra podem ser verificadas com o fornecedor. Após a confirmação do pagamento, é realizada a baixa correspondente, registrando informações como data, valor e usuário responsável.
-
-#### 4.2.13. Logística e Centro de Distribuição
-
-A logística envolve a organização e a movimentação das mercadorias entre o recebimento, o armazenamento, a separação e a expedição dos pedidos. No atendimento on-line, os produtos são separados e conferidos antes do faturamento e do envio. As informações de expedição e rastreamento auxiliam no acompanhamento dos pedidos até a entrega ao cliente. Essas atividades dependem dos registros de estoque e das informações dos pedidos para apoiar a organização das operações.
-
-#### 4.2.14. Controle de Usuários, Permissões e Registros de Operações
-
-O acesso ao ERP é realizado por usuários individuais, com permissões definidas conforme a função e as responsabilidades de cada funcionário. O sistema mantém registros de operações que permitem identificar o usuário responsável e informações como data e horário. Algumas ações, como cancelamentos, podem exigir justificativa, enquanto alterações de preços e descontos podem depender de autorização da diretoria. Esses controles contribuem para a segurança, a rastreabilidade e a integridade das informações.
-
-### 4.2.15. Controle de Backup e Restauração
-
-O processo de backup e restauração tem como objetivo contribuir para a segurança e a recuperação das informações armazenadas no banco de dados. Como proposta, os backups poderão ser executados automaticamente em períodos programados, mantendo registros sobre o tipo de cópia realizada, as datas de execução, o local de armazenamento e a situação da operação.
-
-Quando ocorrer uma falha ou perda de informações, um usuário com perfil autorizado poderá realizar a restauração utilizando uma cópia de segurança adequada. A operação deverá ser registrada, identificando o backup utilizado, o responsável, as datas e o resultado da recuperação.
-
-No modelo de dados, a entidade BACKUP_SISTEMA registra as execuções das cópias de segurança, enquanto REGISTRO_RESTAURACAO armazena o histórico das operações de recuperação. Esses registros permitem acompanhar as operações e identificar possíveis falhas, contribuindo para a rastreabilidade e a organização das informações.
 
 ### 4.3. Processo Complementar — Geração de Relatórios
 
