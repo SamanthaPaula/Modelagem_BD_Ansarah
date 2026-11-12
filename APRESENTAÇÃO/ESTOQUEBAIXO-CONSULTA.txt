@@ -1,0 +1,13 @@
+-- G15 — Quais SKUs estão com estoque baixo (até 15 unidades)?
+-- Atende: P3 e K05 (percentual de SKUs com estoque baixo).
+
+SELECT
+    p.codigo_produto,
+    p.nome_produto,
+    s.id_sku,
+    s.quantidade_estoque
+FROM Produto_SKU s
+JOIN Produto p
+    ON p.id_produto = s.id_produto
+WHERE s.quantidade_estoque <= 15
+ORDER BY s.quantidade_estoque, p.codigo_produto;

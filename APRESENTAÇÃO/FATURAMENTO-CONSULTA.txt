@@ -1,0 +1,37 @@
+-- G01 — Qual foi o faturamento líquido por mês e canal de venda?
+-- Atende: P2; K02 (faturamento mensal) e K04 (faturamento por canal).
+
+SELECT
+    DATE_FORMAT(x.data_venda, '%Y-%m') AS mes,
+    x.canal_venda,
+    ROUND(SUM(x.faturamento_liquido), 2) AS faturamento_liquido
+FROM (
+    SELECT
+        v.id_venda,
+        v.data_venda,
+        v.canal_venda,
+        ROUND(
+            GREATEST(
+                SUM(iv.quantidade_item_venda * iv.preco_unitario_venda)
+                - v.desconto_venda,
+                0
+            ), 2
+        ) AS faturamento_liquido
+    FROM Venda v
+    JOIN Item_venda iv
+        ON iv.id_venda = v.id_venda
+    WHERE v.status_venda = 'Concluida'
+    GROUP BY
+        v.id_venda,
+        v.data_venda,
+        v.canal_venda,
+        v.desconto_venda
+) x
+GROUP BY
+    DATE_FORMAT(x.data_venda, '%Y-%m'),
+    x.canal_venda
+ORDER BY
+    mes,
+    x.canal_venda;
+
+

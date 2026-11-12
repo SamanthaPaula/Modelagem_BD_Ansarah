@@ -1,0 +1,14 @@
+-- G10 — Quantas operações foram registradas por usuário e tipo?
+-- Atende: rastreabilidade das operações e acompanhamento gerencial da auditoria.
+
+SELECT
+    u.login_usuario,
+    l.tipo_operacao,
+    COUNT(*) AS quantidade_operacoes
+FROM LOG_AUDITORIA l
+JOIN usuario_sistema u
+    ON u.id_usuario = l.id_usuario
+GROUP BY
+    u.login_usuario,
+    l.tipo_operacao
+ORDER BY u.login_usuario, l.tipo_operacao;

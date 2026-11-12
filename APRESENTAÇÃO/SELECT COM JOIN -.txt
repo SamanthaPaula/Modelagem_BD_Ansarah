@@ -1,0 +1,72 @@
+-- 5. SELECT COM JOIN -
+-- J01 — Consultar os produtos vendidos em cada venda
+SELECT
+    v.id_venda,
+    v.data_venda,
+    c.nome_completo AS cliente,
+    p.nome_produto,
+    m.nome_marca,
+    sku.codigo_sku,
+    cor.nome_cor,
+    tam.sigla_tamanho,
+    iv.quantidade_item_venda,
+    iv.preco_unitario_venda,
+    ROUND(
+        iv.quantidade_item_venda * iv.preco_unitario_venda,
+        2
+    ) AS subtotal_item
+FROM Venda v
+INNER JOIN Cliente c
+    ON c.id_cliente = v.id_cliente
+INNER JOIN Item_venda iv
+    ON iv.id_venda = v.id_venda
+INNER JOIN Produto_SKU sku
+    ON sku.id_sku = iv.id_sku
+INNER JOIN Produto p
+    ON p.id_produto = sku.id_produto
+INNER JOIN Marca m
+    ON m.id_marca = p.id_marca
+LEFT JOIN Cor cor
+    ON cor.id_cor = sku.id_cor
+LEFT JOIN Tamanho tam
+    ON tam.id_tamanho = sku.id_tamanho
+ORDER BY
+    v.data_venda DESC;
+    
+-- J02 — Consultar o estoque disponível por produto e SKU
+    SELECT
+    p.nome_produto,
+    p.referencia_produto,
+    sku.codigo_sku,
+    sku.id_cor,
+    sku.id_tamanho,
+    sku.quantidade_estoque
+FROM Produto p
+INNER JOIN Produto_SKU sku
+    ON sku.id_produto = p.id_produto
+ORDER BY p.nome_produto;
+
+-- 6. UPDATE -
+
+-- U01 — Atualizar o status de um pedido online
+UPDATE pedido_online
+SET status_pedido = 'Enviado',
+    data_envio_pedido = CURRENT_TIMESTAMP
+WHERE id_pedido = 10;
+
+-- U02 — Atualizar o estoque de um produto para zero
+UPDATE Produto_SKU
+SET quantidade_estoque = 0
+WHERE id_sku = 5;
+
+-- 7. DELETE -
+
+-- D01 — Excluir uma solicitação de troca cancelada
+DELETE FROM troca_devolucao
+WHERE id_ocorrencia = 3
+  AND status_ocorrencia = 'Cancelada';
+  
+-- D02 — Excluir um lançamento de entrada de estoque feito incorretamente
+DELETE FROM Movimentacao_estoque
+WHERE id_movimentacao = 7
+AND tipo_movimentacao = 'Entrada';

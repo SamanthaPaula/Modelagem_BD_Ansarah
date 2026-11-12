@@ -1,0 +1,15 @@
+-- G11 — Quais backups foram realizados e quais apresentaram falhas?
+-- Atende: P1 (acompanhamento da execução e situação das cópias de segurança).
+
+SELECT
+    b.id_backup,
+    b.tipo_backup,
+    b.data_inicio_backup,
+    b.data_fim_backup,
+    b.status_backup,
+    b.local_armazenamento,
+    COALESCE(u.login_usuario, 'Backup automatico') AS responsavel
+FROM BACKUP_SISTEMA b
+LEFT JOIN usuario_sistema u
+    ON u.id_usuario = b.id_usuario
+ORDER BY b.data_inicio_backup DESC;
